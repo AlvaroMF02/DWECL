@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejer 3</title>
+</head>
+<body>
+
+
+    <p id="p1">¿He llorado haciendo esto?</p>
+
+    <button type="button" onclick="verd()">Verdadero</button>
+    <button type="button" onclick="fals()">Falso</button>
+        
+    <!-- PARA LAS SIGUIENTES PREGUNTAS DEBO CAMBIAR EL ID-->
+
+    <script>
+        function verd(){
+            var text = document.getElementById("p1");
+            text.style.color = "green";
+        }
+
+        function fals(){
+            var text = document.getElementById("p1");
+            text.style.color = "red";
+        }
+
+        // SI CAMBIO EL ID DE CADA PREGUNTA TENGO Q CREAR 14 FUNCIONES : NO
+
+    </script>
+</body>
+</html>
