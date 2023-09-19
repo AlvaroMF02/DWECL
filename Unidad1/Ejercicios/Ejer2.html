@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- IMAGEN -->
+    <img id="gato1" onclick="cambiaPic()"
+    src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fs1.ppllstatics.com%2Flasprovincias%2Fwww%2Fmultimedia%2F202112%2F12%2Fmedia%2Fcortadas%2Fgatos-kb2-U160232243326NVC-1248x770%40Las%2520Provincias.jpg&tbnid=HOnZzC6wsZhbDM&vet=12ahUKEwjzl46buraBAxUFokwKHasHAKYQMygAegQIARBp..i&imgrefurl=https%3A%2F%2Fwww.lasprovincias.es%2Fsociedad%2Fmascotas%2Fgatos%2Fgato-reconoce-rostro-20211212195831-nt.html&docid=q2txsz84uxFf8M&w=1248&h=770&q=gatos&safe=active&ved=2ahUKEwjzl46buraBAxUFokwKHasHAKYQMygAegQIARBp" 
+    width="100" height="180">
+
+    <img id="gato2" onclick="cambiaPic()"
+    src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fs.france24.com%2Fmedia%2Fdisplay%2F8c13820c-5b0e-11e9-bf90-005056a964fe%2Fw%3A1280%2Fp%3A4x3%2Fgato.jpg&tbnid=MdYEbyB8cDhk_M&vet=12ahUKEwjzl46buraBAxUFokwKHasHAKYQMygEegQIARBx..i&imgrefurl=https%3A%2F%2Fwww.france24.com%2Fes%2F20190409-gatos-reconocen-nombre-ignorar-estudio&docid=C1NJkcdGbXnp_M&w=1280&h=960&q=gatos&safe=active&ved=2ahUKEwjzl46buraBAxUFokwKHasHAKYQMygEegQIARBx" 
+    width="100" height="180">
+
+    <img id="gato3" onclick="cambiaPic()"
+    src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fhospitalveterinariodonostia.com%2Fwp-content%2Fuploads%2F2022%2F02%2FPersonalidad-gatos.png&tbnid=w12gAOIFmXEZKM&vet=12ahUKEwjzl46buraBAxUFokwKHasHAKYQMygDegQIARBv..i&imgrefurl=https%3A%2F%2Fhospitalveterinariodonostia.com%2Ftodo-sobre-el-caracter-y-personalidad-de-los-gatos%2F&docid=MzGlsyPov7AL2M&w=674&h=703&q=gatos&safe=active&ved=2ahUKEwjzl46buraBAxUFokwKHasHAKYQMygDegQIARBv" 
+    width="100" height="180">
+
+    <img id="gato4" onclick="cambiaPic()"
+    src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fstatic.nationalgeographic.es%2Ffiles%2Fstyles%2Fimage_3200%2Fpublic%2F75552.ngsversion.1422285553360.jpg%3Fw%3D1600%26h%3D1067&tbnid=difI1WFFC-zVWM&vet=12ahUKEwjzl46buraBAxUFokwKHasHAKYQMygFegQIARBz..i&imgrefurl=https%3A%2F%2Fwww.nationalgeographic.es%2Fanimales%2Fque-piensan-los-gatos-de-nosotros&docid=XnJG7t-Vege8DM&w=1600&h=1067&q=gatos&safe=active&ved=2ahUKEwjzl46buraBAxUFokwKHasHAKYQMygFegQIARBz" 
+    width="100" height="180">
+
+    <p>Haz click sobre las letras para cambiarlas.</p>
+
+    <!-- CAMBIAR IMAGEN AL DARLE -->
+    <script>
+
+        function cambiaPic(){
+            var image = document.getElementById('myFPImage');
+            if(image.src.match("green")){
+                image.src = "http://myfpschool.com/wp-content/uploads/2016/06/myblack.jpeg";
+            }else{
+                image.src = "http://myfpschool.com/wp-content/uploads/2016/06/mygreen.jpeg";
+            }
+        }
+
+    </script>
+
+</body>
+</html>
