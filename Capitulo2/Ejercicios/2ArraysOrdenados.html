@@ -30,18 +30,13 @@
             COMPLETA EL CÓDIGO EN ESTA SECCIÓN DEL PROGRAMA.
             */
 
-            // CANTIDAD TOTAL PARA EL FOR
-            let cantidArrays = arr1.length + arr2.length;
-
-            for (let index = 0; index < cantidArrays; index++) {
-                
-                if (arr1[index] <= arr2[index]) {
-                    arr3[index] = arr1[index];
-                }else{
-                    arr3[index] = arr2[index];
-                }
-                
+            /* MANERA MALA
+            for (i = 0; i < arr1.length; i++) {
+                arr3.push(arr1[i]);
+                arr3.push(arr2[i]);
             }
+            */
+
 
             document.getElementById("demo").innerHTML = arr3;
         </script>
