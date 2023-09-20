@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Función por parámetro</title>
+</head>
+
+<body>
+    
+
+    <script>
+
+        function calcula(n1, n2, n3) {
+
+            if (n2 == undefined && n3 == undefined) {
+                return n1 * n1 * n1;
+
+            } else if (n3 == undefined) {
+                return n1 * n2;
+
+            } else {
+                return n1 + n2 + n3;
+            }
+
+            return soluc;
+        }
+
+        console.log(calcula(5));
+        console.log(calcula(5,5));
+        console.log(calcula(5,5,5));
+
+    </script>
+
+</body>
+
+</html>
