@@ -13,19 +13,27 @@
 
     <script>
 
-        // CON EL METODO WRITE SE BORRA TODO
         function espanyol(){
-            document.write("Bienvenido a esta página");
+            // LIMPIAR DOCUMENTO no va
+            document.write("");
+            // EN EL MISMO WRITE Q ES COMO EL HTML, METO LOS BOTONES Y LLAMO A LAS FUNCIONES
+            document.write("<p>Bienvenido a esta página </br> <button type='button' onclick='espanyol()'>Español</button> <button type='button' onclick='ingles()'>Inglés</button> <button type='button' onclick='ruso()'>Ruso</button></p>");
             document.close;
         }
 
         function ingles(){
-            document.write("Welcome to this web");
+            // LIMPIAR DOCUMENTO
+
+            // EN EL MISMO WRITE Q ES COMO EL HTML, METO LOS BOTONES Y LLAMO A LAS FUNCIONES
+            document.write("<p>Welcome to this web </br> <button type='button' onclick='espanyol()'>Español</button> <button type='button' onclick='ingles()'>Inglés</button> <button type='button' onclick='ruso()'>Ruso</button></p>");
             document.close;
         }
 
         function ruso(){
-            document.write("Добро пожаловать на эту страницу");
+            // LIMPIAR DOCUMENTO
+
+            // EN EL MISMO WRITE Q ES COMO EL HTML, METO LOS BOTONES Y LLAMO A LAS FUNCIONES
+            document.write("<p>Добро пожаловать на эту страницу </br> <button type='button' onclick='espanyol()'>Español</button> <button type='button' onclick='ingles()'>Inglés</button> <button type='button' onclick='ruso()'>Ruso</button></p>");
             document.close;
         }
 
