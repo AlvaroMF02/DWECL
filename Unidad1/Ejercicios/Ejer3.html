@@ -8,25 +8,46 @@
 <body>
 
 
-    <p id="p1">¿He llorado haciendo esto?</p>
+    <p id="p1">No se que espero en la vida</p>      <!--VERDADERO CORRECTO-->
+    <button type="button" onclick="verd(p1)">Verdadero</button>
+    <button type="button" onclick="rojo(p1)">Falso</button>
 
-    <button type="button" onclick="verd()">Verdadero</button>
-    <button type="button" onclick="fals()">Falso</button>
-        
-    <!-- PARA LAS SIGUIENTES PREGUNTAS DEBO CAMBIAR EL ID-->
+    <p id="p2">Los gatos son feos</p>                <!--FALSO CORRECTO-->
+    <button type="button" onclick="rojo(p2)">Verdadero</button>
+    <button type="button" onclick="verd(p2)">Falso</button>
+
+    <p id="p3">Los gatos son perfectos</p>
+    <button type="button" onclick="verd(p3)">Verdadero</button>
+    <button type="button" onclick="rojo(p3)">Falso</button>
+
+    <p id="p4">La discriminación es buena</p>
+    <button type="button" onclick="rojo(p4)">Verdadero</button>
+    <button type="button" onclick="verd(p4)">Falso</button>
+
+    <p id="p5">Aquí se aprende a coser botones</p>
+    <button type="button" onclick="rojo(p5)">Verdadero</button>
+    <button type="button" onclick="verd(p5)">Falso</button>
+
+    <p id="p6">Las lentejas las tomas o las dejas</p>
+    <button type="button" onclick="verd(p6)">Verdadero</button>
+    <button type="button" onclick="rojo(p6)">Falso</button>
+
+    <p id="p7">El psicólogo es para locos</p>
+    <button type="button" onclick="rojo(p7)">Verdadero</button>
+    <button type="button" onclick="verd(p7)">Falso</button>
 
     <script>
-        function verd(){
-            var text = document.getElementById("p1");
+        // PASAR PARÁMETRO EN FUNCIONES
+        function verd(parametro){
+            var text = parametro;
             text.style.color = "green";
         }
 
-        function fals(){
-            var text = document.getElementById("p1");
+        function rojo(parametro){
+            var text = parametro;
             text.style.color = "red";
         }
 
-        // SI CAMBIO EL ID DE CADA PREGUNTA TENGO Q CREAR 14 FUNCIONES : NO
 
     </script>
 </body>
