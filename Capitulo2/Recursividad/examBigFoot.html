@@ -1,38 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BIG FOOT</title>
 </head>
+
 <body>
     <p id="txt"></p>
     <script>
 
-        let arr = ["O","F","O","O","S","T","O","F","O","O","O","T","O","F","O","O","O","O","O","T"];
+        let arr = ["O", "F", "O", "O", "S", "T", "O", "F", "O", "O", "O", "T", "O", "F", "O", "O", "O", "O", "O", "T"];
         // ESCRIBE TU CÓDIGO AQUÍ
 
         // TIP: BUSCAR DE 20, SI NO ESTA BUSCAR DE 19, POCO A POCO DE UNO EN UNO
         // COMO MINIMO DEBE DE HABER 4 /////// IR BAJANDO HASTA 3
         // MUESTRA EL NUM DEL FOOT MAS LARGO
-        
-        let cont = 0;
+
+        let pos = 0;
         let o = 0;
 
         function bifFoot(arr) {
-            if (arr[cont] == "F" && cont <= arr.length) {
-                if (arr[cont] == "O") {
+            if (arr[pos] == "F" && pos <= arr.length) {
+                pos++;
+                if (arr[pos] == "O") {
+
+                    // BUCLE PARA CONTAR LAS OS
                     o++;
-                }else if (arr[cont] == "T"){
+                    // CUANDO ACABE EL BUCLE 
+                    pos++;
+
+                } else if (arr[pos] == "T") {
                     return o;
+                } else {
+                    bifFoot(arr[pos + 1]);
                 }
-            }else{
-                    bifFoot(arr[cont+1]);
-                }
-        } 
+            } else {
+                bifFoot(arr[pos + 1]);
+            }
+        }
         // MOSTRARLO
         document.getElementById("txt").innerHTML = bifFoot(arr);
 
     </script>
 </body>
+
 </html>
