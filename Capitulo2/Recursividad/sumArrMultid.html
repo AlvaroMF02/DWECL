@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumar Array Multidimensional</title>
+</head>
+<body>
+        <p id="solu"></p>
+
+    <script>
+
+        /*
+        let array = [1,2,3,4];
+        Array.isArray(array); // true
+        */
+
+        let numeros = [1,[2,3,4],[8,15,[5,1]],27];
+        console.log(numeros)
+        
+        let suma = 0;
+
+        function multid(posicion) { // POSICION ES EL LENGTH DEL ARRAY AL LLAMAR AL METODO
+
+            if (posicion == 0) {
+                return suma;
+            }else{
+                if (Array.isArray(numeros[posicion])) {
+                    for (let i = 0; i < numeros[posicion].length; i++) {
+                        suma += numeros[posicion][i];
+                    }
+                }else{
+                    suma += numeros[posicion];
+                }
+                return posicion + multid(posicion-1);
+            }
+        
+        }
+
+        document.getElementById("solu").innerHTML = multid(numeros.length);
+    </script>
+
+</body>
+</html>
