@@ -13,13 +13,16 @@
             let i = 0;
             p = Math.round(arr.length / 2); // SACO LA MITAD
 
-            if ( arr[p-1] != p -1) {    // EXCEPCION POR LLEGAR A POSICION -1
+            // MIRA EL PRIMERO Y EL ULTIMO
+            if (arr[0] == arr[arr.length - 1]) {
                 
+                // IR QUITANDO DE LOS EXTREMOS 
+                return vampus(arr)
+                
+            }else{
+                echo "no es vampiro";
             }
 
-            if (arr[0]) {
-                
-            }
         }
 
         console.log(vampus(0,arr));
