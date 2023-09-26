@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sumar Array Multidimensional</title>
 </head>
+
 <body>
-        <p id="solu"></p>
+    <p id="solu"></p>
 
     <script>
 
@@ -15,34 +17,47 @@
         Array.isArray(array); // true
         */
 
-        let numeros = [1,[2,3,4],[8,15,[5,1]],27];  // 66
-        
-        
+        let numeros = [1, [2, 3, 4], [8, 15, [5, 1]], 27];  // 66
+        let numeros2 = [1, [5, 1, 4], [8, 1, [5, 1]], 1];
+
+
         function sumaMultidimensional(arr) {
-
             let suma = 0;
-
             // RECORRER TODO EL ARRAY E IR MIRANDO CADA POSICION SI ES UN ARRAY
             for (let i = 0; i < arr.length; i++) {
-
                 if (Array.isArray(arr[i])) {
-
                     // LLAMA AL METODO PARA QUE VAYA SUMANDO TODO
                     suma += sumaMultidimensional(arr[i]);
-
-                }else{
-                    
+                } else {
                     // SI NO LO ES HACE LA SUMA DIRECTAMENTE
                     suma += arr[i];
                 }
             }
-
             return suma;
-            
         }
+        //document.getElementById("solu").innerHTML = sumaMultidimensional(numeros);
 
-        document.getElementById("solu").innerHTML = sumaMultidimensional(numeros);
+        function buscNum(num, arr) {
+            let canti = 0;
+
+            // RECORRER TODO EL ARRAY E IR MIRANDO CADA POSICION SI ES UN ARRAY
+            for (let i = 0; i < arr.length; i++) {
+
+                // SI ESTA EL ARRAY "PRINCIPAL" LE SUMA 1
+                if (arr[i] == num) { canti += 1; }
+                
+                // SI ES UN ARRAY
+                if (Array.isArray(arr[i])) {
+
+                    // BUSCA EN EL ARRAY "SECUNDARIO"...
+                    canti += buscNum(num, arr[i]);
+                }
+            }
+            return canti;
+        }
+        document.getElementById("solu").innerHTML = buscNum(1, numeros2);
     </script>
 
 </body>
+
 </html>
