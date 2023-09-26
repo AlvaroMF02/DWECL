@@ -1,30 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BIG FOOT</title>
 </head>
 
 <body>
-    <p id="txt"></p>
-    <script>
 
+    <script>
         let arr = ["O", "F", "O", "O", "S", "T", "O", "F", "O", "O", "O", "T", "O", "F", "O", "O", "O", "O", "O", "T"];
         // ESCRIBE TU CÓDIGO AQUÍ
-
-        // TIP: BUSCAR DE 20, SI NO ESTA BUSCAR DE 19, POCO A POCO DE UNO EN UNO
-        // COMO MINIMO DEBE DE HABER 4 /////// IR BAJANDO HASTA 3
-        // PROBAR DE LA MANERA QUE HA DICHO JC
-
-
-        // METODO JC
         function buscaFoot(num, arr) {
             //condicion de parada, si es 3 devuelvo 0
             if (num === 3) return 0;
             //busco el bigfoot de tam num
-            console.log("buscando un bigfoot de tamaño" + num);
+            console.log("buscando un bigfoot de tamaño: " + num)
             for (let i = 0; i < arr.length - num + 1; i++) {
                 //recorro todo el array
                 //coloco dos punteros y los voy moviendo
@@ -48,11 +38,13 @@
                 }
             }
             return buscaFoot(num - 1, arr);
-
         }
-
-
+        //llama a la funcion con un numero en concreto
+        //console.log(buscaFoot(arr.length, arr));
+        console.log("La cadena más larga tiene un tamaño de :" + buscaFoot(arr.length, arr))
     </script>
+
+
 </body>
 
 </html>
