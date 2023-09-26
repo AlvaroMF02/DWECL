@@ -9,18 +9,21 @@
 
     <script>
         let arr = ["O", "F", "O", "O", "S", "T", "O", "F", "O", "O", "O", "T", "O", "F", "O", "O", "O", "O", "O", "T"];
+
         // ESCRIBE TU CÓDIGO AQUÍ
         function buscaFoot(num, arr) {
-            //condicion de parada, si es 3 devuelvo 0
+
+            // PARA SI ES 3
             if (num === 3) return 0;
-            //busco el bigfoot de tam num
+
+            // BUSCA BIG FOOT DEL TAMAÑO NUM Q VA DECREMENTANDO
             console.log("buscando un bigfoot de tamaño: " + num)
-            for (let i = 0; i < arr.length - num + 1; i++) {
-                //recorro todo el array
-                //coloco dos punteros y los voy moviendo
+            for (let i = 0; i < arr.length - num + 1; i++) {    // EN EL 1º SOLO RECORRE 1 LA SEGUNDA 2 VECES
+                // PUNTEROS CON LOS QUE BUSCO
                 let posi = i;
                 let posj = i;
-                //lo primero que debe de encontrar una F
+                // BUSCO F
+
                 if (arr[i] === "F") {
                     while (posj < arr.length && arr[posj + 1] === "O") {
                         //si esto es asi, la posj le sumo 1
