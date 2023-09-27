@@ -6,23 +6,33 @@
     <h1>ARRAY VAMPIRO</h1>
 
     <script>
-        let arr=[1,2,3,4,5,6,5,4,3,2,1];
-        
-        /*INCLUYE TU CÓDIGO AQUÍ*/
-        let i = arr.length-1;
+        let arr=[1,2,3,4,5,6,5,4,3,2,1];    // TRUE
+        //let arr=['o','s','o'];            // TRUE
+        //let arr=[1,2,2,4,5,6,5,4,3,2,1];  // FALSE
 
-        function vampus(p,arr) {
-            // MIRA EL PRIMERO Y EL ULTIMO CONDICION DE PARADA Q SE JUNMTAN O Q NO SON IGUALES
-            if (arr[p] == arr[i]) {
+        let resul = true; // DE PRIMERAS TRUE PARA PONERLA FALSE A LA MINIMA
+
+        function vampus(p,i) {
+
+            // MIRA EL PRIMERO Y EL ULTIMO CONDICION DE PARADA Q SE JUNTAN O QUE NO SON IGUALES
+            if (arr[p] == arr[i] && p<=arr.length && i>=0) {
+                console.log(resul);
+
+                if (p==arr.length-1 && i==0) {
+                    return resul;
+                }
+
+                // IR QUITANDO DE LOS EXTREMOS
                 i--;
                 p++;
-                // IR QUITANDO DE LOS EXTREMOS 
-                return vampus(p,arr);
+                return vampus(p,i);
             }else{
-                return false;
+                resul = false;
+                return resul;
             }
         }
-        console.log(vampus(0,arr));
+        
+        console.log(vampus(0,arr.length-1));
 
     </script>
 </body>
