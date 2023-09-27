@@ -9,46 +9,48 @@
 
   <script>
     let mat = [['P','P','G','H','H','R'],   // 3,3 ES M
-               ['P','P','G','H','H','G'],
+               ['P','P','G','H','H','G'],   // 3,4 EL SIGUIENTE
                ['P','P','M','H','H','G'],
                ['G','R','G','H','G','G'],
                ['R','R','H','H','G','P']];
 
     // PASO FILA Y COLUMNA
     function pandemic(f,c){
-      f-=1;c-=1;// PARA QUE EMPIECE POR UNO     
+      //f-=1;c-=1;// PARA QUE EMPIECE POR UNO ¿EN LAS SIGUIENTES LLAMADA JODE TODO?
       if(mat[f][c]!="M"){
         console.log("Ahí no hay murciélago");
       }else{
-        console.log("Comienza infección <3 (Humano infectado en "+f+","+c+")"); // SUMAR UNO PARA LA COORDENADA
+        console.log("Comienza infección <3 (Humano infectado en "+(f+1)+","+(c+1)+")"); // SUMAR UNO PARA LA COORDENADA
         
         // BUSCAR H EN CRUZ FUNCIONA  (FALTA PONER LOS LIMITES DE LA MATRIZ PARA Q NO LOS PASE EN CADA ELSEIF)
-        if (mat[f-1][c] == "H") {//arri
-          mat[f][c-1] = "";
+        if (mat[f-1][c] == "H" && (f-1)>=0) {//arri
           console.log("contagia arriba");
-          //return pandemic(mat[f-1][c]); // AL ENCONTRAR UN HUMANO LO LLAMO OTRA VEZ PARA QUE CONTAGIE A LOS DE SU ALREDEDOR
+          return pandemic(mat[f-1][c]); // AL ENCONTRAR UN HUMANO LO LLAMO OTRA VEZ PARA QUE CONTAGIE A LOS DE SU ALREDEDOR
+          mat[f][c-1] = "";
 
-        }else if(mat[f][c-1] == "H"){ //izq
-          mat[f-1][c] = "";
+        }else if(mat[f][c-1] == "H" && (c-1)>=0){ //izq
           console.log("contagia izqui");
-          //return pandemic(mat[f][c-1]);
+          return pandemic(mat[f][c-1]);
+          mat[f-1][c] = "";
 
-        }else if(mat[f+1][c] == "H"){ //abaj
-          mat[f+1][c] = "";
+        }else if(mat[f+1][c] == "H" && (f+1)>=0){ //abaj
           console.log("contagia abajo");
-          //return pandemic(mat[f+1][c]);
+          return pandemic(mat[f+1][c]);
+          mat[f+1][c] = "";
 
-        }else if(mat[f][c+1] == "H"){ //der
-          mat[f][c+1] = "";
+        }else if(mat[f][c+1] == "H" && (c+1)>=0){ //der
           console.log("contagia derec");
           return pandemic(mat[f][c+1]);
+          mat[f][c+1] = "";
+        }else{
+          console.log("No quedan humanos :(");
         }
 
       }
     }
 
 
-    console.log(pandemic(3,3));
+    console.log(pandemic(2,2));
   </script>
 
 </body>
