@@ -1,37 +1,59 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>OSO</title>
 </head>
+
 <body>
 
-  <p id="txt"><p>
+  <p id="txt">
+  <p>
 
-  <script>
-  let tablero = new Array();
-  let maxx = 9;
-  let maxy = 9;
+    <script>
+      let tablero = new Array();
+      let maxx = 9;
+      let maxy = 9;
 
-  function aleatorio(min,max){
-     var horquilla = max-min;
-     return Math.round(Math.random()*horquilla+min);
-  }
+      function aleatorio(min, max) {
+        var horquilla = max - min;
+        return Math.round(Math.random() * horquilla + min);
+      }
 
-  function rellena(){
-    let total = 9*9;
-    
-  }
+      function rellena() {
+        // CREA
+        let linea = new Array;
+        for (let i = 0; i < maxx; i++) {
+          tablero.push(linea);
+          linea[i] = "-";
+        }
 
-  function resuelve(){
-    //función que resuelve el juego
-  }
+        // RELLENA
+        for (let i = 0; i < maxx; i++) {
+          for (let j = 0; j < maxy; j++) {
+            if (aleatorio(0, 3) == 1 || aleatorio(0, 3) == 2) {
+              tablero[i][j] = "O";
+            } else if (aleatorio(0, 3) == 0) {
+              tablero[i][j] = "S";
+            }
+            
+          }
+        }
 
-  rellena();
-  console.log(JSON.parse(JSON.stringify(tablero)));
-  resuelve();
-  console.log(tablero);
 
-  </script>
+      }
+
+      function resuelve() {
+        //función que resuelve el juego
+      }
+
+      rellena();
+      console.log(JSON.parse(JSON.stringify(tablero)));
+      //resuelve();
+      //console.log(tablero);
+
+    </script>
 
 </body>
+
 </html>
