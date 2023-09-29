@@ -16,29 +16,29 @@
 
     // PASO FILA Y COLUMNA
     function pandemic(f,c){
-      //f-=1;c-=1;// PARA QUE EMPIECE POR UNO ¿EN LAS SIGUIENTES LLAMADA JODE TODO?
+      //f-=1;c-=1;// PARA QUE EMPIECE POR UNO
       if(mat[f][c]!="M"){
         console.log("Ahí no hay murciélago");
       }else{
-        console.log("Comienza infección <3 (Humano infectado en "+(f+1)+","+(c+1)+")"); // SUMAR UNO PARA LA COORDENADA
+        console.log("(Humano infectado en "+(f+1)+","+(c+1)+")"); // SUMAR UNO PARA LA COORDENADA
         
         // BUSCAR H EN CRUZ FUNCIONA  (FALTA PONER LOS LIMITES DE LA MATRIZ PARA Q NO LOS PASE EN CADA ELSEIF)
-        if (mat[f-1][c] == "H" && (f-1)>=0) {//arri
+        if (mat[f-1][c] == "H" && (f-1)>=0) {//arriba f>=0
           console.log("contagia arriba");
           return pandemic(mat[f-1][c]); // AL ENCONTRAR UN HUMANO LO LLAMO OTRA VEZ PARA QUE CONTAGIE A LOS DE SU ALREDEDOR
           mat[f][c-1] = "";
 
-        }else if(mat[f][c-1] == "H" && (c-1)>=0){ //izq
+        }else if(mat[f][c-1] == "H" && (c-1)>=0){ //izquierda
           console.log("contagia izqui");
           return pandemic(mat[f][c-1]);
           mat[f-1][c] = "";
 
-        }else if(mat[f+1][c] == "H" && (f+1)>=0){ //abaj
+        }else if(mat[f+1][c] == "H" && (f+1)>=0){ //abajo
           console.log("contagia abajo");
           return pandemic(mat[f+1][c]);
           mat[f+1][c] = "";
 
-        }else if(mat[f][c+1] == "H" && (c+1)>=0){ //der
+        }else if(mat[f][c+1] == "H" && (c+1)>=0){ //derecha
           console.log("contagia derec");
           return pandemic(mat[f][c+1]);
           mat[f][c+1] = "";
