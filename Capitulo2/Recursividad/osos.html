@@ -21,36 +21,36 @@
       }
 
       function rellena() {
-        // CREA
-        let linea = new Array;
-        for (let i = 0; i < maxx; i++) {
-          tablero.push(linea);
-          linea[i] = "-";
-        }
-
         // RELLENA
         for (let i = 0; i < maxx; i++) {
+          tablero[i] = new Array();
           for (let j = 0; j < maxy; j++) {
-            if (aleatorio(0, 3) == 1 || aleatorio(0, 3) == 2) {
+            if (aleatorio(1, 3) == 1 || aleatorio(1, 3) == 2) {
               tablero[i][j] = "O";
-            } else if (aleatorio(0, 3) == 0) {
+            } else {
               tablero[i][j] = "S";
             }
-            
           }
         }
-
-
       }
 
       function resuelve() {
-        //función que resuelve el juego
+        rellena();
+
+        for (let f = 0; f < maxx; f++) {
+          for (let c = 0; c < maxy; c++) {
+            if (tablero[f][c] == "S") {
+              // BUSCAR O
+            }
+          }
+        }
+
       }
 
       rellena();
       console.log(JSON.parse(JSON.stringify(tablero)));
-      //resuelve();
-      //console.log(tablero);
+      resuelve();
+      console.log(tablero);
 
     </script>
 
