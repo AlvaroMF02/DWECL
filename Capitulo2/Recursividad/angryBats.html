@@ -1,49 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Minevancic color</title>
+  <title>Murcielagos</title>
 </head>
 <body>
 
   <p id="txt"><p>
 
   <script>
-    let mat = [['P','P','G','H','H','R'],   // 3,3 ES M
-               ['P','P','G','H','H','G'],   // 3,4 EL SIGUIENTE
+    let mat = [['P','P','G','H','H','R'],
+               ['P','P','G','H','H','G'],
                ['P','P','M','H','H','G'],
                ['G','R','G','H','G','G'],
                ['R','R','H','H','G','P']];
 
     // PASO FILA Y COLUMNA
     function pandemic(f,c){
-      //f-=1;c-=1;// PARA QUE EMPIECE POR UNO
       if(mat[f][c]!="M"){
         console.log("Ahí no hay murciélago");
       }else{
-        console.log("(Humano infectado en "+(f+1)+","+(c+1)+")"); // SUMAR UNO PARA LA COORDENADA
-        
-        // BUSCAR H EN CRUZ FUNCIONA  (FALTA PONER LOS LIMITES DE LA MATRIZ PARA Q NO LOS PASE EN CADA ELSEIF)
-        if (mat[f-1][c] == "H" && (f-1)>=0) {//arriba f>=0
-          console.log("contagia arriba");
-          return pandemic(mat[f-1][c]); // AL ENCONTRAR UN HUMANO LO LLAMO OTRA VEZ PARA QUE CONTAGIE A LOS DE SU ALREDEDOR
+        //ARRIBA
+        if (mat[f-1][c] == "H" && f>0) {
+          return pandemic(mat[f-1][c]);
           mat[f][c-1] = "";
+        }
 
-        }else if(mat[f][c-1] == "H" && (c-1)>=0){ //izquierda
-          console.log("contagia izqui");
+        // IZQUIERDA
+        if(mat[f][c-1] == "H" && c>0){
           return pandemic(mat[f][c-1]);
           mat[f-1][c] = "";
+        }
 
-        }else if(mat[f+1][c] == "H" && (f+1)>=0){ //abajo
-          console.log("contagia abajo");
+        // ABAJO
+        if(mat[f+1][c] == "H" && f<mat.length-1){
           return pandemic(mat[f+1][c]);
           mat[f+1][c] = "";
+        }
 
-        }else if(mat[f][c+1] == "H" && (c+1)>=0){ //derecha
-          console.log("contagia derec");
+        // DERECHA
+        if(mat[f][c+1] == "H" && c<mat.length-1){
           return pandemic(mat[f][c+1]);
           mat[f][c+1] = "";
-        }else{
-          console.log("No quedan humanos :(");
+
         }
 
       }
