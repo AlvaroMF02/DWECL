@@ -8,47 +8,47 @@
   <p id="txt"><p>
 
   <script>
-    let mat = [['P','P','G','H','H','R'],
-               ['P','P','G','H','H','G'],
-               ['P','P','M','H','H','G'],
-               ['G','R','G','H','G','G'],
-               ['R','R','H','H','G','P']];
+    let matriz = [['P','P','G','H','H','R'],
+                  ['P','P','G','H','H','G'],
+                  ['P','P','M','H','H','G'],
+                  ['G','R','G','H','G','G'],
+                  ['R','R','H','H','G','P']];
+
+    let biocenosis = JSON.parse((JSON.stringify(matriz)));
 
     // PASO FILA Y COLUMNA
     function pandemic(f,c){
-      if(mat[f][c]!="M"){
-        console.log("Ahí no hay murciélago");
+
+      console.log(biocenosis[f][c]);
+      if(biocenosis[f][c]=='H'){
+        biocenosis[f][c]=='';
       }else{
         //ARRIBA
-        if (mat[f-1][c] == "H" && f>0) {
-          return pandemic(mat[f-1][c]);
-          mat[f][c-1] = "";
+        if (biocenosis[f-1][c] == 'H' && f>0) {
+          return pandemic(biocenosis[f-1][c]);
         }
 
         // IZQUIERDA
-        if(mat[f][c-1] == "H" && c>0){
-          return pandemic(mat[f][c-1]);
-          mat[f-1][c] = "";
+        if(biocenosis[f][c-1] == 'H' && c>0){
+          return pandemic(biocenosis[f][c-1]);
         }
 
         // ABAJO
-        if(mat[f+1][c] == "H" && f<mat.length-1){
-          return pandemic(mat[f+1][c]);
-          mat[f+1][c] = "";
+        if(biocenosis[f+1][c] == 'H' && f<biocenosis.length-1){
+          return pandemic(biocenosis[f+1][c]);
         }
 
         // DERECHA
-        if(mat[f][c+1] == "H" && c<mat.length-1){
-          return pandemic(mat[f][c+1]);
-          mat[f][c+1] = "";
+        if(biocenosis[f][c+1] == 'H' && c<biocenosis.length-1){
+          return pandemic(biocenosis[f][c+1]);
 
         }
-
       }
     }
 
-
-    console.log(pandemic(2,2));
+    console.log(matriz);
+    pandemic(0,4);
+    console.log(biocenosis);
   </script>
 
 </body>

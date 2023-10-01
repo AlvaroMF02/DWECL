@@ -39,18 +39,41 @@
 
         for (let f = 0; f < maxx; f++) {
           for (let c = 0; c < maxy; c++) {
+            
             if (tablero[f][c] == "S") {
-              // BUSCAR O
+              // BUSCAR O EN VERTICAL (IZQ Y DER)
+              if ((c>0 && tablero[f][c-1] == "O") && (c < tablero[f].length-1 && tablero[f][c+1]=="O")) {
+                tablero[f][c] = "";
+                tablero[f][c+1] = "";
+                tablero[f][c-1] = "";
+                break;
+              }
+              
+              // BUSCAR O EN HORIZONTAL (ARR Y ABA)
+              if ((f>0 && tablero[f-1][c] == "O") && (f < tablero.length-1 && tablero[f+1][c]=="O")) {
+                tablero[f][c] = "";
+                tablero[f+1][c] = "";
+                tablero[f-1][c] = "";
+                break;
+              }
+              // BUSCAR O EN DIAGONAL
+              if ((f>0 && tablero[f-1][c+1] == "O") && (f < tablero.length-1 && tablero[f+1][c-1]=="O")) {
+                tablero[f][c] = "";
+                tablero[f+1][c-1] = "";
+                tablero[f-1][c+1] = "";
+                break;
+              }
+              
             }
           }
         }
-
       }
-
+      
       rellena();
       console.log(JSON.parse(JSON.stringify(tablero)));
       resuelve();
       console.log(tablero);
+      
 
     </script>
 
