@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>RECURSIVIDAD</title>
+</head>
+
+<body>
+    <script>
+        let people = ["perico", "juanico",
+            "andres", "dimas", "gestas", "zarco", "maimonides",
+            "elias", "jeremias", "dimas", "dimas", "gestas"];
+        console.log(people)
+
+
+        let n = 0;
+
+        // ESCRIBE TU CÓDIGO AQUÍ
+                                                // CORRIGE EL PRIMERO 
+        function FindMyGuy(p, nombre) {
+            
+            if (p == 0) {
+                return n;
+            } else {
+                if (people[p] == nombre) {
+                    n+1;
+                } else {
+                    return FindMyGuy(p-1, nombre);
+                }
+            }
+            return n;
+        }
+
+
+        // Dimas 3, gestas 2
+        console.log(FindMyGuy(people.length-1, "dimas"));
+    </script>
+</body>
+
+</html>
