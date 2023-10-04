@@ -11,29 +11,17 @@
             "andres", "dimas", "gestas", "zarco", "maimonides",
             "elias", "jeremias", "dimas", "dimas", "gestas"];
         console.log(people)
-
-
-        let n = 0;
-
+        
         // ESCRIBE TU CÓDIGO AQUÍ
-                                                // CORRIGE EL PRIMERO 
-        function FindMyGuy(p, nombre) {
-            
-            if (p == 0) {
-                return n;
-            } else {
-                if (people[p] == nombre) {
-                    n+1;
-                } else {
-                    return FindMyGuy(p-1, nombre);
-                }
-            }
-            return n;
+        const FindMyGuy = (array, pos, guy) => {
+            let c = 0;
+            if (array.length === pos) return 0;
+            if (array[pos] == guy) c++;
+            return c + FindMyGuy(array, pos + 1, guy)
         }
-
-
-        // Dimas 3, gestas 2
-        console.log(FindMyGuy(people.length-1, "dimas"));
+        console.log(FindMyGuy(people, 0, "dimas"))
+        console.log(FindMyGuy(people, 0, "gestas"))
+        console.log(FindMyGuy(people, 0, "leonidas"))
     </script>
 </body>
 
