@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h1>STALINGRADO</h1>
+    <p id="matriz"></p>
+    <h2 id="ganador"></h2>
+
+    <script>
+        let battlefield = [
+            ["A", "A", "", "", "R", "", "", "", ""],
+            ["A", "A", "", "", "R", "", "", "", ""],
+            ["", "", "", "", "R", "", "", "", ""],
+            ["", "", "", "", "R", "", "", "", ""],
+            ["", "", "", "", "R", "", "", "", ""],
+            ["", "", "", "", "R", "", "", "", ""],
+            ["", "", "", "", "R", "", "", "", ""],
+            ["", "", "", "", "R", "", "", "A", "A"],
+            ["", "", "", "", "R", "", "", "A", "A"]
+        ];
+
+        // SI LOS RUSOS SEPARAN A LOS ALEMANES LOS RUSOS GANAN
+        // VER EN QUE PARTE SE DIVIDE EL CAMPO POR LOS RUSOS
+        // SI NO ESTA DIVIDIDO GANAN ALEMANES
+        // SI HAY UNA DIVISION DEL CAMPO POR LOS RUSOS PERO NO HAY
+        // ALEMANES A UN LADO, PIERDEN LOS RUSOS
+
+        function division(arr, f, c) {
+            let div = true;
+            if (arr[f][c] == "") {
+                return false;
+            } else {
+                //izq
+                if (c > 0 && arr[f][c - 1] == "R") {
+
+                }
+                //der
+                if (c < arr[f].length - 1 && arr[f][c + 1] == "R") {
+
+                }
+                //aba
+                if (f < arr.length - 1 && arr[f + 1][c] == "R") {
+
+                }
+                //arr
+                if (f > 0 && arr[f - 1][c] == "R") {
+
+                }
+
+            }
+        }
+
+        function buscarDiv(params) {
+
+        }
+
+
+        console.log(battlefield);
+        console.log(division(battlefield, 0, 0));
+
+
+    </script>
+
+</body>
+
+</html>
