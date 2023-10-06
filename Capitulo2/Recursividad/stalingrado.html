@@ -9,55 +9,61 @@
 
     <script>
         let battlefield = [
-            ["A", "A", "", "", "R", "", "", "", ""],
-            ["A", "A", "", "", "R", "", "", "", ""],
-            ["", "", "", "", "R", "", "", "", ""],
-            ["", "", "", "", "R", "", "", "", ""],
-            ["", "", "", "", "R", "", "", "", ""],
-            ["", "", "", "", "R", "", "", "", ""],
-            ["", "", "", "", "R", "", "", "", ""],
-            ["", "", "", "", "R", "", "", "A", "A"],
-            ["", "", "", "", "R", "", "", "A", "A"]
+            ["A", "A", " ", " ", "R", " ", " ", " ", " "],
+            ["A", "A", " ", " ", "R", " ", " ", " ", " "],
+            [" ", " ", " ", " ", "R", " ", " ", " ", " "],
+            [" ", " ", " ", " ", "R", " ", " ", " ", " "],
+            [" ", " ", " ", " ", "R", " ", " ", " ", " "],
+            [" ", " ", " ", " ", "R", " ", " ", " ", " "],
+            [" ", " ", " ", " ", "R", " ", " ", " ", " "],
+            [" ", " ", " ", " ", "R", " ", " ", "A", "A"],
+            [" ", " ", " ", " ", "R", " ", " ", "A", "A"]
         ];
 
-        // SI LOS RUSOS SEPARAN A LOS ALEMANES LOS RUSOS GANAN
-        // VER EN QUE PARTE SE DIVIDE EL CAMPO POR LOS RUSOS
-        // SI NO ESTA DIVIDIDO GANAN ALEMANES
-        // SI HAY UNA DIVISION DEL CAMPO POR LOS RUSOS PERO NO HAY
-        // ALEMANES A UN LADO, PIERDEN LOS RUSOS
-
-        function division(arr, f, c) {
-            let div = true;
-            if (arr[f][c] == "") {
-                return false;
+        // ENCONTRAR UNA A Y RECORRER TODA LA MATRIZ ESTILO RADAR, CADA VEZ Q 
+        // ENCUENTRA UNA R GUARDA LA POSICION
+        function radar(arr, f, c) {
+            let alemanes = 0;
+            // TERMINA AL ESCANEAR TODA LA MATRIZ CREO
+            if (arr[f][c] == arr[arr.length-1][arr[f].length-1]) {
+                return arr[f][c];
             } else {
-                //izq
-                if (c > 0 && arr[f][c - 1] == "R") {
-
+                if (arr[f][c] == "A") {
+                    alemanes++;
+                    //izq
+                    if (c > 0 && arr[f][c - 1] == "R") {
+                        return arr[f][c - 1];
+                    } else {
+                        return radar(arr, f, c - 1);
+                    }
+                    //der
+                    if (c < arr[f].length - 1 && arr[f][c + 1] == "R") {
+                        return arr[f][c + 1];
+                    } else {
+                        return radar(arr, f, c + 1)
+                    }
+                    //aba
+                    if (f < arr.length - 1 && arr[f + 1][c] == "R") {
+                        return arr[f + 1][c];
+                    } else {
+                        return radar(arr, f + 1, c)
+                    }
+                    //arr
+                    if (f > 0 && arr[f - 1][c] == "R") {
+                        return arr[f - 1][c];
+                    } else {
+                        return radar(arr, f - 1, c)
+                    }
                 }
-                //der
-                if (c < arr[f].length - 1 && arr[f][c + 1] == "R") {
-
-                }
-                //aba
-                if (f < arr.length - 1 && arr[f + 1][c] == "R") {
-
-                }
-                //arr
-                if (f > 0 && arr[f - 1][c] == "R") {
-
-                }
-
             }
-        }
-
-        function buscarDiv(params) {
 
         }
 
 
         console.log(battlefield);
-        console.log(division(battlefield, 0, 0));
+        console.log(radar(battlefield, 0, 0));
+
+
 
 
     </script>
