@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Explicación Map, Filter y Find</title>…"
+</head>
+<body>
+
+    <script>
+        var dias = ['lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sabado', 'domingo'];
+        let numeros = [1, 2, 3, 4, 5, 6, 7];
+
+        // MAP => DEVUELVE EL ARRAY ENTERO CON CAMBIOS, CON EL MISMO LENGTH
+        // FILTER => BUSCA UNOS CUANTOS
+        // FIND => DEVUELVE UNO
+        // FLAT => PARA LOS ARRAYS CON ARRAYS
+        // (VALOR, POSICION, ARRAY) SE SUELE PONER SOLO UN VALOR
+        console.log(dias.flat().filter((v) => v.length > 5 && v.length<7))
+        console.log(dias.filter((v) => { return (v.length >= 6) }))
+    </script>
+</body>
+</html>

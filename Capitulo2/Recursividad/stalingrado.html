@@ -20,15 +20,18 @@
             [" ", " ", " ", " ", "R", " ", " ", "A", "A"]
         ];
 
-        // ENCONTRAR UNA A Y RECORRER TODA LA MATRIZ ESTILO RADAR, CADA VEZ Q 
-        // ENCUENTRA UNA R GUARDA LA POSICION
+        // BUSCAR A Y ESPACIOS EN BLANCO Y PONERLOS A X
+        // DESPUES BORRAR TODAS LAS X, SI QUEDAN X GANAN LOS RUSOS, 
+        // SI SE HAN BORRADO LAS X GANAN LOS ALEMANES
+
+        let tablero = JSON.parse((JSON.stringify(battlefield)));
+
         function radar(arr, f, c) {
-            let alemanes = 0;
             // TERMINA AL ESCANEAR TODA LA MATRIZ CREO
             if (arr[f][c] == arr[arr.length-1][arr[f].length-1]) {
                 return arr[f][c];
             } else {
-                if (arr[f][c] == "A") {
+                if (arr[f][c] == "A" || arr[f][c] == " ") {
                     alemanes++;
                     //izq
                     if (c > 0 && arr[f][c - 1] == "R") {
@@ -61,7 +64,7 @@
 
 
         console.log(battlefield);
-        console.log(radar(battlefield, 0, 0));
+        console.log(radar(tablero, 0, 0));
 
 
 
