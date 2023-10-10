@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Reto 0</title>
+</head>
+<body>
+    
+    <input type="text" id="ciudad"><br>
+    <button type="button" onclick="buscarCiudad()">Buscar</button>
+    <p id="resul"></p>
+    <script>
+        var ciudades = [{cp:28924,ciudad:"Estepona"}, {cp:29601,ciudad:"Marbella"}];
+        
+        function buscarCiudad() {
+            let codpost = document.getElementById("ciudad").value;
+            let parrafo = document.getElementById("resul");
+
+            parrafo.innerHTML= ciudades.filter((v) => {if(v.cp==codpost) return v.ciudad});
+             
+        }
+
+        
+    </script>
+</body>
+</html>
