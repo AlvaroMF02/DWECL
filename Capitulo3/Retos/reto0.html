@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head>2892429601
     <title>Reto 0</title>
 </head>
 <body>
@@ -13,10 +13,10 @@
         
         function buscarCiudad() {
             let codpost = document.getElementById("ciudad").value;
-            let parrafo = document.getElementById("resul");
 
-            parrafo.innerHTML= ciudades.filter((v) => {if(v.cp==codpost) return v.ciudad});
-             
+            let ciudad = ciudades.filter((v) => v.cp == codpost);
+            document.getElementById("resul").innerHTML= ciudad.map((v) => v.ciudad);
+            
         }
 
         
