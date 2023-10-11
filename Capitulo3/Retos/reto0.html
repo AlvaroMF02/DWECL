@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>2892429601
+<head>
     <title>Reto 0</title>
 </head>
 <body>
@@ -15,7 +15,11 @@
             let codpost = document.getElementById("ciudad").value;
 
             let ciudad = ciudades.filter((v) => v.cp == codpost);
-            document.getElementById("resul").innerHTML= ciudad.map((v) => v.ciudad);
+            let salida = document.getElementById("resul");
+
+            //ciudad!=undefined? salida.innerHTML=ciudad.ciudad : salida.innerHTML="No existe";
+
+           document.getElementById("resul").innerHTML= ciudad.map((v) => v.ciudad);
             
         }
 
