@@ -10,22 +10,35 @@
         var cars = ["Saab", "Volvo", "BMW", ["Honda", "Toyota", ["Lexus", "Mercedes", "Lada"], "Hyunday"]];
         var carrakos = ["Chevrolet", "Tesla", "BMW", ["Honda", "Infiniti", ["Lexus", "Mercedes", "Kia"], "Hyunday"], ["Mazda", "Mercedes", "Jeep", ["KTM", "Nissan", "Isuzu"]]];
         //Alguien sabe hacer una lista única de coches con los dos arrays (sin repeticiones)?
-
+        console.log("1º PARTE")
         let carsFlat = cars.flat(Infinity); // "APLANA" TODOS LOS ARRAYS DE LOS ARRAYS
         let carrakosFlat = carrakos.flat(Infinity);
 
-        let cochesUnicos = carsFlat.filter(v=>!carrakosFlat.find(e=>e==v));
-        console.log(cochesUnicos)
+        let carrakosUnicos = carrakosFlat.filter(v=>carsFlat.find(e=>e==v));
+        let carsUnicos= carsFlat.filter(v=>carrakosFlat.find(e=>e==v));
+
+        console.log(carrakosFlat.filter(v=>carsFlat.find(e=>e==v)));
+        
+
         //Alguien sabría decirme los coches de carrakos que no estén en cars?
+        console.log("2º PARTE")
+        console.log(carrakosFlat.filter(v=>!carsFlat.find(e=>e==v)));
 
         var cars = ["Saab", "Volvo", "BMW", ["Honda", "Toyota", ["Lexus", "Mercedes", "Lada"], "Hyunday"]];
-        var buddies = [{ firstName: "Chuck", lastName: "Norris", car: "Honda" }, { firstName: "Yakie", lastName: "Chang", car: "BMV" }, { firstName: "Bruce", lastName: "Lee", car: "Honda" }, { firstName: "Steven", lastName: "Seagal", car: "Lada" }];
+        var buddies = [{ firstName: "Chuck", lastName: "Norris", car: "Honda" }, 
+                        { firstName: "Yakie", lastName: "Chang", car: "BMV" }, 
+                        { firstName: "Bruce", lastName: "Lee", car: "Honda" }, 
+                        { firstName: "Steven", lastName: "Seagal", car: "Lada" }];
         //-Nombre y apellidos de los buddies que usan un Honda
-
+        console.log("CONDUCEN HONDA")
+        console.log(buddies.filter(v=>v.car=="Honda"))
         //-Marcas utilizadas por los buddies
+        console.log("COCHES QUE CONDUCEN")
+        console.log(buddies.filter(v=>v.car))
 
         //-Marcas no utilizadas por los buddies.
-
+        console.log("MARCAS NO USADAS")
+        console.log(carsFlat.filter(v=>buddies.find(e=>e!=v.car)))
         //-Cuantas marcas han sido utilizadas
 
         //-Cuantas marcas no han sido utilizadas
