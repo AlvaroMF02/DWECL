@@ -10,7 +10,7 @@
         var cars = ["Saab", "Volvo", "BMW", ["Honda", "Toyota", ["Lexus", "Mercedes", "Lada"], "Hyunday"]];
         var carrakos = ["Chevrolet", "Tesla", "BMW", ["Honda", "Infiniti", ["Lexus", "Mercedes", "Kia"], "Hyunday"], ["Mazda", "Mercedes", "Jeep", ["KTM", "Nissan", "Isuzu"]]];
         //Alguien sabe hacer una lista única de coches con los dos arrays (sin repeticiones)?
-        let arr = cars.flat().filter((v)=>v==v);
+        let arr = cars.flat().filter((v)=>v);
         arr.push(cars.flat().filter((v)=>v!=v))
         console.log(arr);
         //Alguien sabría decirme los coches de carrakos que no estén en cars?

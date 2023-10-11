@@ -11,21 +11,15 @@
         console.log(nombres);
 
         // BUSCAR EL NOMBRE QUE SE REPITE MAS VECES
-        function nomPopu(arr, p, nombre) {          // DA UNDEFINED NS DONDE NI PQ
+        function nomPopu(arr, p, nombre) {
 
             let c = 0;
-
-            if (p <= arr.length - 1) {
-                if (arr[p] == nombre) {
-                    c++;
-                }else{
-                    return nomPopu(arr,p+1,nombre);
-                }
-            } else {
-                return c;
-            }
-
-
+            
+            if (arr.length == p) return 0;
+            if (arr[p] == nombre) c++;
+                
+            return c + nomPopu(arr, p + 1, nombre);
+            
         }
 
         console.log(nomPopu(nombres, 0, "dimas"));
