@@ -7,29 +7,15 @@
 <body>
     <h1>retos JavaScript</h1>
     <script>
-        
-        let arr = [];
-        function arrAlea(p) {
 
-            if(p==100) return 0;
+        let arr = [];
+
+        for (let i = 0; i < 10; i++) {
+            let alea = Math.round(Math.random() * 9 + 1);
 
             arr.push(alea);
-
-            arrAlea(p++)
-
         }
-        
-
-for (let i = 0; i < 20; i++) {
-    let alea = Math.round(Math.random() * 9 + 1);
-    
-    if (arr[i]) {
-        
-    }
-
-    arr.push(alea);
-}
-console.log(arr);
+        console.log(arr);
 
     </script>
 </body>
