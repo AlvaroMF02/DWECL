@@ -26,6 +26,16 @@
 
         let tablero = JSON.parse((JSON.stringify(battlefield)));
 
+        function rellenarX() {
+            for (let i = 0; i < tablero.length; i++) {
+                for (let j = 0; j < tablero[i].length; j++) {
+                    if (tablero[i][j]==" " || tablero[i][j]=="A") {
+                    tablero[i][j]=="X"
+                    }
+                }
+            }
+        }
+
         function radar(arr, f, c) {
             // TERMINA AL ESCANEAR TODA LA MATRIZ CREO
             if (arr[f][c] == arr[arr.length-1][arr[f].length-1]) {
@@ -64,7 +74,8 @@
 
 
         console.log(battlefield);
-        console.log(radar(tablero, 0, 0));
+        rellenarX;
+        console.log(tablero);
 
 
 
