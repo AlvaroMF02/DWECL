@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>HEAVEN</title>
+</head>
+
+<body>
+    <script>
+        let mapa = [['*', ' ', ' ', ' ', ' ', ' '],
+                    ['*', ' ', ' ', ' ', ' ', ' '],
+                    ['*', ' ', ' ', ' ', ' ', ' '],
+                    ['*', ' ', ' ', ' ', ' ', ' '],
+                    ['*', '*', '*', '*', '*', '*']];
+
+        function heaven(arr,f,c) {
+            if(f == arr.length-1 && c ==arr[f].length-1){
+                return console.log("SEMOS LIBRES");
+            }
+            
+            if (arr[f][c] == "*") {
+                // ARR
+                if(arr[f+1][c]<=0 && arr[f+1][c]=="*"){
+                    return heaven(arr,f+1,c);
+                }
+                // ABA
+                if(arr[f-1][c]<=arr[c].length-1 && arr[f-1][c]=="*"){
+                    return heaven(arr,f-1,c);
+                }
+                // DER
+                if(arr[f][c+1]<=arr[f].length-1 && arr[f][c+1]=="*"){
+                    return heaven(arr,f,c+1);
+                }
+                // IZQ
+                if(arr[f][c-1]<=0 && arr[f][c-1]=="*"){
+                    return heaven(arr,f,c-1);
+                }
+
+            }
+            
+        }
+
+        console.log(heaven(mapa,0,0));
+    </script>
+</body>
+
+</html>
