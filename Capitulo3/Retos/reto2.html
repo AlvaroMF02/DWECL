@@ -36,10 +36,12 @@
         console.log("COCHES QUE CONDUCEN")
         console.log(buddies.filter(v=>v.car))
 
-        //-Marcas no utilizadas por los buddies.
+        //-Marcas no utilizadas por los buddies. no sale
         console.log("MARCAS NO USADAS")
-        console.log(carsFlat.filter(v=>buddies.find(e=>e!=v.car)))
+        console.log(carsFlat.filter(v=>buddies.find(e=>v!=e.car)))
         //-Cuantas marcas han sido utilizadas
+        console.log("COCHES NO USADOS");
+        console.log(carsFlat.filter(v=>buddies.find(e=>v==e.car)))
 
         //-Cuantas marcas no han sido utilizadas
 
