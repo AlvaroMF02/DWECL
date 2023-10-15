@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var valumnos = {
+            "alumnos": [{
+                "nombre": "Fulanito",
+                "notas": {
+                    "DWEC": 8,
+                    "DWESE": 0.71,
+                    "ED": 7.04,
+                    "SSOO": 3.37,
+                    "BBDD": 0.22,
+                    "PROG": 1.09,
+                    "EINEM": 6.17
+                }
+            },
+            {
+                "nombre": "Menganito",
+                "notas": {
+                    "DWEC": 7,
+                    "DWESE": 0.71,
+                    "ED": 7.04,
+                    "SSOO": 3.37,
+                    "BBDD": 0.22,
+                    "PROG": 1.09,
+                    "EINEM": 6.17
+                }
+            }
+                ,
+            {
+                "nombre": "Cetanito",
+                "notas": {
+                    "DWEC": 6,
+                    "DWESE": 0.71,
+                    "ED": 7.04,
+                    "SSOO": 3.37,
+                    "BBDD": 0.22,
+                    "PROG": 1.09,
+                    "EINEM": 6.17
+                }
+            }
+            ]
+        };
+
+        // MEDIA DWEC
+        let notas = valumnos.alumnos.map(v=>v.notas.DWEC)
+            .concat(valumnos.alumnos.map(v=>v.notas.DWESE))
+            .concat(valumnos.alumnos.map(v=>v.notas.ED))
+            .concat(valumnos.alumnos.map(v=>v.notas.SSOO))
+            .concat(valumnos.alumnos.map(v=>v.notas.BBDD))
+            .concat(valumnos.alumnos.map(v=>v.notas.PROG))
+            .concat(valumnos.alumnos.map(v=>v.notas.EINEM));
+        let suma = notas.reduce((v1,v2)=>v1+v2);
+        let media = suma / notas.length;
+        console.log(media);
+
+    </script>
+</body>
+
+</html>
