@@ -11,9 +11,6 @@
         var carrakos = ["Chevrolet", "Tesla", "BMW", ["Honda", "Infiniti", ["Lexus", "Mercedes", "Kia"], "Hyunday"], ["Mazda", "Mercedes", "Jeep", ["KTM", "Nissan", "Isuzu"]]];
         //Alguien sabe hacer una lista única de coches con los dos arrays (sin repeticiones)?
         console.log("LISTA UNICA CON COCHES SIN REPES")
-        let carsFlat = cars.flat(Infinity); // "APLANA" TODOS LOS ARRAYS DE LOS ARRAYS
-        let carrakosFlat = carrakos.flat(Infinity);
-
         let unic = cars.flat(Infinity);
         unic.push(carrakos.flat(Infinity).filter(v => unic.find(e => e == v) === undefined));// ver q no estan repes
         unic = unic.flat();
@@ -21,7 +18,7 @@
 
         //Alguien sabría decirme los coches de carrakos que no estén en cars?
         console.log("CARRAKOS QUE NO ESTAN EN CARS")
-        console.log(carrakosFlat.filter(v => !carsFlat.find(e => e == v)));
+        console.log(carrakos.flat(2).filter(v => !cars.flat(2).find(e => e == v)));
 
         var cars = ["Saab", "Volvo", "BMW", ["Honda", "Toyota", ["Lexus", "Mercedes", "Lada"], "Hyunday"]];
         var buddies = [{ firstName: "Chuck", lastName: "Norris", car: "Honda" },
@@ -31,7 +28,8 @@
 
         //-Nombre y apellidos de los buddies que usan un Honda
         console.log("CONDUCEN HONDA")
-        console.log(buddies.filter(v => v.car == "Honda"))
+        let budObj = buddies.filter(v => v.car == "Honda") //objetos
+        console.log(budObj.map(v => v.firstName + " " + v.lastName)) //nombre y apel
 
         //-Marcas utilizadas por los buddies
         console.log("COCHES QUE CONDUCEN")
@@ -41,14 +39,13 @@
         console.log("MARCAS NO USADAS")
         console.log(cars.flat(2).filter(v => buddies.find(e => v == e.car) === undefined))
 
-
         //-Cuantas marcas han sido utilizadas
         console.log("CUANTAS MARCAS USADAS");
-        console.log(carsFlat.filter(v => buddies.find(e => v == e.car) != undefined).length)
+        console.log(cars.flat(2).filter(v => buddies.find(e => v == e.car) != undefined).length)
 
         //-Cuantas marcas no han sido utilizadas
         console.log("CUANTAS MARCAS NO USADAS");
-        console.log(carsFlat.filter(v => buddies.find(e => v == e.car) === undefined).length)
+        console.log(cars.flat(2).filter(v => buddies.find(e => v == e.car) === undefined).length)
 
 
     </script>
