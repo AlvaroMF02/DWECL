@@ -14,11 +14,11 @@
         
         // frutas del array frutas que sean tropicales
         console.log("FRUTAS TROPICALES")
-        console.log(frutas.filter(v=>tropicales.find(e=>v==e)));
+        console.log(frutas.filter(v=>tropicales.find(e=>v==e) != undefined));
 
         // frutas del array frutas que NO sean tropicales
         console.log("FRUTAS NO TROPICALES")
-        console.log(frutas.filter(v=>!tropicales.find(e=>v==e)));
+        console.log(frutas.filter(v=>tropicales.find(e=>v==e) === undefined));
 
         //Nombre de las frutas con un stock mayor de 21
         console.log("FRUTAS CON STOCK MAYOR A 21")

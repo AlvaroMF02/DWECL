@@ -17,9 +17,7 @@
             let ciudad = ciudades.filter((v) => v.cp == codpost);
             let salida = document.getElementById("resul");
 
-            //ciudad!=undefined? salida.innerHTML=ciudad.ciudad : salida.innerHTML="No existe";
-
-           document.getElementById("resul").innerHTML= ciudad.map((v) => v.ciudad);
+           document.getElementById("resul").innerHTML= ciudad.map((v) => "CP:" + v.cp + " Ciudad:"+v.ciudad);
             
         }
 
