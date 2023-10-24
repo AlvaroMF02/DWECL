@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,
+initial-scale=1.0" />
+    <title>LAS TORTAS LOCAS</title>
+</head>
+
+<body>
+    <script>
+        var clientaUno = ""
+        var clientaDos = ""
+        var clientaTres = ""
+        var numclientaUno = 0;
+        var numclientaDos = 0;
+        var numclientaTres = 0;
+        const TORTAS =["Rodica", "Emma", "Sofia", "Marina", "Valia", 
+        "Valia", "Valia", "Valia", "Valia","Valia","Emma","Emma","Maria","Marina","Emma"];
+
+        // ESCRIBE AQUÍ TU CÓDIGO
+        // sacar el mayor
+        clientaUno = TORTAS.find(v=>TORTAS.map(e=>{
+                console.log(e)
+            
+            
+            
+        }));
+        console.log(clientaUno)
+
+        // receunto de clientas
+        numclientaUno = TORTAS.filter(v=>v==numclientaUno).length;
+        numclientaDos = TORTAS.filter(v=>v==numclientaDos).length;
+        numclientaTres = TORTAS.filter(v=>v=="Marina").length;
+
+        console.log(clientaUno + ":" + numclientaUno)
+        console.log(clientaDos + ":" + numclientaDos)
+        console.log(clientaTres + ":" + numclientaTres)
+    </script>
+</body>
+
+</html>
