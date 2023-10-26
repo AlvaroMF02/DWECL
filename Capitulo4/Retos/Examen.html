@@ -7,42 +7,34 @@
 <body>
     <h1>retos JavaScript</h1>
     <script>
-        var cars = ["Saab", "Volvo", "BMW", ["Honda", "Toyota", ["Lexus",
-            "Mercedes", "Lada"], "Hyunday"]];
-        var carrakos = ["Chevrolet", "Tesla", "BMW", ["Honda",
-            "Infiniti", ["Lexus", "Mercedes", "Kia"], "Hyunday"], ["Mazda",
-                "Mercedes", "Jeep", ["KTM", "Nissan", "Isuzu"]]];
-        var newcars = ["Saab", "Volvo", "BMW", ["Honda", "Toyota", ["Lexus",
-            "Volvo", "Lada"], "Hyunday", "Volvo"]];
-        buddies = [{
-            firstName: "Jonny", lastName: "Rambo",
-            car: "BMW"
-        }, {
-            firstName: "Arnold", lastName: "Suarchenager",
-            car: "Honda"
-        }, {
-            firstName: "Chuck", lastName: "Norris",
-            car: "Honda"
-        }, {
-            firstName: "Yakie", lastName: "Chang",
-            car: "BMW"
-        }, {
-            firstName: "Bruce", lastName: "Lee",
-            car: "Honda"
-        }, { firstName: "Steven", lastName: "Seagal", car: "Lada" }];
+        var cars = ["Saab", "Volvo", "BMW", ["Honda", "Toyota", ["Lexus", "Mercedes", "Lada"], "Hyunday"]];
+        var carrakos = ["Chevrolet", "Tesla", "BMW", ["Honda", "Infiniti", ["Lexus", "Mercedes", "Kia"], "Hyunday"], ["Mazda", "Mercedes", "Jeep", ["KTM", "Nissan", "Isuzu"]]];
+        var newcars = ["Saab", "Volvo", "BMW", ["Honda", "Toyota", ["Lexus",  "Volvo", "Lada"], "Hyunday", "Volvo"]];
+        buddies = [
+            { firstName: "Jonny", lastName: "Rambo", car: "BMW" },
+            { firstName: "Arnold", lastName: "Suarchenager", car: "Honda" },
+            { firstName: "Chuck", lastName: "Norris", car: "Honda" },
+            { firstName: "Yakie", lastName: "Chang", car: "BMW" },
+            { firstName: "Bruce", lastName: "Lee", car: "Honda" },
+            { firstName: "Steven", lastName: "Seagal", car: "Lada" }];
 
         let xungas = ["Honda", "Lada"]
 
         //EJERCICIO 1
-        console.log(newcars.flat(2).filter(v=>v=="Volvo").length)
+        console.log("------ Ejercicio 1 ------")
+        console.log(newcars.flat(2).filter(v => v == "Volvo").length)
 
-        //EJERCICIO 2
-        //let trendy = buddies.map(v=>)
+        /*//EJERCICIO 2
+        console.log("------ Ejercicio 2 ------")
+        // MARCAS USADAS POR MAS DE UN BUDDIE
+        let cochesBuddies = buddies.map(v=> v.car);
+        console.log(cochesBuddies)*/
 
         //EJERCICIO 3
-        let cochesBuddies = newcars.flat(2).filter(v=>xungas.filter(e=>v==e)!=undefined)
-        console.log(cochesBuddies)
-        //EJERCICIO 4
+        console.log("------ Ejercicio 3 ------")
+        // DE NEWCARS QUE NO ESTEN EN XUNGAS Y QUE USEN LOS BUDDIES
+        console.log(newcars.flat(2).filter(v => xungas.find(e => v == e) === undefined).filter(k => k == buddies.find(j => k == j.car) != undefined))
+        
     </script>
 </body>
 
