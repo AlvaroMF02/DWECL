@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Challenge 7</title>
+</head>
+
+<body>
+    <script>
+
+        console.log("----- ¿Cuantos reyes son malos? -----")
+        const REYES = ["Chindatore", ["Chindasvinto", "Rencesvinto", "Lautaro"], ["Lauro", "Sisebuto", ["Fracisbuto", "Vigafredo", ["Leovigildo", "Recaredo"]]], "Amalarico II"];
+
+        const MALOS = ["Fracisbuto", "Vigafredo", "Lauro"]
+
+        // CANTIDAD DE REYES QUE SON FALSOS
+        console.log(REYES.flat(4).filter(v=>MALOS.find(e=>v==e)!=undefined).length);
+
+
+        console.log("----- Buscar el rey mas famoso -----")
+        const MUSCHOSREYES = ["Fracisbuto", "Lauro","Vigafredo", "Lauro","Chindatore", ["Chindasvinto", "Rencesvinto", "Lautaro"], ["Lauro", "Sisebuto", ["Fracisbuto", "Vigafredo", ["Leovigildo", "Recaredo"]]], "Amalarico II"];
+
+        // MOSTRAR CUAL ES EL QUE MAS APARECE
+
+        let reyes = MUSCHOSREYES.flat(Infinity)
+        let cuantosmayor =0;
+        let famoso ="";
+        
+        // SACAR EL NOMBRE MAS REPE
+        let famosos = reyes.map(e=>{
+            // CONTAR CUANTAS VECES APARECE UNO
+            let cuantos = reyes.filter(f=>f==e).length;
+            //console.log(e + " :" + cuantos)
+
+            if(cuantos > cuantosmayor){
+                cuantosmayor = cuantos
+                famoso = e;
+            }
+        })
+        console.log(famoso + ": " + cuantosmayor)
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Challenge 7</title>
+</head>
+
+<body>
+    <script>
+
+        const REYES = ["Chindatore", ["Chindasvinto", "Rencesvinto", "Lautaro"], ["Lauro", "Sisebuto", ["Fracisbuto", "Vigafredo", ["Leovigildo", "Recaredo"]]], "Amalarico II"];        // skriv inn koden din her. Vær forsiktig med at json-en jukser. Det er ikke en matrise, men et objekt.
+
+        // DECIR CUAL ES LA ULTIMA GENERACIÓN
+        const buscaGener = (arr, nivel) => {
+            let nivelret = nivel;
+
+            arr.map(v => {
+                if (Array.isArray(v)) {
+                    let aux = buscaGener(arr, nivel + 1);
+                    if (aux > nivelret) nivelret = aux;
+                }
+            })
+            return nivelret;
+        }
+
+        console.log(buscaGener(REYES, 1))
+
+    </script>
+
+</body>
+
+</html>
