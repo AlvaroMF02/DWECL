@@ -21,17 +21,17 @@
         const MUSCHOSREYES = ["Fracisbuto", "Lauro","Vigafredo", "Lauro","Chindatore", ["Chindasvinto", "Rencesvinto", "Lautaro"], ["Lauro", "Sisebuto", ["Fracisbuto", "Vigafredo", ["Leovigildo", "Recaredo"]]], "Amalarico II"];
 
         // MOSTRAR CUAL ES EL QUE MAS APARECE
-
         let reyes = MUSCHOSREYES.flat(Infinity)
         let cuantosmayor =0;
         let famoso ="";
-        
         // SACAR EL NOMBRE MAS REPE
         let famosos = reyes.map(e=>{
             // CONTAR CUANTAS VECES APARECE UNO
             let cuantos = reyes.filter(f=>f==e).length;
             //console.log(e + " :" + cuantos)
 
+            // SI ES MAYOR QUE EL ALMACENADO ANTERIORMENTE LO GUARDA
+            // CONSIGUIENDO ASI SACAR AL QUE SE REPITE MÁS VECES
             if(cuantos > cuantosmayor){
                 cuantosmayor = cuantos
                 famoso = e;
