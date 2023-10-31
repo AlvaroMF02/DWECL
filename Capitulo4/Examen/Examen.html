@@ -18,15 +18,7 @@ initial-scale=1.0">
         console.log("Ejercicio 1")
         // 1) Almacena en la variable par true o false dependiendo si elnúmero de reyes godos fue par o impar
         let par = true
-        par = godos.GODOS.map(v => {
-            let canti = godos.GODOS.filter(e => v == e).length
-            if (canti % 2 == 0) {
-                return true;
-            } else {
-                return false;
-            }
-        });
-
+        godos.GODOS.map(v =>par=!par);
         console.log(par)
 
 
@@ -52,7 +44,7 @@ initial-scale=1.0">
 
         // 5) Cuantos godos eran sajones. Se quiere saber SOLO los nombres (en array si quieres)
         console.log("Ejercicio 5")
-        let godosSajones = godos.GODOS.filter(v => sajones.SAJONES.find(e => e.nombre == v.nombre) != undefined);
+        let godosSajones = godos.GODOS.filter(v => sajones.SAJONES.find(e => e.nombre == v.nombre) != undefined).map(k=>k.nombre);
         console.log(godosSajones);
 
         // 6) El nombre de los 10 primeros reyes godos (en array siquieres)
