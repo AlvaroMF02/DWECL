@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reto 12</title>
+</head>
+
+<body>
+    <script>
+        let carrakos = ["Chevrolet", "Tesla", "BMW", ["Honda", "Infiniti", ["Lexus", "Mercedes", "Kia"], "Hyunday"], ["Mazda", "Mercedes", "Jeep", ["KTM", "Nissan", "Isuzu"]]];
+        let xungos = [{ nombre: "Bruce Lee", carros: ["Chevrolet", "Tesla", "BMW"] }, { nombre: "Steven Seagal", carros: ["Mazda", "Jeep", "Nissan"] },{ nombre: "YakiChan", carros: ["Lexus", "Mercedes", "Kia"] }]
+
+        let agrupados = carrakos.flat(Infinity).map(v => {
+            let prop = xungos.find(x => x.carros.find(c => c == v) != undefined);
+            let nombreProp = prop === undefined ? "nadie" : prop.nombre;
+
+            let objeto = {
+                nombre: v,
+                propietario: nombreProp
+            }
+            return objeto;
+        })
+
+        console.log(agrupados);
+    </script>
+</body>
+
+</html>

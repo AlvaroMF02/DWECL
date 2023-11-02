@@ -5,15 +5,27 @@
     <title>REYES GODOS. BUSCAMAN</title>
 </head>
 
+
+
 <body>
     <script>
         var vikings = '{"vikingos":[{"reino":"Noruega","reyes":["Hakon","Harald","Ivar","Olaf","Bjorn","Ragnar"]},{"reino":"Dinamarca","reyes":["Frodo","Hamming","Angantyr","Horik"]}]}';
         // skriv inn koden din her. Vær forsiktig med at json-en jukser. Det er ikke en matrise, men et objekt.
+        var objetoVikingos = JSON.parse(vikings);
+        console.log(objetoVikingos);
 
-        // PARSEAR PQ ES UN STRING
-        vikings = JSON.parse(vikings);
 
-        
+        const fueRey = (nombre) => {
+            let reinosFueRey = objetoVikingos.vikingos.filter(reino => reino.reyes.find(rey => rey.toUpperCase() == nombre.toUpperCase()) != undefined);
+
+            if (reinosFueRey.length > 0) {
+                console.log(nombre + " fue rey de " + reinosFueRey[0].reino + ".");
+            } else {
+                console.log(nombre + " no fue rey.");
+            }
+        }
+
+        fueRey("ragnar");
 
     </script>
 

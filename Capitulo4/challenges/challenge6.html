@@ -1,29 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
-    <title>Challenge 6</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge 7</title>
 </head>
 
 <body>
+    <h2>Challenge. Generaciones</h2>
     <script>
 
-        const REYES = ["Chindatore", ["Chindasvinto", "Rencesvinto", "Lautaro"], ["Lauro", "Sisebuto", ["Fracisbuto", "Vigafredo", ["Leovigildo", "Recaredo"]]], "Amalarico II"];        // skriv inn koden din her. Vær forsiktig med at json-en jukser. Det er ikke en matrise, men et objekt.
+        // CUALES SON LOS REYES DE GENERACION PAR
+        const REYES = ["Chindatore", ["Chindasvinto", "Rencesvinto", "Lautaro"], ["Lauro", "Sisebuto", ["Fracisbuto", "Vigafredo", ["Leovigildo", "Recaredo"]]], "Amalarico II"];
 
-        // MOSTRAR REYES DE GENERACIÓN PAR O IMPAR
-        const buscaReyes = (arr,gener) => {
-
-            arr.map(v=>{
-                if (Array.isArray(v)) {
-                    
-                }
-            })
+        const numGen = (elemento) => {
+            if (Array.isArray(elemento)) {
+                return 1 + numGen(elemento.find(e => Array.isArray(e)));
+            } else {
+                return 1
+            }
         }
 
+        const mayorGen = (array) => {
+            let mayorGen = 0;
+            array.map(e => {
+                let num = numGen(e);
+                if (num > mayorGen) {
+                    mayorGen = num;
+                }
+            })
+            return mayorGen;
+        }
 
+        console.log("La última generación es: " + mayorGen(REYES));
 
     </script>
-
 </body>
 
 </html>

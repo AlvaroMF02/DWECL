@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reto 11 - Tortura vikinga</title>
+</head>
+
+<body>
+    <h2>Tortura vikinga</h2>
+    <script>
+        var vikings = '{"vikingos":[{"reino":"Noruega","reyes":["Hakon","Harald",["Ivar",["Olaf","Lars","Lasse"],"Bjorn"],"Ragnar"]},{"reino":"Dinamarca","reyes":["Frodo","Hamming",["Angantyr","Sarunas"],"Horik"]}]}';
+        // skriv inn koden din her. Vær forsiktig med at json-en jukser. Det er ikke en matrise, men et objekt.
+        var objetoVikingos = JSON.parse(vikings);
+
+        const fueRey = (nombre) => {
+
+            let reinosFueRey = objetoVikingos.vikingos.filter(reino => reino.reyes.flat(Infinity).find(rey => rey.toUpperCase() == nombre.toUpperCase()) != undefined);
+
+            if (reinosFueRey.length > 0) {
+                console.log(nombre + " fue rey de " + reinosFueRey[0].reino + ".");
+            } else {
+                console.log(nombre + " no fue rey.");
+            }
+        }
+
+        fueRey("Olaf");
+
+    </script>
+</body>
+
+</html>
