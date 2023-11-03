@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>UNION LIST</title>
+</head>
+
+<body>
+    PRIMERA LISTA:
+    <ul id="lista1">
+        <li>manzana</li>
+        <li>pera</li>
+        <ul>
+            <li>conferencia</li>
+            <ul>
+                <li>conferenciaverde</li>
+                <li>conferenciaamarilla</li>
+                <li>conferenciaroja</li>
+            </ul>
+            <li>peradeagua</li>
+            <li>peritadulce</li>
+            <ul>
+                <li>Dimas</li>
+                <li>Gestas</li>
+                <li>Malakatos</li>
+                <li>Jose</li>
+            </ul>
+        </ul>
+        <li>limon</li>
+        <li>limon</li>
+        <li>LIMON</li>
+    </ul>
+    Segunda lista:
+    <ul id="lista2">
+        <li>manzana</li>
+        <li>manzana</li>
+        <ul>
+            <li>manzana</li>
+            <li>manzana</li>
+        </ul>
+        <li>pera</li>
+        <li>limon</li>
+    </ul>
+
+    <ol id="lista3"></ol>
+
+    <script>
+
+        function pasArray(lista) {
+            const element = array[i];
+            if (lista.nodeName == "ul") {
+                arr.push(lista)
+            }
+        }
+
+        function miConcat(arr1, arr2) {
+            let arrJun = []
+            for (let i = 0; i < arr2.length; i++) {
+                arrJun.push(arr2(i))
+            }
+            for (let i = 0; i < arr1.length; i++) {
+                arrJun.push(arr1(i))
+            }
+            return arrJun;
+        }
+
+        function crearLista(arr) {
+            padre = document.getElementById("lista3")
+            arr.map(v => {
+                li = document.createElement("li");
+                texto = document.createTextNode(v);
+                li.appendChild(texto);
+                padre.appendChild(li);
+            })
+        }
+
+
+        let padrLista1 = document.getElementById("lista1");
+        let padrLista2 = document.getElementById("lista2");
+
+        // Pasar las listas a array
+        let lista1 = pasArray(padrLista1);
+        let lista2 = pasArray(padrLista2);
+
+        // Ordenar listas
+        lista1 = lista1.sort;
+        lista2 = lista2.sort;
+
+        // Quitar repetidos
+        letSinRepe1 = lista1.map(v, i, arr => {
+            i = 1;
+            if (v != arr[i - 1]) {
+                return v
+            }
+        })
+        letSinRepe2 = lista2.map(v, i, arr => {
+            i = 1;
+            if (v != arr[i - 1]) {
+                return v
+            }
+        })
+
+        // Juntar las listas
+        listaTerm = miConcat(letSinRepe1, letSinRepe2)
+
+        // Crear la lista 3
+        crearLista(listaTerm);
+
+
+
+
+
+    </script>
+</body>
+
+</html>
