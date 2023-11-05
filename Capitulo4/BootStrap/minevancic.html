@@ -4,24 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>Minivancic</title>
 </head>
 
 <body>
+        <h2>Tablero original</h2>
+        <p id="principal"></p>
 
-    <h2>Tablero original</h2>
-    <p id="principal"></p>
-
-    <h2>Tablero solucionado</h2>
-    <p id="hecho"></p>
+        <h2>Tablero solucionado</h2>
+        <p id="hecho"></p>
 
     <script>
-
-        // 1 SON MINAS
-        // PONER 2 EN LAS MAS CERCANAS AL 1
-        // PONER 3 EN LAS MAS CERCANAS AL 2
-        // PONER 4 EN LAS MAS CERCANAS AL 3
-        // PONER 5 EN LAS QUE QUEDEN
         let minas = [
             [0, 0, 0, 0, 0, 0, 0],
             [0, 1, 0, 0, 0, 0, 0],
@@ -135,13 +130,31 @@
             }
         }
 
-
-
         mostrar(tablero, "hecho")
-
-
-
+    
+        // no entiendo como se hace según el teacher :)
     </script>
+
+    <script>
+        mostrar(tablero, "hecho")
+        <button type="button" class="btn btn-primary">1</button>
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+
+            for (let i = 0; i < tablero.length; i++) {
+                for (let j = 0; j < tablero.length; j++) {
+                    if (tablero[i][j] == 1) {
+                        <button type="button" class="btn btn-primary">1</button>
+                    }
+
+                }
+            }
+        </script>
+
+
 </body>
 
 </html>
