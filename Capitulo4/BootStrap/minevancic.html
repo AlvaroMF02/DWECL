@@ -10,20 +10,29 @@
 </head>
 
 <body>
-        <h2>Tablero original</h2>
-        <p id="principal"></p>
+    <h2>Tablero original</h2>
+    <p id="principal"></p>
 
-        <h2>Tablero solucionado</h2>
-        <p id="hecho"></p>
+    <h2>Tablero solucionado</h2>
+    <p id="hecho"></p>
+
+    <h2>Tablero con botones</h2>
+    <p id="botones"></p>
 
     <script>
         let minas = [
-            [0, 0, 0, 0, 0, 0, 0],
-            [0, 1, 0, 0, 0, 0, 0],
-            [0, 1, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 1, 0],
-            [0, 0, 0, 0, 0, 1, 0],
-            [0, 0, 0, 0, 0, 0, 0]
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+            [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+            [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         ];
 
 
@@ -48,7 +57,7 @@
 
         // 1º pasada, solo se ponen los 2
         for (let i = 0; i < tablero.length; i++) {
-            for (let j = 0; j < tablero.length; j++) {
+            for (let j = 0; j < tablero[i].length; j++) {
                 // Mirar los 1 y poner su alrededor a 2
                 if (tablero[i][j] == 1) {
                     if (j < tablero[j].length - 1 && tablero[i][j + 1] == 0) {
@@ -63,13 +72,26 @@
                     if (i > 0 && tablero[i - 1][j] == 0) {
                         tablero[i - 1][j] = 2
                     }
+                    // Diagonales
+                    if (i > 0 && j > 0 && tablero[i - 1][j - 1] == 0) {
+                        tablero[i - 1][j - 1] = 2
+                    }
+                    if (i > 0 && j > 0 && tablero[i - 1][j + 1] == 0) {
+                        tablero[i - 1][j + 1] = 2
+                    }
+                    if (i < tablero.length - 1 && j > 0 && tablero[i + 1][j - 1] == 0) {
+                        tablero[i + 1][j - 1] = 2
+                    }
+                    if (i < tablero.length - 1 && j < tablero[i].length - 1 && tablero[i + 1][j + 1] == 0) {
+                        tablero[i + 1][j + 1] = 2
+                    }
                 }
             }
         }
 
         // 2º pasada, se ponen los 3
         for (let i = 0; i < tablero.length; i++) {
-            for (let j = 0; j < tablero.length; j++) {
+            for (let j = 0; j < tablero.length; j++) {  // tablero[i].length da error
 
                 if (tablero[i][j] == 2) {
                     if (j < tablero[j].length - 1 && tablero[i][j + 1] == 0) {
@@ -83,6 +105,19 @@
                     }
                     if (i > 0 && tablero[i - 1][j] == 0) {
                         tablero[i - 1][j] = 3
+                    }
+                    // Diagonales
+                    if (i > 0 && j > 0 && tablero[i - 1][j - 1] == 0) {
+                        tablero[i - 1][j - 1] = 3
+                    }
+                    if (i > 0 && j > 0 && tablero[i - 1][j + 1] == 0) {
+                        tablero[i - 1][j + 1] = 3
+                    }
+                    if (i < tablero.length - 1 && j > 0 && tablero[i + 1][j - 1] == 0) {
+                        tablero[i + 1][j - 1] = 3
+                    }
+                    if (i < tablero.length - 1 && j < tablero[i].length - 1 && tablero[i + 1][j + 1] == 0) {
+                        tablero[i + 1][j + 1] = 3
                     }
                 }
             }
@@ -105,6 +140,19 @@
                     if (i > 0 && tablero[i - 1][j] == 0) {
                         tablero[i - 1][j] = 4
                     }
+                    // Diagonales
+                    if (i > 0 && j > 0 && tablero[i - 1][j - 1] == 0) {
+                        tablero[i - 1][j - 1] = 4
+                    }
+                    if (i > 0 && j > 0 && tablero[i - 1][j + 1] == 0) {
+                        tablero[i - 1][j + 1] = 4
+                    }
+                    if (i < tablero.length - 1 && j > 0 && tablero[i + 1][j - 1] == 0) {
+                        tablero[i + 1][j - 1] = 4
+                    }
+                    if (i < tablero.length - 1 && j < tablero[i].length - 1 && tablero[i + 1][j + 1] == 0) {
+                        tablero[i + 1][j + 1] = 4
+                    }
                 }
             }
         }
@@ -126,35 +174,64 @@
                     if (i > 0 && tablero[i - 1][j] == 0) {
                         tablero[i - 1][j] = 5
                     }
+                    // Diagonales
+                    if (i > 0 && j > 0 && tablero[i - 1][j - 1] == 0) {
+                        tablero[i - 1][j - 1] = 5
+                    }
+                    if (i > 0 && j > 0 && tablero[i - 1][j + 1] == 0) {
+                        tablero[i - 1][j + 1] = 5
+                    }
+                    if (i < tablero.length - 1 && j > 0 && tablero[i + 1][j - 1] == 0) {
+                        tablero[i + 1][j - 1] = 5
+                    }
+                    if (i < tablero.length - 1 && j < tablero[i].length - 1 && tablero[i + 1][j + 1] == 0) {
+                        tablero[i + 1][j + 1] = 5
+                    }
                 }
             }
         }
 
         mostrar(tablero, "hecho")
-    
-        // no entiendo como se hace según el teacher :)
-    </script>
 
-    <script>
-        mostrar(tablero, "hecho")
-        <button type="button" class="btn btn-primary">1</button>
-    </script>
+        let tableroBotones = document.getElementById("botones");
+        function mostrarTableroBotones(arr, padre) {
 
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-
-            for (let i = 0; i < tablero.length; i++) {
-                for (let j = 0; j < tablero.length; j++) {
-                    if (tablero[i][j] == 1) {
-                        <button type="button" class="btn btn-primary">1</button>
+            let tabla = "<table>";
+            // como for 
+            for (let fila of arr) {
+                tabla += "<tr>";
+                for (let valor of fila) {
+                    switch (valor) {
+                        case 1:
+                            tabla += "<td><button type='button' class='btn btn-outline-danger'>" + valor + "</button></td>"
+                            break;
+                        case 2:
+                            tabla += "<td><button type='button' class='btn btn-outline-warning'>" + valor + "</button></td>"
+                            break;
+                        case 3:
+                            tabla += "<td><button type='button' class='btn btn-outline-success'>" + valor + "</button></td>"
+                            break;
+                        case 4:
+                            tabla += "<td><button type='button' class='btn btn-outline-info'>" + valor + "</button></td>"
+                            break;
+                        case 5:
+                            tabla += "<td><button type='button' class='btn btn-outline-secondary'>" + valor + "</button></td>"
+                            break;
+                        default:
+                            tabla += "<td><button type='button' class='btn btn-outline-secondary'>" + valor + "</button></td>"
+                            break;
                     }
-
                 }
+                tabla += "</tr>";
             }
-        </script>
+            tabla += "</table>";
 
+            // Meto la tabla en el padre
+            padre.innerHTML = tabla;
+        };
 
+        mostrarTableroBotones(tablero, tableroBotones);
+    </script>
 </body>
 
 </html>
