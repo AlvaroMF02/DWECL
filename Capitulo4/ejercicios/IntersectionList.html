@@ -43,45 +43,52 @@
 
     <script>
 
-        //Declarar las listas
+        // Listas que se van a rellenar con los nodos
         var lista1 = [];
         var lista2 = [];
-        var newlista = [];
+        var lista3 = [];
 
-        const inserta = (desde, hasta) => {
-            if (desde.nodeName == "LI") {
-                hasta.push(desde.innerHTML.toUpperCase())
+        // Inserta las listas del DOM 
+        // Le pasas el padre(UL lista1) y el array vacio
+        const inserta = (padre, arr) => {
+            // Si el nodo es un li, lo mete en el array
+            if (padre.nodeName == "LI") {
+                arr.push(padre.innerHTML.toUpperCase())
             } else {
-                for (let i = 0; i < desde.children.length; i++) inserta(desde.children[i], hasta)
+                // Si el nodo es UL lo recorre las veces que tenga li la ul
+                for (let i = 0; i < padre.children.length; i++) {
+                    // En cada li llama a la funcion
+                    inserta(padre.children[i], arr)
+                    // Si hubiera otro UL dentro lo volveria a enviar al bucle
+                }
             }
         }
 
-        // Insertar las dos listas del DOM en 2 arrays diferentes
+        // Llamo a la funcion pasandole el padre y la lista que quiero rellenar con este
         inserta(document.getElementById("lista1"), lista1);
         inserta(document.getElementById("lista2"), lista2);
-        //console.log(lista2)
 
-        //
-        // desde.children[]
-
-        //Ordenar las dos listas y eliminar duplicados. Si ordeno las listas puedo quitar los duplicados de forma fácil porque estarán juntos.
+        // Ordenar la lista para quitar los duplicados, será más facil porque estarán juntos
         lista1.sort();
-        lista1 = lista1.filter((f, i, arr) => i == 0 || arr[i] != arr[i - 1])
+        // Cojo los que sean diferentes al anterior
+        lista1 = lista1.filter((_, i, arr) => i == 0 || arr[i] != arr[i - 1])
+
         lista2.sort();
-        lista2 = lista2.filter((f, i, arr) => i == 0 || arr[i] != arr[i - 1])
+        lista2 = lista2.filter((_, i, arr) => i == 0 || arr[i] != arr[i - 1])
 
-        console.log(lista1)
-        console.log(lista2)
-        //Crear una nueva lista concatenando el resultado de las dos anteriores.
-        newlista = lista1.concat(lista2);
+        // console.log(lista1)
+        // console.log(lista2)
 
-        //Ordenar la nueva lista
-        newlista.sort();
+        // Meto en la lista 3 la lista 1 y 2 ordenadas y sin duplicados
+        lista3 = lista1.concat(lista2);
 
-        //quitar duplicados
-        newlista = newlista.filter((f, i, arr) => i > 0 && arr[i] == arr[i - 1])
+        // Ordeno la lista 3
+        lista3.sort();
 
-        console.log(newlista)
+        // Quitar los duplicados igual que antes por si acaso
+        lista3 = lista3.filter((_, i, arr) => i == 0 || arr[i] != arr[i - 1])
+
+        console.log(lista3)
 
     </script>
 

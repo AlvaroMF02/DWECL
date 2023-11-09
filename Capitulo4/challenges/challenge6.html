@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Challenge 7</title>
+    <title>Challenge 6</title>
 </head>
 
 <body>
@@ -14,27 +14,21 @@
         // CUALES SON LOS REYES DE GENERACION PAR
         const REYES = ["Chindatore", ["Chindasvinto", "Rencesvinto", "Lautaro"], ["Lauro", "Sisebuto", ["Fracisbuto", "Vigafredo", ["Leovigildo", "Recaredo"]]], "Amalarico II"];
 
-        const numGen = (elemento) => {
-            if (Array.isArray(elemento)) {
-                return 1 + numGen(elemento.find(e => Array.isArray(e)));
-            } else {
-                return 1
-            }
-        }
-
-        const mayorGen = (array) => {
-            let mayorGen = 0;
-            array.map(e => {
-                let num = numGen(e);
-                if (num > mayorGen) {
-                    mayorGen = num;
+        const buscaReyes = (arr, generacion) => {
+            arr.map(e => {
+                if (Array.isArray(e)) {
+                    // si tiene un array quiere decir que la siguiente va a ser par
+                    // por lo que le cambia el valor
+                    buscaReyes(e, !generacion)
+                } else {
+                    // si es true lo muestra (par)
+                    if (generacion) console.log(e)
                 }
             })
-            return mayorGen;
         }
-        console.log(numGen(REYES))
-        console.log("La última generación es: " + mayorGen(REYES));
 
+        // Le paso el array y la generacion false=impar
+        buscaReyes(REYES, false)
     </script>
 </body>
 

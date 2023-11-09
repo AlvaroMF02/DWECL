@@ -8,22 +8,29 @@
 <body>
     <script>
 
-        const REYES = ["Chindatore", ["Chindasvinto", "Rencesvinto", "Lautaro"], ["Lauro", "Sisebuto", ["Fracisbuto", "Vigafredo", ["Leovigildo", "Recaredo"]]], "Amalarico II"];        // skriv inn koden din her. Vær forsiktig med at json-en jukser. Det er ikke en matrise, men et objekt.
+        const REYES = ["Chindatore", ["Chindasvinto", "Rencesvinto", "Lautaro"], ["Lauro", "Sisebuto", ["Fracisbuto", "Vigafredo", ["Leovigildo", "Recaredo"]]], "Amalarico II"];
 
         // DECIR CUAL ES LA ULTIMA GENERACIÓN
-        const buscaGener = (arr, nivel) => {
-            let nivelret = nivel;
-
-            arr.map(v => {
-                if (Array.isArray(v)) {
-                    let aux = buscaGener(arr, nivel + 1);
-                    if (aux > nivelret) nivelret = aux;
-                }
-            })
-            return nivelret;
+        const numGen = (elemento) => {
+            if (Array.isArray(elemento)){
+                return 1 + numGen(elemento.find(e => Array.isArray(e)));
+            } else {
+                return 1
+            }
         }
 
-        console.log(buscaGener(REYES, 1))
+        const mayorGen = (array) => {
+            let mayorGen = 0;
+            array.map(e => {
+                let num = numGen(e);
+                if (num > mayorGen) {
+                    mayorGen = num;
+                }
+            })
+            return mayorGen;
+        }
+
+        console.log("La última generación es: " + mayorGen(REYES));
 
     </script>
 

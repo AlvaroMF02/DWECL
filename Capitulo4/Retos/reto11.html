@@ -4,28 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reto 11 - Tortura vikinga</title>
+    <title>Reto 11</title>
 </head>
 
 <body>
-    <h2>Tortura vikinga</h2>
     <script>
         var vikings = '{"vikingos":[{"reino":"Noruega","reyes":["Hakon","Harald",["Ivar",["Olaf","Lars","Lasse"],"Bjorn"],"Ragnar"]},{"reino":"Dinamarca","reyes":["Frodo","Hamming",["Angantyr","Sarunas"],"Horik"]}]}';
         // skriv inn koden din her. Vær forsiktig med at json-en jukser. Det er ikke en matrise, men et objekt.
-        var objetoVikingos = JSON.parse(vikings);
+        var vikingos = JSON.parse(vikings);
 
         const fueRey = (nombre) => {
+            // Guardo el filtrado de los reyes del reino (con flat) que sean iguales al nombre que le paso
+            let reinosFueRey = vikingos.vikingos.filter(reino => reino.reyes.flat(Infinity).find(rey => rey.toUpperCase() == nombre.toUpperCase()) != undefined);
 
-            let reinosFueRey = objetoVikingos.vikingos.filter(reino => reino.reyes.flat(Infinity).find(rey => rey.toUpperCase() == nombre.toUpperCase()) != undefined);
-
+            // Si se ha guardado algo mira el primero y muestra el reino
             if (reinosFueRey.length > 0) {
                 console.log(nombre + " fue rey de " + reinosFueRey[0].reino + ".");
+
+                // Si reinosFueRey está vacio es porque no fue rey
             } else {
                 console.log(nombre + " no fue rey.");
             }
         }
 
-        fueRey("Olaf");
+        fueRey("angantyr");
 
     </script>
 </body>

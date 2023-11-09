@@ -11,21 +11,24 @@
     <script>
         var vikings = '{"vikingos":[{"reino":"Noruega","reyes":["Hakon","Harald","Ivar","Olaf","Bjorn","Ragnar"]},{"reino":"Dinamarca","reyes":["Frodo","Hamming","Angantyr","Horik"]}]}';
         // skriv inn koden din her. Vær forsiktig med at json-en jukser. Det er ikke en matrise, men et objekt.
-        var objetoVikingos = JSON.parse(vikings);
-        console.log(objetoVikingos);
+        var vikingos = JSON.parse(vikings);
 
 
         const fueRey = (nombre) => {
-            let reinosFueRey = objetoVikingos.vikingos.filter(reino => reino.reyes.find(rey => rey.toUpperCase() == nombre.toUpperCase()) != undefined);
+            // Guarda si encuentra un rey de un reino con el nombre que se pasa
+            let reinosFueRey = vikingos.vikingos.filter(reino => reino.reyes.find(rey => rey.toUpperCase() == nombre.toUpperCase()) != undefined);
 
+            // Si se ha guardado algo mira el primero y muestra el reino
             if (reinosFueRey.length > 0) {
                 console.log(nombre + " fue rey de " + reinosFueRey[0].reino + ".");
+            
+            // Si reinosFueRey está vacio es porque no fue rey
             } else {
                 console.log(nombre + " no fue rey.");
             }
         }
 
-        fueRey("ragnar");
+        fueRey("frodo");
 
     </script>
 
