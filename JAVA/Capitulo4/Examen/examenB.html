@@ -60,13 +60,13 @@
 
     <script>
         /*CREA UNA FUNCIÓN QUE DADO UN NODO CUENTE CUANTAS PERSONAS CON UN NOMBRE HAY POR DEBAJO DE ÉL (INCLUIDO)*/
-        const cuentaMan = (obj, man) => {
+        const cuentaMan = (nodo, nombre) => {
             let cuantos = 0;
-            if (obj.tagName == 'LI') {
-                if (obj.innerHTML.toUpperCase() == man.toUpperCase()) cuantos++
+            if (nodo.tagName == 'LI') {
+                if (nodo.innerHTML.toUpperCase() == nombre.toUpperCase()) cuantos++
             } else {
-                for (let i = 0; i < obj.children.length; i++) {
-                    cuantos += cuentaMan(obj.children[i], man)
+                for (let i = 0; i < nodo.children.length; i++) {
+                    cuantos += cuentanombre(nodo.children[i], nombre)
                 }
             }
             return cuantos;
@@ -75,18 +75,21 @@
         //console.log(cuentaMan(document.getElementById("lista1"),"Gestas"))
         //console.log(cuentaMan(document.getElementById("lista1"),"Dimas"))
         //console.log(cuentaMan(document.getElementById("lista1"),"FLorenzo"))
+
         /*CREA OTRA FUNCION QUE RECORRE LA SEGUNDA LISTA Y LLAME A LA FUNCION ANTERIOR PARA QUE BUSQUE
         A ESA PERSONA EN LA PRIMERA LISTA Y LE AGREGUE LAS VECES QUE APARECE EN LA PRIMERA*/
-        const recorreYcuenta = (obj) => {
-            if (obj.tagName == 'LI') {
-                obj.innerHTML = obj.innerHTML + " - " + cuentaMan(document.getElementById("lista1"), obj.innerHTML)
+        const recorreYcuenta = (lista) => {
+            if (lista.tagName == 'LI') {
+                lista.innerHTML = lista.innerHTML + " - " + cuentaMan(document.getElementById("lista1"), lista.innerHTML)
             } else {
-                for (let i = 0; i < obj.children.length; i++) {
-                    recorreYcuenta(obj.children[i])
+                for (let i = 0; i < lista.children.length; i++) {
+                    recorreYcuenta(lista.children[i])
                 }
             }
         }
+
         recorreYcuenta(document.getElementById("lista2"))
+
     </script>
 
 </body>
