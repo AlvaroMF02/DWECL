@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 import { Button, Card, CardImg, CardBody, CardTitle } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
+// Componente sino que crea un Card de reactstrap
 const Sino = (props) => {
   return (<>
     <Card style={{ width: '18rem' }}>
+      {/* Paso la imagen con props */}
       <CardImg src={props.imagen} />
       <CardBody>
-        <CardTitle tag="h5">
-          {props.Titulo}
-        </CardTitle>
+        {/* Paso el título */}
+        <CardTitle tag="h5">{props.Titulo}</CardTitle>
+        {/* Botones que en el onClick llama a una funcion que al hacer click pone la imagen */}
         <Button onClick={() => props.onClick(props.imagenSi)}>
           {props.textobotonSI}
         </Button>
