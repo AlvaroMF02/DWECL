@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Spinner, Button } from 'reactstrap';
 import Campo from './componentes/Campo';
 import Botonera from './componentes/Botonera';
+import SelectorMinas from './componentes/SelectorMinas';
 
 
 class App extends Component {
@@ -21,7 +22,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Campo filas={this.state.filas} columnas={this.state.columnas}/>
         <Botonera />
+        <SelectorMinas cantidad = {this.state.minas}/>
+        
       </div>
     );
   }

@@ -1,14 +1,19 @@
-import { Button } from 'reactstrap';
+import Boton from "./Boton";
 
 
-
-const Boton = (props) => {
+const SelectorMinas = (props) => {
 
   // devuelve solo uno
     return (<>
-      <Button></Button>
+    <div>
+      <Boton texto={"Añadir minas"} flecha={"+"}/>
+      {" "}
+      <Boton texto={"Quitar minas"} flecha={"-"}/>
+      {" Minas: " + props.cantidad}
+    </div>
+      
     </>);
   }
 
-export default Boton;
+export default SelectorMinas;
     

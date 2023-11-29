@@ -1,33 +1,30 @@
-import { Button } from 'reactstrap';
+import { Row } from 'reactstrap';
+import Boton from './Boton';
 
 
 
 const Campo = (props) => {
-// 10x10 y despues parametrizado
-  const matr = [
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-    [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-];
 
-    for (let i = 0; i < matr.length; i++) {
-      for (let j = 0; j < matr[i].length; j++) {
-        
-      }
-    }
+let filas = props.filas
+let columnas = props.columnas
+
+let tablero = []
+
+for (let i = 0; i < filas; i++) {
+    {tablero.push(new Array())}
+  for (let j = 0; j < columnas; j++) {
+    tablero[i].push(<Boton flecha={"o"}/>)    
+  }
+}
+
+for (let i = 0; i < filas; i++) {
+  tablero[i][j] = <Row><Col>{tablero[i]}</Col></Row>
+  
+}
 
   // devuelve solo uno
     return (<>
-      
+      {tablero}
     </>);
   }
 
