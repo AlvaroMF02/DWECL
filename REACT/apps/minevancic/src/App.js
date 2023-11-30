@@ -1,7 +1,6 @@
 import React from 'react';
 import { Component } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Spinner, Button } from 'reactstrap';
 import Campo from './componentes/Campo';
 import Botonera from './componentes/Botonera';
 import SelectorMinas from './componentes/SelectorMinas';
@@ -18,10 +17,18 @@ class App extends Component {
     }
   }
 
+  ponerMinas(){
+    this.setState({ minas: this.state.minas + 1 });
+  }
+
+  quitarMinas(){
+    this.setState({ minas: this.state.minas - 1 });
+  }
 
   render() {
     return (
       <div className="App">
+        {<h1>Minevancic</h1>}
         <Campo filas={this.state.filas} columnas={this.state.columnas}/>
         <Botonera />
         <SelectorMinas cantidad = {this.state.minas}/>

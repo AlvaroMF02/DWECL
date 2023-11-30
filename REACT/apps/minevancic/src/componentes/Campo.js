@@ -1,4 +1,4 @@
-import { Row } from 'reactstrap';
+import { Row,Col } from 'reactstrap';
 import Boton from './Boton';
 
 
@@ -10,6 +10,7 @@ let columnas = props.columnas
 
 let tablero = []
 
+// Rellenar cada uno dependiendo del numero de minas que hay
 for (let i = 0; i < filas; i++) {
     {tablero.push(new Array())}
   for (let j = 0; j < columnas; j++) {
@@ -18,9 +19,11 @@ for (let i = 0; i < filas; i++) {
 }
 
 for (let i = 0; i < filas; i++) {
-  tablero[i][j] = <Row><Col>{tablero[i]}</Col></Row>
-  
+  tablero[i] = <Row><Col>{tablero[i]}</Col></Row>
 }
+
+
+
 
   // devuelve solo uno
     return (<>
