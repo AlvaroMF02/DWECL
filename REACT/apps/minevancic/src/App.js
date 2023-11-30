@@ -29,6 +29,7 @@ class App extends Component {
     return (
       <div className="App">
         {<h1>Minevancic</h1>}
+        
         <Campo filas={this.state.filas} columnas={this.state.columnas}/>
         <Botonera />
         <SelectorMinas cantidad = {this.state.minas}/>
