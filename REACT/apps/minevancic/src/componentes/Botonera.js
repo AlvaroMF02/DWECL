@@ -1,4 +1,5 @@
 import Boton from './Boton';
+import '../Botonera.css';
 
 
 const Botonera = (props) => {
