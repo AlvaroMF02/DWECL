@@ -6,13 +6,13 @@ const Botonera = (props) => {
     return (<>
     {/* Poner el div en medio */}
     <div class="arriba">
-      <Boton texto={"arriba"} flecha={"⇧"}/>
+      <Boton title={"arriba"} texto={"⇧"}/>
     </div>
-      <Boton texto={"izquierda"} flecha={"⇦"}/>
+      <Boton title={"izquierda"} texto={"⇦"}/>
       {" "}
-      <Boton texto={"abajo"} flecha={"⇩"}/>
+      <Boton title={"abajo"} texto={"⇩"}/>
       {" "}
-      <Boton texto={"derecha"} flecha={"⇨"}/>
+      <Boton title={"derecha"} texto={"⇨"}/>
     </>);
   }
 

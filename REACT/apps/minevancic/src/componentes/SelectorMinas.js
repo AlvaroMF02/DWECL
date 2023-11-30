@@ -6,9 +6,9 @@ const SelectorMinas = (props) => {
   // devuelve solo uno
     return (<>
     <div>
-      <Boton texto={"Añadir minas"} flecha={"+"}/>
+      <Boton title={"Añadir minas"} texto={"+"}/>
       {" "}
-      <Boton texto={"Quitar minas"} flecha={"-"}/>
+      <Boton title={"Quitar minas"} texto={"-"}/>
       {" Minas: " + props.cantidad}
     </div>
       
