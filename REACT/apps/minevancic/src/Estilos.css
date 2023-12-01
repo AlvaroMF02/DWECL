@@ -1,0 +1,42 @@
+/* Botonera */
+div#botonera{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-color: rgb(206, 206, 206);
+    border-radius: 1rem;
+    border: 1px solid grey;
+    width: 10rem;
+}
+
+div#centro{
+    display: flex;
+    justify-content: space-around;
+}
+div#centro>div{
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+/* Campo */
+
+/* Selector minas */
+div#selectorMinas{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-color: rgb(206, 206, 206);
+    border-radius: 1rem;
+    border: 1px solid grey;
+    width: 11rem;
+}
+div#selectorMinas :nth-child(2){
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    padding-left: 13px;
+    padding-right: 13px;
+}

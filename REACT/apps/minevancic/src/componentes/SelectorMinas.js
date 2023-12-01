@@ -1,14 +1,16 @@
-import Boton from "./Boton";
+import '../Estilos.css';
+import { Button } from 'reactstrap';
+
 
 
 const SelectorMinas = (props) => {
 
   // devuelve solo uno
     return (<>
-    <div>
-      <Boton title={"Añadir minas"} texto={"+"}/>
+    <div id="selectorMinas">
+      <Button title='Añadir minas' onClick={()=>props.funcionSubir}>+</Button>
       {" "}
-      <Boton title={"Quitar minas"} texto={"-"}/>
+      <Button title='Quitar minas' onClick={()=>props.funcionBajar}>-</Button>
       {" Minas: " + props.cantidad}
     </div>
       

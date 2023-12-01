@@ -14,7 +14,7 @@ let tablero = []
 for (let i = 0; i < filas; i++) {
     {tablero.push(new Array())}
   for (let j = 0; j < columnas; j++) {
-    tablero[i].push(<Boton texto={"UwU"}/>)    
+    tablero[i].push(<Boton texto={"."}/>)    
   }
 }
 

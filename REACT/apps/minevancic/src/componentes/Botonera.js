@@ -1,21 +1,21 @@
-import Boton from './Boton';
-import '../Botonera.css';
+import '../Estilos.css';
+import { Button } from 'reactstrap';
 
 
 const Botonera = (props) => {
   // 4 botones con los que nos moveremos por el campo
-    return (<>
+  return (<>
     {/* Poner el div en medio */}
-    <div class="arriba">
-      <Boton title={"arriba"} texto={"⇧"}/>
+    <div id="botonera">
+        <Button title='arriba'>⇧</Button>
+      <div id="centro">
+        <div><Button title='izquierda'>⇦</Button></div>
+        <div><Button title='derecha'>⇨</Button></div>
+      </div>
+        <Button title='abajo'>⇩</Button>
     </div>
-      <Boton title={"izquierda"} texto={"⇦"}/>
-      {" "}
-      <Boton title={"abajo"} texto={"⇩"}/>
-      {" "}
-      <Boton title={"derecha"} texto={"⇨"}/>
-    </>);
-  }
+
+  </>);
+}
 
 export default Botonera;
-    
