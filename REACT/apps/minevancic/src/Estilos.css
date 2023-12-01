@@ -21,6 +21,15 @@ div#centro>div{
 }
 
 /* Campo */
+div#contenedorCampo{
+    display: flex;
+}
+
+p#pCampo{
+    display: flex;
+    flex-flow: row wrap;
+    width: 25%;
+}
 
 /* Selector minas */
 div#selectorMinas{
