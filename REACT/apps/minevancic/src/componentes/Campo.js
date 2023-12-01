@@ -1,7 +1,7 @@
-import { Row, Col, Button } from 'reactstrap';
+import { Button } from 'reactstrap';
 
 
-const Campo = (props) => {
+export const Campo = (props) => {
 
   let filas = props.filas
   let columnas = props.columnas
@@ -21,7 +21,7 @@ const Campo = (props) => {
   }
 
   const campoMinas = rellenar()
-  campoMinas[props.posicion.y][props.posicion.x] = <Button outline>X</Button>
+  campoMinas[posicion.y][posicion.x] = <Button outline>X</Button>
 
 
   // for (let i = 0; i < tablero.length; i++) {
@@ -41,5 +41,3 @@ const Campo = (props) => {
     </div>
   </>);
 }
-
-export default Campo;

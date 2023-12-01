@@ -1,8 +1,8 @@
 import React from 'react';
 import { Component } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Campo from './componentes/Campo';
-import Botonera from './componentes/Botonera';
+import {Campo} from './componentes/Campo'
+import {Botonera} from './componentes/Botonera';
 import SelectorMinas from './componentes/SelectorMinas';
 
 
@@ -20,7 +20,7 @@ class App extends Component {
 
   // Funciones para subir y bajar las minas
   ponerMinas() {
-    if (this.state.minas < 20) {
+    if (this.state.minas < this.state.filas*this.state.columnas) {
       this.setState({ minas: this.state.minas + 1 });
     }
   }
@@ -34,18 +34,30 @@ class App extends Component {
   arriba(){
     if (this.state.posicion.y != 0) {
       let posActual = JSON.parse(JSON.stringify(this.state.posicion))
-      posActual = this.state.posicion.y - 1
+      posActual.y = this.state.posicion.y - 1
       this.setState({posicion:posActual}) 
     }    
   }
   abajo(){
-    
+    if (this.state.posicion.y != this.state.filas - 1) {
+      let posActual = JSON.parse(JSON.stringify(this.state.posicion))
+      posActual.y = this.state.posicion.y + 1
+      this.setState({posicion:posActual}) 
+    }   
   }
   derecha(){
-    
+    if (this.state.posicion.x != this.state.columnas - 1) {
+      let posActual = JSON.parse(JSON.stringify(this.state.posicion))
+      posActual.x = this.state.posicion.x + 1
+      this.setState({posicion:posActual}) 
+    }   
   }
   izquierda(){
-    
+    if (this.state.posicion.x != 0) {
+      let posActual = JSON.parse(JSON.stringify(this.state.posicion))
+      posActual.x = this.state.posicion.x - 1
+      this.setState({posicion:posActual}) 
+    }   
   }
 
   render() {
