@@ -14,15 +14,20 @@ class App extends Component {
       minas: 10,
       filas: 10,
       columnas: 10,
+      finalizado: false,
     }
   }
 
+  // Funciones para subir y bajar las minas
   ponerMinas() {
-    this.setState({ minas: this.state.minas + 1 });
+    if (this.state.minas < 20) {
+      this.setState({ minas: this.state.minas + 1 });
+    }
   }
-
   quitarMinas() {
-    this.setState({ minas: this.state.minas - 1 });
+    if (this.state.minas > 1) {
+      this.setState({ minas: this.state.minas - 1 });
+    }
   }
 
   render() {
