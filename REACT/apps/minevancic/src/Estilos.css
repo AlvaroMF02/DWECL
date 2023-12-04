@@ -25,10 +25,9 @@ div#contenedorCampo{
     display: flex;
 }
 
-p#pCampo{
-    display: flex;
-    flex-flow: row wrap;
-    width: 20%;
+p#pCampo button{
+    width: 3rem;
+    height: 3rem;
 }
 
 /* Selector minas */

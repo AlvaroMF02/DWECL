@@ -10,10 +10,11 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      posicion: { x: 3, y: 3 },
+      posicion: { x: 0, y: 0 },
       minas: 10,
       filas: 10,
       columnas: 10,
+      campo: Array(10).fill(Array(10)),
       finalizado: false,
     }
   }
@@ -57,7 +58,7 @@ class App extends Component {
       let posActual = JSON.parse(JSON.stringify(this.state.posicion))
       posActual.x = this.state.posicion.x - 1
       this.setState({posicion:posActual}) 
-    }   
+    }
   }
 
   render() {
@@ -66,7 +67,7 @@ class App extends Component {
       <h1>Minevancic</h1>
       <span>Posicion: {this.state.posicion.x}, {this.state.posicion.y}</span>
         
-        <Campo filas={this.state.filas} columnas={this.state.columnas} posicion={this.state.posicion} minas={this.state.minas}/>
+        <Campo campo={this.state.campo} posicion={this.state.posicion} />
         <Botonera posicion={this.state.posicion} arriba={()=>this.arriba()} abajo={()=>this.abajo()} izquierda={()=>this.izquierda()} derecha={()=>this.derecha()}/>
         <SelectorMinas cantidad={this.state.minas} funcionSubir={() => this.ponerMinas()} funcionBajar={() => this.quitarMinas()} />
 
