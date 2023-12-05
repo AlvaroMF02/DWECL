@@ -1,9 +1,12 @@
 import React from 'react';
 import { Component } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Campo} from './componentes/Campo'
-import {Botonera} from './componentes/Botonera';
+import { Campo } from './componentes/Campo'
+import { Botonera } from './componentes/Botonera';
 import SelectorMinas from './componentes/SelectorMinas';
+import { BotonJugar } from './componentes/BotonJugar';
+import './Estilos.css';
+
 
 
 class App extends Component {
@@ -19,9 +22,14 @@ class App extends Component {
     }
   }
 
+  // Crear el campo -> poner minas -> marcar distancias -> devolver el campo ya hecho
+  crearCampo(){
+
+  }
+
   // Funciones para subir y bajar las minas
   ponerMinas() {
-    if (this.state.minas < this.state.filas*this.state.columnas) {
+    if (this.state.minas < this.state.filas * this.state.columnas) {
       this.setState({ minas: this.state.minas + 1 });
     }
   }
@@ -32,45 +40,51 @@ class App extends Component {
   }
 
   // Cambiar la posicion
-  arriba(){
+  arriba() {
     if (this.state.posicion.y != 0) {
       let posActual = JSON.parse(JSON.stringify(this.state.posicion))
       posActual.y = this.state.posicion.y - 1
-      this.setState({posicion:posActual}) 
-    }    
+      this.setState({ posicion: posActual })
+    }
   }
-  abajo(){
+  abajo() {
     if (this.state.posicion.y != this.state.filas - 1) {
       let posActual = JSON.parse(JSON.stringify(this.state.posicion))
       posActual.y = this.state.posicion.y + 1
-      this.setState({posicion:posActual}) 
-    }   
+      this.setState({ posicion: posActual })
+    }
   }
-  derecha(){
+  derecha() {
     if (this.state.posicion.x != this.state.columnas - 1) {
       let posActual = JSON.parse(JSON.stringify(this.state.posicion))
       posActual.x = this.state.posicion.x + 1
-      this.setState({posicion:posActual}) 
-    }   
+      this.setState({ posicion: posActual })
+    }
   }
-  izquierda(){
+  izquierda() {
     if (this.state.posicion.x != 0) {
       let posActual = JSON.parse(JSON.stringify(this.state.posicion))
       posActual.x = this.state.posicion.x - 1
-      this.setState({posicion:posActual}) 
+      this.setState({ posicion: posActual })
     }
+  }
+
+  // lo reinicia todo, crear el campo, mostrarlo visualmente
+  jugar(){
+    
+      this.setState({ posicion: {x: 0, y: 0} })
   }
 
   render() {
     return (
       <div className="App">
-      <h1>Minevancic</h1>
-      <span>Posicion: {this.state.posicion.x}, {this.state.posicion.y}</span>
-        
-        <Campo campo={this.state.campo} posicion={this.state.posicion} />
-        <Botonera posicion={this.state.posicion} arriba={()=>this.arriba()} abajo={()=>this.abajo()} izquierda={()=>this.izquierda()} derecha={()=>this.derecha()}/>
-        <SelectorMinas cantidad={this.state.minas} funcionSubir={() => this.ponerMinas()} funcionBajar={() => this.quitarMinas()} />
+        <h1>Minevancic</h1>
+        <span>Posicion: {this.state.posicion.x}, {this.state.posicion.y}</span>
 
+        <SelectorMinas cantidad={this.state.minas} funcionSubir={() => this.ponerMinas()} funcionBajar={() => this.quitarMinas()} />
+        <Campo campo={this.state.campo} posicion={this.state.posicion} />
+        <Botonera posicion={this.state.posicion} arriba={() => this.arriba()} abajo={() => this.abajo()} izquierda={() => this.izquierda()} derecha={() => this.derecha()} />
+        <BotonJugar funcion={()=> this.jugar()}/>
       </div>
     );
   }

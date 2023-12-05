@@ -11,12 +11,12 @@ export const Campo = (props) => {
   function rellenar() {
     for (let i = 0; i < campo.length; i++) {
       for (let j = 0; j < campo[i].length; j++) {
+        // Si es la posicion pone le boton de otro color y tal
         if (posicion.x === j && posicion.y === i){
-          lista.push(<Button color='primary'>O</Button>)
+          lista.push(<Button color='dark'>🧑‍🦽</Button>)
         }else {
-          lista.push(<Button>X</Button>);
+          lista.push(<Button>‍</Button>);
         }
-        
       }
       lista.push(<br/>);
     }

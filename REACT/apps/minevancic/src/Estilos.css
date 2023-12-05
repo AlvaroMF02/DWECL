@@ -9,6 +9,7 @@ div#botonera{
     border-radius: 1rem;
     border: 1px solid grey;
     width: 10rem;
+    margin: 1rem;
 }
 
 div#centro{
@@ -41,10 +42,18 @@ div#selectorMinas{
     border-radius: 1rem;
     border: 1px solid grey;
     width: 11rem;
+    margin: 1rem;
 }
 div#selectorMinas :nth-child(2){
     margin-left: 0.5rem;
     margin-right: 0.5rem;
     padding-left: 13px;
     padding-right: 13px;
+}
+
+/* Diseño de todo el juego */
+div.App{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
 }
