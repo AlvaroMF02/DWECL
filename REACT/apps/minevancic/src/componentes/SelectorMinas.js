@@ -5,7 +5,7 @@ import { Button } from 'reactstrap';
 
 const SelectorMinas = (props) => {
 
-  // devuelve solo uno
+  // sube y baja la cantidad de minas
     return (<>
     <div id="selectorMinas">
       <Button title='Añadir minas' onClick={props.funcionSubir}>+</Button>

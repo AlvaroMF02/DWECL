@@ -5,20 +5,21 @@ export const Campo = (props) => {
 
   const campo = props.campo;
   const posicion = props.posicion;
-  const lista = [];
+  const tablero = [];
 
   // Rellenar cada uno dependiendo del numero de minas que hay
   function rellenar() {
     for (let i = 0; i < campo.length; i++) {
       for (let j = 0; j < campo[i].length; j++) {
-        // Si es la posicion pone le boton de otro color y tal
+        // Si es la posicion pone le boton de otro color si no lo pone default
         if (posicion.x === j && posicion.y === i){
-          lista.push(<Button color='dark'>🧑‍🦽</Button>)
+          tablero.push(<Button color='dark'>🧑</Button>)
         }else {
-          lista.push(<Button>‍</Button>);
+          tablero.push(<Button>‍</Button>);
         }
       }
-      lista.push(<br/>);
+      // br salto de linea
+      tablero.push(<br/>);
     }
   }
   rellenar();
@@ -27,7 +28,7 @@ export const Campo = (props) => {
   return (<>
     <div id="contenedorCampo">
       <p id="pCampo">
-        {lista}
+        {tablero}
       </p>
     </div>
   </>);

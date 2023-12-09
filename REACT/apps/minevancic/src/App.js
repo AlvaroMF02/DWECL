@@ -17,7 +17,7 @@ class App extends Component {
       minas: 10,
       filas: 10,
       columnas: 10,
-      campo: Array(10).fill(Array(10)),
+      campo: Array(10).fill(Array(10)), // cambiar por null cuando este acabado creo
       finalizado: false,
     }
   }

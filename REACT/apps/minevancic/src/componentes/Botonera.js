@@ -6,7 +6,6 @@ export const Botonera = (props) => {
   // 4 botones con los que nos moveremos por el campo
   let posicion = props.posicion
   return (<>
-    {/* Poner el div en medio */}
     <div id="botonera">
         <Button color='secondary'  title='arriba' onClick={() => props.arriba()}>⇧</Button>
       <div id="centro">
