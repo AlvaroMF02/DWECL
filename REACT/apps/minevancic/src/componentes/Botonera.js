@@ -7,12 +7,12 @@ export const Botonera = (props) => {
   let posicion = props.posicion
   return (<>
     <div id="botonera">
-        <Button color='secondary'  title='arriba' onClick={() => props.arriba()}>⇧</Button>
+        <Button color='secondary'  title='arriba' onClick={() => props.arriba()}>🢁</Button>
       <div id="centro">
-        <div><Button color='secondary'  title='izquierda' onClick={() => props.izquierda()}>⇦</Button></div>
-        <div><Button color='secondary'   title='derecha' onClick={() => props.derecha()}>⇨</Button></div>
+        <div><Button color='secondary'  title='izquierda' onClick={() => props.izquierda()}>🢀</Button></div>
+        <div><Button color='secondary'   title='derecha' onClick={() => props.derecha()}>🢂</Button></div>
       </div>
-        <Button color='secondary'   title='abajo' onClick={() => props.abajo()}>⇩</Button>        
+        <Button color='secondary'   title='abajo' onClick={() => props.abajo()}>🢃</Button>        
     </div>
     
   </>);
