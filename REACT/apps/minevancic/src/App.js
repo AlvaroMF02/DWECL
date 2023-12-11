@@ -17,7 +17,7 @@ class App extends Component {
       minas: 10,
       filas: 10,
       columnas: 10,
-      campo: Array(10).fill(Array(10)), // cambiar por null cuando este acabado creo
+      campo: Array(10).fill(Array(10)), // cambiar por null cuando este acabado creo o por la funcion
       finalizado: false,
     }
   }
@@ -25,6 +25,25 @@ class App extends Component {
   // Crear el campo -> poner minas -> marcar distancias -> devolver el campo ya hecho
   crearCampo() {
 
+    // crear el campo con las filas y columnas que ponga
+    let filas = this.state.filas
+    let columnas = this.state.columnas
+    let tablero = Array(filas).fill(Array(columnas));
+
+    // poner minas en el tablero
+    let numMinas = this.state.minas
+    for (let i = 0; i < numMinas; i++) {  // asi se pueden repetir y se pueden poner al inicio y final :(
+      let minaFila = Math.floor(Math.random() * filas + 1);
+      let minaColu = Math.floor(Math.random() * columnas + 1);
+
+      tablero[minaFila][minaColu] = 1;
+    }
+
+    // marcar distancias cop pega de minevancic :)
+
+
+    // devolver el campo period
+    return tablero;
   }
 
   // Funciones para subir y bajar las minas
@@ -71,7 +90,6 @@ class App extends Component {
 
   // lo reinicia todo, crear el campo, mostrarlo visualmente
   jugar() {
-
     this.setState({ posicion: { x: 0, y: 0 } })
   }
 
