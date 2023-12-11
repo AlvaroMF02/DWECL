@@ -23,7 +23,7 @@ class App extends Component {
   }
 
   // Crear el campo -> poner minas -> marcar distancias -> devolver el campo ya hecho
-  crearCampo(){
+  crearCampo() {
 
   }
 
@@ -70,9 +70,9 @@ class App extends Component {
   }
 
   // lo reinicia todo, crear el campo, mostrarlo visualmente
-  jugar(){
-    
-      this.setState({ posicion: {x: 0, y: 0} })
+  jugar() {
+
+    this.setState({ posicion: { x: 0, y: 0 } })
   }
 
   render() {
@@ -81,10 +81,13 @@ class App extends Component {
         <h1>Minevancic</h1>
         <span>Posicion: {this.state.posicion.x}, {this.state.posicion.y}</span>
 
-        <SelectorMinas cantidad={this.state.minas} funcionSubir={() => this.ponerMinas()} funcionBajar={() => this.quitarMinas()} />
+        <div id='botonesMinasJugar'>
+          <SelectorMinas cantidad={this.state.minas} funcionSubir={() => this.ponerMinas()} funcionBajar={() => this.quitarMinas()} />
+          <BotonJugar funcion={() => this.jugar()} />
+        </div>
         <Campo campo={this.state.campo} posicion={this.state.posicion} />
         <Botonera posicion={this.state.posicion} arriba={() => this.arriba()} abajo={() => this.abajo()} izquierda={() => this.izquierda()} derecha={() => this.derecha()} />
-        <BotonJugar funcion={()=> this.jugar()}/>
+
       </div>
     );
   }

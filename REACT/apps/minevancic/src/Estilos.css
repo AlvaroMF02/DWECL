@@ -57,3 +57,10 @@ div.App{
     flex-flow: column nowrap;
     align-items: center;
 }
+
+
+/* Botones del selector minas y jugar */
+div#botonesMinasJugar{
+    display: flex;
+    align-items: center;
+}
