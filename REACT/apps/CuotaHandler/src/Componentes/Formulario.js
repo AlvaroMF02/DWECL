@@ -1,17 +1,16 @@
-import { Button } from 'reactstrap';
 
 export const Formulario = (props) => {
-    let posicion = props.posicion
-    return (<>
+    return (
         <div>
-            <form onSubmit={this.props.onAddUser}>
-                Cantidad <input type="text" name="Cantidad" />
-                Interés <input type="email" name="Interés" />
+            <form onSubmit={props.cuenta}>
+                Cantidad <input type="text" name="cantidad" />
+                Interés <input type="text" name="interes" />
                 Tiempo: <br />
-                Años:<input type="email" name="Anyos" /> Meses:<input type="email" name="Meses" />
-                <input type="submit" name="Calcular" />
+                Años:<input type="text" name="anyos" /> Meses:<input type="text" name="meses" />
+                <input type="submit" value="Calcular" />
             </form>
-        </div>
-    </>);
+        </div>);
 }
+
+
 
