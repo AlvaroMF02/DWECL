@@ -13,7 +13,7 @@ export const Campo = (props) => {
       for (let j = 0; j < campo[i].length; j++) {
         // Si es la posicion pone le boton de otro color si no lo pone default
         if (posicion.x === j && posicion.y === i){
-          tablero.push(<Button color='dark'>🧑</Button>)
+          tablero.push(<Button color='dark'>:,)</Button>)
         }else {
           tablero.push(<Button>‍</Button>);
         }

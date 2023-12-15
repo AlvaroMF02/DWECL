@@ -31,10 +31,16 @@ class App extends Component {
     let tablero = Array(filas).fill(Array(columnas));
 
     // poner minas en el tablero
+    // hacer con while mientras haya minas restar
     let numMinas = this.state.minas
+    while (numMinas>0) {
+      
+    }
+    
     for (let i = 0; i < numMinas; i++) {  // asi se pueden repetir y se pueden poner al inicio y final :(
       let minaFila = Math.floor(Math.random() * filas + 1);
       let minaColu = Math.floor(Math.random() * columnas + 1);
+      // si no es ni la primera ni la ultima y es no disotinto de 0
 
       tablero[minaFila][minaColu] = 1;
     }
