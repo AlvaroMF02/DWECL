@@ -1,25 +1,41 @@
 import { Button } from 'reactstrap';
 
 
-export const Campo = () => {
+export const Botonera = (props) => {
+
+    // Guarda el color del que se pone
+    let turno = props.turno
 
     // tablero de 9x9
     let tablero = [];
-    
-    // Rellenar cada uno dependiendo del numero de minas que hay
+
+    // Rellenar el tablero
     function rellenar() {
         for (let i = 0; i < 9; i++) {
             for (let j = 0; j < 9; j++) {
-                // Mete un boton en cada uno
-                tablero.push(<Button color='outline-white'>‍</Button>);
+                // Callback de la funcion que esta en la app
+                tablero.push(<Button outline onClick={() => props.cambiarTurno()} ></Button>);
+
+                // falta comprobar ganador
+                if (tablero[j]== 0) { // si esta en la primera fila
+                    
+                }
+
             }
-            // br salto de linea
             tablero.push(<br />);
         }
     }
+
+    // AL CLICK
+    // ¿Hay ganador?
+    // Ver si es la fila 0 si no nada
+    // busco la posicion en la que se queda la ficha
+    // coloco la ficha
+    // cambio el turno
+
     rellenar();
 
-    // devuelve solo uno
+    // Devuelve solo uno
     return (<>
         <div id="contenedorCampo">
             <p id="pCampo">
