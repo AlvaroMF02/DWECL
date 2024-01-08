@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class DesireList extends Component {
@@ -21,6 +20,7 @@ class DesireList extends Component {
     );
   }
 }
+
 function Borrar(props) {
   return (<button className="borrar" deseo={props.deseo}
     onClick={(deseo) => props.quitar(props.deseo)}>
@@ -29,6 +29,7 @@ function Borrar(props) {
   </button>);
 }
 
+// Componente que tiene un formulario en el que le pasamos el texto
 class Desire extends Component {
   render() {
     return (
@@ -39,7 +40,10 @@ class Desire extends Component {
       </form>);
   }
 }
+
+// clase App con toda la funcionalidad
 class App extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -47,6 +51,7 @@ class App extends React.Component {
 
     };
   }
+
   quitar(elemento) {
     var aux = [];
     if (this.state.deseos && this.state.deseos !== "null" &&
@@ -71,6 +76,7 @@ class App extends React.Component {
       deseos: aux
     });
   }
+
   render() {
     return (
       <div className="App">

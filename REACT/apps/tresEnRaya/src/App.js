@@ -31,7 +31,7 @@ class App extends Component {
   alClick(x, y) {
     /* AL CLICK
      ¿Hay ganador?
-     Ver si es la fila 0 si no nada
+     - - Ver si es la fila 0 si no nada
      - busco la posicion en la que se queda la ficha
      - coloco la ficha
      - cambio el turno*/
