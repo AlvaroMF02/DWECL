@@ -25,9 +25,6 @@ class App extends Component {
   // hacer el movimiento de las fichas
   // comprobar el ganador
 
-
-
-
   alClick(x, y) {
     /* AL CLICK
      ¿Hay ganador?
@@ -40,6 +37,15 @@ class App extends Component {
     if (!this.state.turnoB) return
     // si no es la fila 0 se sale
     if (x !== 0) return
+
+
+    // Poner los colores en el campo con "y" y modificando "x" dependiendo de donde quiera ponerlo
+    console.log(x + "," + y)
+                                    // cambiar el color del boton de una matriz de botones ????
+    //let campoColoreado = JSON.parse(JSON.stringify(this.state.campo))
+    let campoColoreado = this.state.campo
+    campoColoreado[x][y].push(<Button primary ></Button>)
+
 
     if(this.state.turnoB){
       // poner el azul en el tablero
