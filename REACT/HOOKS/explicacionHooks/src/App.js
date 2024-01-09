@@ -78,7 +78,7 @@ const Componente3=(props)=>{
   )
 }
 
-// hacer componente 5 sin usar las props
+// hacer componente 4 sin usar las props
 
 
 export default App;
