@@ -8,6 +8,7 @@ function Deseo (){
   return(
     <form>
       <input type='text' placeholder='Escribe tu deseo' name='deseo'/>
+      <button type="submit">Agregar</button>
     </form>
   );
 }
