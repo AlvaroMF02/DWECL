@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import './App.css';
-import ListaChicos from './Componentes/ListaChicos';
+import ListaCasas from './Componentes/ListaCasas';
 import Formulario from './Componentes/Formulario';
 
 
@@ -11,40 +11,40 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      chicos: [
-        { id: 1, nombre: "Adrián", nota: 8 },
-        { id: 2, nombre: "Rubén", nota: 9 },
-        { id: 3, nombre: "Pepe", nota: 9 }
+      casas: [
+        { id: 1, habitaciones: 3, zona: "pueblo", alquilada: "Si" },
+        { id: 2, habitaciones: 5, zona: "sierra", alquilada: "No" },
+        { id: 3, habitaciones: 3, zona: "pueblo", alquilada: "Si" }
       ]
     }
   }
 
-
-  // coger los datos del input y los mete en el state 
-  handleChicoNuevo(event) {
-    event.preventDefault();
-
-    let copiaChicos = this.state.chicos;
-    let auxId = copiaChicos.length+1;
-
-    let auxChico = {
+  handlerCasaNueva(event) {
+    event.preventDefault()
+    let copiaCasas = this.state.casas
+    let auxId = copiaCasas.length + 1
+    let auxCasa = {
       id: auxId,
-      nombre: event.target.nombre.value,
-      nota: event.target.nota.value
-    };
-
-    copiaChicos.push(auxChico);
-
-    this.setState({chicos: copiaChicos})
+      habitaciones: event.target.InpHabitaciones.value,
+      zona: event.target.InpZona.value,
+      alquilada: event.target.InpAlquiler.value,
+    }
+    copiaCasas.push(auxCasa)
+    this.setState({ casas: copiaCasas })
   }
 
+  borrar(e) {
+    // let copiaCasas = this.props.lista;
+    // copiaCasas = copiaCasas.filter(v => v.id != e)
+    console.log(e)
+  }
 
   render() {
     return (
       <div className="App">
-        <h1>¿Que nota se merecen?</h1>
-        <ListaChicos chicos={this.state.chicos} />
-        <Formulario funcion={(e) => this.handleChicoNuevo(e)} />
+        <h1>¡Agrega una casa nueva!</h1>
+        <ListaCasas lista={this.state.casas} funcionBorrado={(e) => this.borrar(e)} />
+        <Formulario funcion={(e) => this.handlerCasaNueva(e)} />
       </div>
     );
   }

@@ -23,8 +23,8 @@ class ListaDeseos extends Component {
         {this.props.deseos.map(valor=>{
           return(
             <li>
-              {valor}&nbsp;
-              <Borrar deseo={valor} quitar={(elemento)=>this.props.quitar(elemento)}/>
+              {valor + " "}
+              <Borrar deseo={valor} quitar={(e)=>this.props.quitar(e)}/>
             </li>
           );
         })}
@@ -35,8 +35,8 @@ class ListaDeseos extends Component {
 
 function Borrar (props){
   return(
-    <Button className='borrar' deseo={props.deseo} onClick={(deseo)=>props.quitar(props.deseo)}>
-      Borrar {props.deseo}
+    <Button onClick={()=>props.quitar(props.deseo)}>
+      Borrar
     </Button>
   );
 }
@@ -53,19 +53,13 @@ class App extends React.Component {
 
   handleNuevoDeseo (event){
     event.preventDefault();
-    let aux = [];
-    if(this.state.deseos !== "null" && this.state.deseos !== "undefined"){
-      aux = this.state.deseos.slice();
-    }
+    let aux = this.state.deseos;
     aux.push(event.target.inputDeseo.value);
     this.setState({deseos:aux});
   }
 
   quitar(elemento){
-    let aux = [];
-    if(this.state.deseos !== "null" && this.state.deseos !== "undefined"){
-      aux = this.state.deseos.slice();
-    }
+    let aux = this.state.deseos;
     // filtra por el elemento que se ha pasado (el que se va a borrar)
     aux = aux.filter(item => item!== elemento);
     this.setState({deseos:aux});
@@ -80,7 +74,7 @@ class App extends React.Component {
         <ListaDeseos deseos={this.state.deseos} quitar={(e) => this.quitar(e)}/>
 
         <h2>Añade tu deseo</h2>
-        <Deseo alDesear={this.handleNuevoDeseo.bind(this)}/>
+        <Deseo alDesear={(e)=>this.handleNuevoDeseo(e)}/>
 
       </div>
     );

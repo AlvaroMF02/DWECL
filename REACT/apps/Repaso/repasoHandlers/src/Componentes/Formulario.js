@@ -4,9 +4,10 @@ class Formulario extends Component {
     render() {
         return (
             <form onSubmit={this.props.funcion}>
-                <input type='text' placeholder='nombre' name='nombre' />
-                <input type='text' placeholder='nota' name='nota' />
-                <button type='submit'>Guardar</button>
+                <input type='text' placeholder='Nº de habitaciones' name='InpHabitaciones'/>
+                <input type='text' placeholder='Zona' name='InpZona'/>
+                <input type='text' placeholder='¿Está alquilada?' name='InpAlquiler'/>
+                <button type='submit'>Añadir</button>
             </form>
         );
     }
