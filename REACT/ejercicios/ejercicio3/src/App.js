@@ -15,7 +15,7 @@ class Deseo extends Component {
   }
 }
 
-// Componente Lista de deseos devuelve una lista
+// Componente Lista de deseos devuelve una lista    (no entiendo el metodo borrar, como se relaciona y la estructura que tiene)
 class ListaDeseos extends Component {
   render() {
     return (
