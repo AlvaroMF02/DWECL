@@ -1,42 +1,53 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Component } from 'react';
-import UserList from './Componentes/UserList';
-import UserForm from './Componentes/UserForm';
-import logo from './logo.svg';
+import { Button } from 'reactstrap';
 import './App.css';
+import ListaChicos from './Componentes/ListaChicos';
+import Formulario from './Componentes/Formulario';
+
+
+
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      users: [
-        { id: 1, name: "perico", email: "perico@myfpschool.com" },
-        { id: 2, name: "juanico", email: "juanico@myfpschool.com" },
-        { id: 3, name: "andrés", email: "andrés@myfpschool.com" }
+      chicos: [
+        { id: 1, nombre: "Adrián", nota: 8 },
+        { id: 2, nombre: "Rubén", nota: 9 },
+        { id: 3, nombre: "Pepe", nota: 9 }
       ]
-    };
+    }
   }
 
-  handleOnAddUser(event) {
+
+  // coger los datos del input y los mete en el state 
+  handleChicoNuevo(event) {
     event.preventDefault();
-    let user = {
-      name: event.target.name.value,
-      email: event.target.email.value
+
+    let copiaChicos = this.state.chicos;
+    let auxId = copiaChicos.length+1;
+
+    let auxChico = {
+      id: auxId,
+      nombre: event.target.nombre.value,
+      nota: event.target.nota.value
     };
-    let tmp = this.state.users;
-    tmp.push(user);
-    this.setState({
-      users: tmp
-    });
+
+    copiaChicos.push(auxChico);
+
+    this.setState({chicos: copiaChicos})
   }
+
+
   render() {
     return (
       <div className="App">
-        <div>
-          <p><strong>Añade usuarios</strong></p>
-          <UserList users={this.state.users} />
-          <UserForm onAddUser={(e) => this.handleOnAddUser(e)} />
-        </div>
+        <h1>¿Que nota se merecen?</h1>
+        <ListaChicos chicos={this.state.chicos} />
+        <Formulario funcion={(e) => this.handleChicoNuevo(e)} />
       </div>
     );
   }
 }
+
 export default App;

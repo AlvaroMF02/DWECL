@@ -1,96 +1,90 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Component } from 'react';
+import { Button } from 'reactstrap';
 import './App.css';
 
-class DesireList extends Component {
+
+// Devuelve un formulario que la hacer submit llama al handle para coger lo que se escribe en el input
+class Deseo extends Component {
+  render() {
+    return (
+      <form onSubmit={this.props.alDesear}>
+        <input type='text' placeholder='Escribe tu deseo' name='inputDeseo' />
+      </form>
+    );
+  }
+}
+
+// Componente Lista de deseos devuelve una lista
+class ListaDeseos extends Component {
   render() {
     return (
       <ul>
-        {this.props.deseos.map(d => {
-          return (
+        {this.props.deseos.map(valor=>{
+          return(
             <li>
-              {d}&nbsp;
-              <Borrar deseo={d} quitar={(elemento) =>
-
-                this.props.quitar(elemento)} />
-
+              {valor}&nbsp;
+              <Borrar deseo={valor} quitar={(elemento)=>this.props.quitar(elemento)}/>
             </li>
           );
         })}
       </ul>
     );
-  }
+  };
 }
 
-function Borrar(props) {
-  return (<button className="borrar" deseo={props.deseo}
-    onClick={(deseo) => props.quitar(props.deseo)}>
-
-    Borrar {props.deseo}
-  </button>);
+function Borrar (props){
+  return(
+    <Button className='borrar' deseo={props.deseo} onClick={(deseo)=>props.quitar(props.deseo)}>
+      Borrar {props.deseo}
+    </Button>
+  );
 }
 
-// Componente que tiene un formulario en el que le pasamos el texto
-class Desire extends Component {
-  render() {
-    return (
-      <form onSubmit={this.props.onAddDeseo}>
-        <input type="text" placeholder="Escribe tu deseo" name="deseo"
 
-        />
-      </form>);
-  }
-}
 
-// clase App con toda la funcionalidad
 class App extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
-      deseos: [],
-
-    };
-  }
-
-  quitar(elemento) {
-    var aux = [];
-    if (this.state.deseos && this.state.deseos !== "null" &&
-      this.state.deseos !== "undefined") {
-      aux = this.state.deseos.slice();
+      deseos: ["Iphone","Novio"],
     }
-    aux = aux.filter(item => item !== elemento)
-    this.setState({
-      deseos: aux
-    });
   }
 
-  handleAniadirDeseo(event) {
+  handleNuevoDeseo (event){
     event.preventDefault();
-    var aux = [];
-    if (this.state.deseos && this.state.deseos !== "null" &&
-      this.state.deseos !== "undefined") {
+    let aux = [];
+    if(this.state.deseos !== "null" && this.state.deseos !== "undefined"){
       aux = this.state.deseos.slice();
     }
-    aux.push(event.target.deseo.value);
-    this.setState({
-      deseos: aux
-    });
+    aux.push(event.target.inputDeseo.value);
+    this.setState({deseos:aux});
   }
+
+  quitar(elemento){
+    let aux = [];
+    if(this.state.deseos !== "null" && this.state.deseos !== "undefined"){
+      aux = this.state.deseos.slice();
+    }
+    // filtra por el elemento que se ha pasado (el que se va a borrar)
+    aux = aux.filter(item => item!== elemento);
+    this.setState({deseos:aux});
+  }
+
 
   render() {
     return (
       <div className="App">
-        <div>
-          <p><strong>Añade tu regalo favorito</strong></p>
-          <DesireList deseos={this.state.deseos} quitar={(elemento) =>
 
-            this.quitar(elemento)} />
+        <h1>Lista de deseos</h1>
+        <ListaDeseos deseos={this.state.deseos} quitar={(e) => this.quitar(e)}/>
 
-          <Desire onAddDeseo={this.handleAniadirDeseo.bind(this)} />
+        <h2>Añade tu deseo</h2>
+        <Deseo alDesear={this.handleNuevoDeseo.bind(this)}/>
 
-        </div>
       </div>
     );
   }
 }
+
 export default App;
