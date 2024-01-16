@@ -1,49 +1,77 @@
-import React, { useState } from 'react';
 import './App.css';
+import { Button, Input, Row, Col } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import React, { Component, useState } from 'react';
+import ReactDOM from "react-dom";
 
 
-// Componente Deseo
-// devuelve un input para escribir los deseos
-function Deseo (){
-  return(
-    <form>
-      <input type='text' placeholder='Escribe tu deseo' name='deseo'/>
-      <button type="submit">Agregar</button>
-    </form>
-  );
-}
 
-// Componente lista de deseos
-// devuelve una ul
-function ListaDeseos(parametro){
-  return(
-    <ul>
-      {parametro.deseos.map(des=>{
-        return (
-          <li>
-            {des}
-          </li>
-        )
-      })}
+function ListaDeseos(props) {
+  return (
+    <ul>{props.deseos.map(d =>
+      <Row>
+        <Col sm={{ offset: 1, size: 1 }}>
+          <MostrarDeseo deseo={d} />
+        </Col>
+        <Col sm={{ offset: 1, size: 2 }}>
+          <Borrar deseo={d} quitar={(elemento) => props.quitar(elemento)} />
+        </Col>
+      </Row>
+    )}
     </ul>
   );
 }
 
+function Deseo(props) {
+  return (
+    <form onSubmit={props.deseoNuevo}>
+      <Input type='text' placeholder='Añada un deseo' name='deseo' />
+    </form>
+  );
+}
 
+function MostrarDeseo(props) {
+  return (
+    <li>{props.deseo}</li>
+  );
+}
 
-function App (){
+function Borrar(props) {
+  return (
+    <Button onClick={(deseo) => props.quitar(props.deseo)}>
+      Borrar
+    </Button>
+  );
+}
 
-  // Hooks con un array que guarda los deseos
-  const[deseos,setDeseos]=useState(["Iphone","Reloj"]);
+function useForceUpdate(){
+  let [value,setValue] = useState(true)
+  return () => setValue(!value)
+}
 
+function App (props){
+  const [deseos,setDeseos] = useState(["novio","ropa"])
+
+  const quitar = (elemento)=>{
+    setDeseos(deseos.filter(d=>d!=elemento))
+  }
+
+  let forceUpdate = useForceUpdate()
+
+  const handleDeseoNuevo = (event) =>{
+    event.preventDefault()
+    let d = deseos
+    d.push(event.target.deseo.value)
+    setDeseos(d)
+
+    forceUpdate()
+  }
 
   return(
     <div className='App'>
-      <h2>Lista de deseos</h2>
-        {/* Le paso a la lista los deseos */}
-      <ListaDeseos deseos={deseos}/>
-      <p>Añade tu regalo fav</p>
-      <Deseo/>
+      <h1>Añade un regalo</h1>
+      <ListaDeseos quitar={(e)=>quitar(e)} deseos={deseos}/>
+      <Deseo deseoNuevo={handleDeseoNuevo}/>
     </div>
   );
 }
