@@ -1,36 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react'
 
-
-export default function Buscador(props) {
-
-    let pueblos = props.pueblos
-
-    const [busqueda, setBusqueda] = useState("")
-
-    const handleBuscaPueblos = (event) => {
-        event.preventDefault()
-        setBusqueda(event.target.buscador.value)
-
-        console.log(busqueda)
-
-    }
-
-    return (
+export default function Buscador (props) {
+  return (
         <div>
-            <form >
-                <input type='text' placeholder='Busque un pueblo' name='buscador' onChange={handleBuscaPueblos} />
+            <form onSubmit={(e) => e.preventDefault()}>
+                <input type='text' placeholder='Busque un pueblo' name='buscador' onChange={props.funcion} />
             </form>
-            <ul>
-            {
-                pueblos.map(valor=>{
-                    return(
-                        <li>
-                            {valor}
-                        </li>
-                    );
-                })
-            }
-            </ul>
         </div>
-    )
+  )
 }
