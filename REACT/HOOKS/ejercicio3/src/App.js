@@ -9,11 +9,11 @@ import ReactDOM from "react-dom";
 function ListaDeseos(props) {
   return (
     <ul>
-      {props.deseos.map(d => {
+      {props.deseos.map(valor => {
         return (
           <li>
-            {d}
-            <Borrar deseo={d} quitar={(elemento) => props.quitar(elemento)} />
+            {valor}
+            <Borrar deseo={valor} quitar={(elemento) => props.quitar(elemento)} />
           </li>
         );
       })}
