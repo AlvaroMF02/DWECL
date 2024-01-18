@@ -27,6 +27,7 @@ function App() {
     let tmp = usuarios;
     tmp.push(usuarioAux);
     console.log(tmp)
+    
 
     // inserta a los usuarios pero después no se muestran
     // si hago alguna actualizacion en el entorno es cuando se actualiza la lista

@@ -4,7 +4,7 @@ import Usuario from './Usuario';
 function ListadoUsuarios(props) {
     return (
         <ul>
-            {props.usuarios.map((valor,indice) => {
+            {props.usuarios.map(valor => {
                 return (
                     <Usuario
                         key={valor.id}
