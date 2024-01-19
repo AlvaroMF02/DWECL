@@ -61,8 +61,6 @@ function App () {
       apellido: event.target.apellidos.value,
       numero: event.target.telefono.value
     }
-
-
     // si le cambio el  nombre a uno con el mismo numero se actualiza el nombre
     // del usuario que tiene ese numero
     // Comprobar que no se pueden meter usuarios con el mismo numero

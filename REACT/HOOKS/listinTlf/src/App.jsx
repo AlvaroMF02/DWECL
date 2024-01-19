@@ -10,7 +10,8 @@ function App() {
   const [busqueda, setBusqueda] = useState("")
   const [usuarios, setUsuario] = useState([
     { nombre: "Alvaro", numero: 647846533 },
-    { nombre: "Jose", numero: 653487622 }
+    { nombre: "Tania", numero: 653487622 },
+    { nombre: "Paco", numero: 653487622 }
   ])
 
 
