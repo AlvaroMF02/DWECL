@@ -7,7 +7,7 @@ const Tablero = ({ tableroApp, funcionClick }) => {
 
     // Relleno el tablero con botones   (cada boton puede ser un componente)
     for (let i = 0; i < tablero.length; i++) {
-        tablero[i] = (Array(8))
+        tablero[i] = []
         for (let j = 0; j < tablero.length; j++) {
          tablero[i][j]= 0
         }
