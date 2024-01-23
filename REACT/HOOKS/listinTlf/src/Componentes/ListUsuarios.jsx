@@ -6,11 +6,10 @@ export const ListUsuarios = (props) => {
         <ul>
             {props.lista.map((valor, indice) => {
                 return (
-                    <li>
+                    <li key={indice}>
                         <Usuario
                             nombre={valor.nombre}
                             numero={valor.numero}
-                            key={indice}
                         />
                         <button onClick={() => props.funcion(valor)}>Borrar</button>
                     </li>
