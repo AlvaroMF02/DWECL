@@ -1,7 +1,6 @@
 import React, { Component,useState } from 'react';
+import { Button } from 'reactstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Tablero from './Componentes/Tablero';
-
 
 
 function App () {
@@ -12,7 +11,7 @@ function App () {
     <div className="App">
       <header className="App-header">
         <h1>Tablero de damas</h1>
-        <Tablero tableroApp={tablero}/>
+
       </header>
     </div>
   );
