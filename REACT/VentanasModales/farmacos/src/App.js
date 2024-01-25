@@ -9,7 +9,7 @@ import {
 const VentanaModalDiccionario = (props) => {
 
   const [farmacos] = useState(["CODIGO1|DESCRIPCION1", "CODIGO2|DESCRIPCION2", "CODIGO3|DESCRIPCION3", "CODIGO4|DESCRIPCION4", "CODIGO5|DESCRIPCION5",])
-  const [elegido,setElegido] = useState("Elija un farmaco")
+  const [elegido,setElegido] = useState("")
   const [busqueda,setBusqueda] = useState("")
 
   const {
@@ -18,7 +18,6 @@ const VentanaModalDiccionario = (props) => {
 
   const handleFarmaco = (event) => {
     event.preventDefault()
-    console.log(event.target.value)
     setElegido(event.target.value)
   }
 
@@ -50,10 +49,12 @@ const VentanaModalDiccionario = (props) => {
                 id="selectMulti"
                 name="selectMulti"
                 type="select"
-              >
-                {farmacos.map(valor =>{
+              > 
+                {listaFiltrada.map(valor =>{
                   return(
-                      {listaFiltrada}
+                    <option>
+                      {valor}
+                    </option>
                   );
                 })}
               </Input>
@@ -61,7 +62,7 @@ const VentanaModalDiccionario = (props) => {
           </FormGroup>
         </ModalBody>
         <ModalFooter>
-          {elegido}<Button color="primary" onClick={props.add}>{props.aceptar}</Button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          {elegido}<Button color="primary" onClick={()=>props.add(elegido)}>{props.aceptar}</Button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </ModalFooter>
       </Modal>
     </div>
@@ -75,6 +76,8 @@ class Filter extends Component {
     super(props);
     this.state = {
       isOpen: false,
+      incluFarmacos: " ",
+      excluFarmacos: " ",
     }
   }
 
@@ -83,19 +86,19 @@ class Filter extends Component {
   }
 
   add (datos) {
-    //aqui hacer algo con los datos
+    this.setState({incluFarmacos: this.state.incluFarmacos + " " +datos})
+    // this.setState({excluFarmacos: this.state.excluFarmacos + " " +datos})
     this.toggleModal();
+  }
+
+  borrar(){
+    this.setState({incluFarmacos: ""})
   }
 
   render () {
     return <>
       <div>
-        <UncontrolledAccordion
-          defaultOpen={[
-            '1'
-          ]}
-          stayOpen
-        >
+        <UncontrolledAccordion defaultOpen={['1']} stayOpen >
           <AccordionItem>
             <AccordionHeader targetId="1">
               GESTION DE FARMACOS
@@ -105,17 +108,17 @@ class Filter extends Component {
                 <Col>
                   <Alert color="info">
                     Incluir Medicamento:
-                    <Input type="textarea" name="rxseleccionar" />
-                    <Button color="info" onClick={() => { this.toggleModal() }}>Add</Button>
-                    {" "}<Button color="info" onClick={""}>Clear</Button>
+                    <Input type="textarea" name="rxseleccionar" value={this.state.incluFarmacos}/>
+                    <Button color="info" onClick={() => { this.toggleModal() }}>Add</Button>{" "}
+                    <Button color="info" onClick={()=> this.borrar()}>Clear</Button>
                   </Alert>
                 </Col>
                 <Col>
                   <Alert color="danger">
                     Excluir Medicamento:
-                    <Input type="textarea" name="rxenmascarar" />
-                    <Button color="danger" onClick={() => { this.toggleModal() }}>Add</Button>
-                    {" "}<Button color="danger" onClick={""}>Clear</Button>
+                    <Input type="textarea" name="rxenmascarar" value={this.state.excluFarmacos}/>
+                    <Button color="danger" onClick={() => { this.toggleModal() }}>Add</Button>{" "}
+                    <Button color="danger" onClick={""}>Clear</Button>
                   </Alert>
                 </Col>
               </Row>
