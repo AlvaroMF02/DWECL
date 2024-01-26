@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .App-logo {
@@ -35,4 +39,34 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+body{
+  background-color: #282c34;
+}
+.titulo{
+  color: rgb(207, 207, 207);
+  font-size: 50px;
+}
+.boton{
+  padding: 2rem;
+  border-radius: 90px;
+  margin: 3px;
+}
+
+.Rojos{
+  color: rgb(207, 207, 207);
+  font-size: 50px;
+  background-color: #0B5ED7;
+  width: 30rem;
+  border-radius: 20px;
+  padding: 1rem;
+}
+.Azules{
+  color: rgb(207, 207, 207);
+  font-size: 50px;
+  background-color: #BB2D3B;
+  width: 30rem;
+  border-radius: 20px;
+  padding: 1rem;
 }
