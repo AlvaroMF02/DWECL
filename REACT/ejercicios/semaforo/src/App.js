@@ -7,7 +7,7 @@ function Boton(props) {
   return (
     <Button color={props.color} onClick={() => props.cambia()}>
       {props.nombre}
-    </Button>
+    </Button> //pruea
   )
 }
 // Funcion que pide el color y una funcion
