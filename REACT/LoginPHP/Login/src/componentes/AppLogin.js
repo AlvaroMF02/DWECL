@@ -35,21 +35,20 @@ export default function AppLogin(props) {
 <Col sm="4">
    <Card body>
      <CardTitle className="text-center" tag="h4">
-       Log in
+       Iniciar sesión
      </CardTitle>
    <Form inline>
      <FormGroup className="mb-2 me-sm-2 mb-sm-0">
-       <Label  className="me-sm-2" for="exampleEmail">User id</Label>
+       <Label  className="me-sm-2" for="exampleEmail">Usuario</Label>
        <Input
          id="Telefono"
          name="telefono"
-         placeholder="type your user id"
-         type="email"
+         type="text"
          onChange={handleChange}
        />
      </FormGroup>
      <FormGroup className="mb-2 me-sm-2 mb-sm-0">
-       <Label className="me-sm-2" for="examplePassword">Password</Label>
+       <Label className="me-sm-2" for="examplePassword">Contraseña</Label>
        <Input
          id="Password"
          name="password"
@@ -59,7 +58,7 @@ export default function AppLogin(props) {
      </FormGroup>
      <br/>
      <Button color="primary" size="lg" block onClick={clicar} >
-       <strong>Log in</strong>
+       <strong>Login</strong>
      </Button>
      <CardText className="text-danger">{info}</CardText>
     

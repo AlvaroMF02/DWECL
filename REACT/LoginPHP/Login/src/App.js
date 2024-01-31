@@ -1,47 +1,49 @@
 import logo from './logo.svg';
 import './App.css';
-import {Button} from 'reactstrap';
+import { Button } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AppLogin from './componentes/AppLogin'
 import Menu from './componentes/Menu'
 import { Component } from 'react';
-import {PHPLOGIN} from './componentes/Datos';
+import { PHPLOGIN } from './componentes/Datos';
 import axios from 'axios';
 
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props)
-    this.state={
-      menuItem:"UNO",
-      logged:false,
+    this.state = {
+      menuItem: "UNO",
+      logged: false,
     }
   }
-  
-  changeMenu(item){
-    this.setState({menuItem:item})
+
+  changeMenu (item) {
+    this.setState({ menuItem: item })
   }
 
   // al hacer el login comprueba los datps
-  userLogin(telefono,password){
-    // if (telefono=="Myfpschool" && password=="2023"){
-    //   this.setState({logged:true})
-    // }
-    axios.post(PHPLOGIN,JSON.stringify({
-      telefono:telefono,
-      password:password
+  userLogin (telefono, password) {
+    var md5 = require('md5');
+
+    password = md5(password)
+    console.log(md5(1234))
+
+    axios.post(PHPLOGIN, JSON.stringify({
+      telefono: telefono,
+      password: password
     }))
-    .then(res => {
-      console.log(res.data.usuario);
-      if ( res.data.usuario !== undefined){
-        this.setState({logged:true});
-      }
-    })
+      .then(res => {
+        console.log(res.data.usuario);
+        if (res.data.usuario !== undefined) {
+          this.setState({ logged: true });
+        }
+      })
   }
 
-  render(){
-    let obj=<><Menu menuItem={this.state.menuItem} changeMenu={(item)=>this.changeMenu(item)} /></>
-    if (!this.state.logged){
-      obj=<AppLogin userLogin={(telefono,password)=>this.userLogin(telefono,password)}/>
+  render () {
+    let obj = <><Menu menuItem={this.state.menuItem} changeMenu={(item) => this.changeMenu(item)} /></>
+    if (!this.state.logged) {
+      obj = <AppLogin userLogin={(telefono, password) => this.userLogin(telefono, password)} />
     }
     return (
       <div className="App">
