@@ -13,7 +13,7 @@ class App extends Component {
     super(props)
     this.state = {
       menuItem: "UNO",
-      logged: false,
+      logeado: false,
     }
   }
 
@@ -21,29 +21,24 @@ class App extends Component {
     this.setState({ menuItem: item })
   }
 
-  // al hacer el login comprueba los datps
-  userLogin (telefono, password) {
-    var md5 = require('md5');
-
-    password = md5(password)
-    console.log(md5(1234))
-
+  // Hace el login con la bd y comprueba si coinciden los datos
+  userLogin (usuario, clave) {
     axios.post(PHPLOGIN, JSON.stringify({
-      telefono: telefono,
-      password: password
+      user: usuario,
+      password: clave
     }))
       .then(res => {
         console.log(res.data.usuario);
         if (res.data.usuario !== undefined) {
-          this.setState({ logged: true });
+          this.setState({ logeado: true });
         }
       })
   }
 
   render () {
     let obj = <><Menu menuItem={this.state.menuItem} changeMenu={(item) => this.changeMenu(item)} /></>
-    if (!this.state.logged) {
-      obj = <AppLogin userLogin={(telefono, password) => this.userLogin(telefono, password)} />
+    if (!this.state.logeado) {
+      obj = <AppLogin userLogin={(usuario, clave) => this.userLogin(usuario, clave)} />
     }
     return (
       <div className="App">

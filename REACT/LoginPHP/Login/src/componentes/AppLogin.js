@@ -1,70 +1,51 @@
-import React, {useState} from 'react';
-import {Row,Col,Card,CardTitle,CardText,Form,FormGroup,Button,Label,Input} from 'reactstrap';
- 
-export default function AppLogin(props) {
- 
-    const [password,setPassword]=useState('');
-    const [telefono,setTelefono]=useState('');
-    const [info,setInfo]=useState('');
+import React, { useState } from 'react';
+import { Row, Col, Card, CardTitle, CardText, Form, FormGroup, Button, Label, Input } from 'reactstrap';
+import md5 from 'md5'
 
-    const handleChange=(event)=>{
-        if (event.target.name=="password"){
-            setPassword(event.target.value)
-        }
-        if (event.target.name=="telefono"){
-            setTelefono(event.target.value)
-        }
-    }
+export default function AppLogin ({ userLogin }) {
+    const [info, setInfo] = useState('');
 
-    const clicar=()=>{
-        console.log(telefono+" "+password)
-        if (password==''||telefono==''){
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        const usuario = event.target.usuario.value
+        const clave = event.target.clave.value
+        console.log("Usuario: " + usuario + " Clave: " + clave)
+
+        // Comprobar vacios
+        if (event.target.usuario.value == '' || event.target.clave.value == '') {
             setInfo('NO DÉJE CAMPOS VACÍOS')
-        }else{
-//            if (telefono=='Myfpschool'&& password=="2023"){
-                props.userLogin(telefono,password)
-//            }else{
-//                setInfo('DATOS INCORRECTOS');
-//            }
+        } else {
+            userLogin(event.target.usuario.value, md5(event.target.clave.value))
+
         }
     }
 
- return (
-<Row>
-<Col sm="4"></Col>
-<Col sm="4">
-   <Card body>
-     <CardTitle className="text-center" tag="h4">
-       Iniciar sesión
-     </CardTitle>
-   <Form inline>
-     <FormGroup className="mb-2 me-sm-2 mb-sm-0">
-       <Label  className="me-sm-2" for="exampleEmail">Usuario</Label>
-       <Input
-         id="Telefono"
-         name="telefono"
-         type="text"
-         onChange={handleChange}
-       />
-     </FormGroup>
-     <FormGroup className="mb-2 me-sm-2 mb-sm-0">
-       <Label className="me-sm-2" for="examplePassword">Contraseña</Label>
-       <Input
-         id="Password"
-         name="password"
-         type="password"
-         onChange={handleChange}
-       />
-     </FormGroup>
-     <br/>
-     <Button color="primary" size="lg" block onClick={clicar} >
-       <strong>Login</strong>
-     </Button>
-     <CardText className="text-danger">{info}</CardText>
-    
-   </Form>
-   </Card>
- </Col>
-</Row>
- )
+    return (
+        <Row>
+            <Col sm="4"></Col>
+            <Col sm="4">
+                <Card body>
+
+                    <CardTitle className="text-center" tag="h4">
+                        Iniciar sesión
+                    </CardTitle>
+
+                    <Form onSubmit={handleSubmit}>
+
+                        <Label for="usuario">Usuario</Label>
+                        <Input id="usuario" name="usuario" type="text"/>
+
+                        <Label for="clave">Contraseña</Label>
+                        <Input id="clave" name="clave" type="password"/>
+
+                        <br />
+                        <Button color="primary" size="lg" block> <strong>Login</strong></Button>
+
+                        <CardText className="text-danger">{info}</CardText>
+
+                    </Form>
+                </Card>
+            </Col>
+        </Row>
+    )
 }
