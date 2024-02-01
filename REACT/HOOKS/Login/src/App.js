@@ -1,6 +1,5 @@
 import React, { useState, useEffect, createContext } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button } from 'reactstrap';
 import AppLogin from './componentes/AppLogin';
 import Menu from './componentes/Menu';
 import { PHPLOGIN } from './componentes/Datos';
