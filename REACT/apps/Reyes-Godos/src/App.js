@@ -104,9 +104,11 @@ class App extends Component {
   }
 
   cambiarBando (object) {
+
     let godosAux = JSON.parse(JSON.stringify(this.state.godos))
     let normandosAux = JSON.parse(JSON.stringify(this.state.normandos))
     const godoActual = godosAux[this.state.actual]
+    
     // Está en godos
     if (godosAux.find(g => g.id === object.id)) {
       godosAux = godosAux.filter(g => g.id !== object.id)

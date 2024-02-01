@@ -1,9 +1,8 @@
-import React, { useState, useEffect, createContext } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AppLogin from './componentes/AppLogin';
 import Menu from './componentes/Menu';
-import { PHPLOGIN } from './componentes/Datos';
-import axios from 'axios';
+import "./App.css";
 
 
 class App extends React.Component {
@@ -27,22 +26,6 @@ class App extends React.Component {
 
   // mira si el que se logea es bueno o no para mostrar el menu
   userLogin (telefono, password) {
-    /*
-    if (telefono=="Myfpschool" && password=="2023"){
-      this.setState({logged:true})
-    }
-    */
-    axios.post(PHPLOGIN, JSON.stringify({
-      telefono: telefono,
-      password: password
-    }))
-      .then(res => {
-        console.log(res.data.usuario);
-        if (res.data.usuario !== undefined) {
-          this.setState({ logged: true });
-        }
-      })
-
     if (telefono == "admin" && password == "1234") {
       this.setState({ logged: true })
       this.setState({ usuario: true })
@@ -51,7 +34,7 @@ class App extends React.Component {
 
 
   render () {
-    // el la variable objeto guardo el menu y dependiendo de el estado logged
+    // en la variable objeto guardo el menu y dependiendo de el estado logged
     // obj será el menu o el login, por lo que si estas logueado te enseña el menu
     // si no lo estas te enseña el login
     let obj = <Menu menuItem={this.state.menuItem} cambiaColor={(e) => this.cambiarColor(e)} />

@@ -1,17 +1,17 @@
 import React from 'react'
 import { Usuario } from './Usuario'
 
-export const ListUsuarios = (props) => {
+export const ListUsuarios = ({lista,funcion}) => {
     return (
         <ul>
-            {props.lista.map((valor, indice) => {
+            {lista.map((usuario, indice) => {
                 return (
                     <li key={indice}>
                         <Usuario
-                            nombre={valor.nombre}
-                            numero={valor.numero}
+                            nombre={usuario.nombre}
+                            numero={usuario.numero}
                         />
-                        <button onClick={() => props.funcion(valor)}>Borrar</button>
+                        <button onClick={() => funcion(usuario)}>Borrar</button>
                     </li>
                 );
             })}

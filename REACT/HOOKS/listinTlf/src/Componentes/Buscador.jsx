@@ -1,13 +1,13 @@
 import React from 'react'
 
-function Buscador(props) {
+function Buscador({usuarios,busqueda,funcion}) {
 
-    const listaFiltrada = props.usuarios.filter((d) => d.nombre.toLowerCase().startsWith(props.busqueda.toLowerCase())).map((d) => <li>{d.nombre}</li>)
+    const listaFiltrada = usuarios.filter((d) => d.nombre.toLowerCase().startsWith(busqueda.toLowerCase())).map((d) => <li>{d.nombre}</li>)
 
     return (
         <div>
             <h2>Buscador</h2>
-            <input onChange={props.funcion} type="text" placeholder='Haga la busqueda' />
+            <input onChange={funcion} type="text" placeholder='Haga la busqueda' />
             <ul>
                 {listaFiltrada}
             </ul>

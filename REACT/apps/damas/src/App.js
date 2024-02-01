@@ -29,6 +29,7 @@ function Botonera({ tablero }) {
   )
 }
 
+
 function App() {
 
   const [tablero, setTablero] = useState([])
@@ -51,6 +52,7 @@ function App() {
 
     setTablero(auxTablero)
   }, [])
+
 
   return (
     <div className="App">

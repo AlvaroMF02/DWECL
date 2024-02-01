@@ -1,9 +1,9 @@
 import React from 'react'
 
 
-function Formulario(props) {
+function Formulario({funcion}) {
     return (
-        <form onSubmit={props.funcion}>
+        <form onSubmit={funcion}>
             <input type="text" name='nombreInp' placeholder='Introduzca el nombre' /><br />
             <input type="text" name='tlfInp' placeholder='Introduzca el teléfono' />
             <br />

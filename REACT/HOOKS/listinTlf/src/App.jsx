@@ -26,7 +26,7 @@ function App() {
     event.target.nombreInp.value = ""
     event.target.tlfInp.value = ""
 
-    const listaAux = JSON.parse(JSON.stringify(usuarios)) //usuarios.slice()
+    const listaAux = JSON.parse(JSON.stringify(usuarios))
 
     listaAux.push(usuarAux)
     setUsuario(listaAux)
@@ -34,8 +34,8 @@ function App() {
 
   // ---- Borrar un usuario ----
   function handleBorrar(usuarioBorr) {
-    const usuBorr = usuarios.filter((v) => v !== usuarioBorr)
-    setUsuario(usuBorr)
+    const listaSinUsu = usuarios.filter((v) => v !== usuarioBorr)
+    setUsuario(listaSinUsu)
   }
 
   // ---- Buscar a un usuario ----
@@ -47,7 +47,7 @@ function App() {
   return (
     <>
       <h1>Listín telefónico</h1>
-      <ListUsuarios lista={usuarios} funcion={(e) => handleBorrar(e)} />
+      <ListUsuarios lista={usuarios} funcion={handleBorrar} />
       <Formulario funcion={handleUsuNuevo} />
       <Buscador funcion={handleBuscar} usuarios={usuarios} busqueda={busqueda} />
     </>

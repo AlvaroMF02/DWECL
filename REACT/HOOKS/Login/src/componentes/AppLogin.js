@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext } from 'react';
+import React, { useState } from 'react';
 import { Row, Col, Card, CardTitle, CardText, Form, FormGroup, Button, Label, Input } from 'reactstrap';
 
 function AppLogin(props) {
@@ -14,8 +14,6 @@ function AppLogin(props) {
         if(event.target.name == "usuario") setTelefono(event.target.value)
         // si se ha modificado la contraseña
         if(event.target.name == "clave") setClave(event.target.value)
-
-        //console.log(clave + ", " + telefono)
     }
 
     // comprobar que al hacer click mire si los campos estan vacios
@@ -48,7 +46,7 @@ function AppLogin(props) {
                     {/* Formulario para pasar el telefono y la clave */}
                     <Form inline>
                         <FormGroup className="mb-2 me-sm-2 mb-sm-0">
-                            <Label className="me-sm-2" for="usuario">Usuario</Label>
+                            <Label className="me-sm-2" for="usuario"><strong>Usuario</strong></Label>
                             <Input
                                 id="usuario"
                                 name="usuario"
@@ -60,11 +58,12 @@ function AppLogin(props) {
                         </FormGroup>
                         <br/>
                         <FormGroup className="mb-2 me-sm-2 mb-sm-0">
-                            <Label className="me-sm-2" for="clave">Contraseña</Label>
+                            <Label className="me-sm-2" for="clave"><strong>Contraseña</strong></Label>
                             <Input
                                 id="clave"
                                 name="clave"
                                 type="password"
+                                placeholder="Escribe tu contraseña"
                                 // cada vez que cambie ejecuta el handler
                                 onChange={handleChange}
                             />
