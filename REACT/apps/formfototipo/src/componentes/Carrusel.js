@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Formulario from './Formulario';
 import {
   Carousel,
   CarouselItem,
@@ -10,33 +11,31 @@ import {
 const items = [     // array de formularios
   {
     id: 1,
-    altText: '¿De que color tienes los ojos?',
-    caption: 'Slide 1',
+    caption: <Formulario numPregunta = {1}/>
   },
   {
     id: 2,
-    altText: 'Slide 2',
-    caption: 'Slide 2',
+    caption: <Formulario numPregunta = {2}/>
   },
   {
     id: 3,
-    altText: 'Slide 3',
-    caption: 'Slide 3',
+    caption: <Formulario numPregunta = {3}/>
   },
   {
-    id: 3,
-    altText: 'Slide 3',
-    caption: 'Slide 3',
+    id: 4,
+    caption: <Formulario numPregunta = {4}/>
   },
   {
-    id: 3,
-    altText: 'Slide 3',
-    caption: 'Slide 3',
+    id: 5,
+    caption: <Formulario numPregunta = {5}/>
   },
   {
-    id: 3,
-    altText: 'Slide 3',
-    caption: 'Slide 3',
+    id: 6,
+    caption: <Formulario numPregunta = {6}/>
+  },
+  {
+    id: 7,
+    caption: <Formulario numPregunta = {7}/>
   },
 ];
 
@@ -61,21 +60,21 @@ function Carrusel(props) {
     setActiveIndex(newIndex);
   };
 
-  const slides = items.map((item) => {
+  const slides = items.map((item,indi) => {
     return (
-      <CarouselItem
-        className="custom-tag"
-        tag="div"
-        key={item.id}
-        onExiting={() => setAnimating(true)}
-        onExited={() => setAnimating(false)}
-      >
-        <CarouselCaption
-          className="text-success"
-          captionText={item.caption}
-          captionHeader={item.altText}
-        />
-      </CarouselItem>
+      // <CarouselItem
+      //   className="custom-tag"
+      //   tag="div"
+      //   key={item.id}
+      //   onExiting={() => setAnimating(true)}
+      //   onExited={() => setAnimating(false)}
+      // >
+      //   <CarouselCaption
+      //     captionText={item.caption}
+      //     captionHeader={item.altText}
+      //   />
+      // </CarouselItem>
+      <Formulario numPregunta={indi}></Formulario>
     );
   });
 
@@ -85,7 +84,7 @@ function Carrusel(props) {
         {`.custom-tag {
               max-width: 100%;
               height: 500px;
-              background: black;
+              background: grey;
             }`}
       </style>
 

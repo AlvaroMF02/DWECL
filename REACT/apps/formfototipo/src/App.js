@@ -11,7 +11,6 @@ function App () {
   return (
     <div className="App">
       <Carrusel className="carrusel"></Carrusel>
-
     </div>
   );
 }

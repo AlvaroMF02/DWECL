@@ -2,6 +2,16 @@
   text-align: center;
 }
 
+.div-form{
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+.disForm{
+  text-align: left;
+}
+
 body{
   background-color:antiquewhite;
 }
