@@ -14,8 +14,7 @@ function Formulario ({numPregunta}) {
 
   return (
     <div className='div-form'>
-      {console.log(numPregunta)}
-    <h2>{Preguntas.listaPreguntas[0].pregunta}</h2>
+    <h2>{Preguntas.listaPreguntas[numPregunta].pregunta}</h2>
     <Form className='disForm'>
           {/* <Input name="respuestas" id='resp1' type="radio" value={0}/>{' '}
           <Label for='resp1'>{Preguntas.listaPreguntas[0].pregunta.respuestas[0]}</Label>

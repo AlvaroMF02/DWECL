@@ -11,31 +11,31 @@ import {
 const items = [     // array de formularios
   {
     id: 1,
-    caption: <Formulario numPregunta = {1}/>
+    caption: <Formulario numPregunta = {0}/>
   },
   {
     id: 2,
-    caption: <Formulario numPregunta = {2}/>
+    caption: <Formulario numPregunta = {1}/>
   },
   {
     id: 3,
-    caption: <Formulario numPregunta = {3}/>
+    caption: <Formulario numPregunta = {2}/>
   },
   {
     id: 4,
-    caption: <Formulario numPregunta = {4}/>
+    caption: <Formulario numPregunta = {3}/>
   },
   {
     id: 5,
-    caption: <Formulario numPregunta = {5}/>
+    caption: <Formulario numPregunta = {4}/>
   },
   {
     id: 6,
-    caption: <Formulario numPregunta = {6}/>
+    caption: <Formulario numPregunta = {5}/>
   },
   {
     id: 7,
-    caption: <Formulario numPregunta = {7}/>
+    caption: <Formulario numPregunta = {6}/>
   },
 ];
 
@@ -60,21 +60,21 @@ function Carrusel(props) {
     setActiveIndex(newIndex);
   };
 
-  const slides = items.map((item,indi) => {
+  const slides = items.map((item) => {
     return (
-      // <CarouselItem
-      //   className="custom-tag"
-      //   tag="div"
-      //   key={item.id}
-      //   onExiting={() => setAnimating(true)}
-      //   onExited={() => setAnimating(false)}
-      // >
-      //   <CarouselCaption
-      //     captionText={item.caption}
-      //     captionHeader={item.altText}
-      //   />
-      // </CarouselItem>
-      <Formulario numPregunta={indi}></Formulario>
+      <CarouselItem
+        className="custom-tag"
+        tag="div"
+        key={item.id}
+        onExiting={() => setAnimating(true)}
+        onExited={() => setAnimating(false)}
+      >
+        <CarouselCaption
+          captionText={item.caption}
+          // captionHeader={item.altText}
+        />
+      </CarouselItem>
+      // <Formulario numPregunta={indi}></Formulario>
     );
   });
 
