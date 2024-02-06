@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Formulario from './Formulario';
 import {
   Carousel,
   CarouselItem,
@@ -7,35 +6,43 @@ import {
   CarouselIndicators,
   CarouselCaption,
 } from 'reactstrap';
+import Formulario from './Formulario';
 
 const items = [     // array de formularios
   {
     id: 1,
-    caption: <Formulario numPregunta = {0}/>
+    altText: <h1>1º pregunta</h1>,
+    caption: <Formulario idPreg={0} />,
   },
   {
     id: 2,
-    caption: <Formulario numPregunta = {1}/>
+    altText: <h1>2º pregunta</h1>,
+    caption: <Formulario idPreg={1} />,
   },
   {
     id: 3,
-    caption: <Formulario numPregunta = {2}/>
+    altText: <h1>3º pregunta</h1>,
+    caption: <Formulario idPreg={2} />,
   },
   {
-    id: 4,
-    caption: <Formulario numPregunta = {3}/>
+    id: 3,
+    altText: <h1>4º pregunta</h1>,
+    caption: <Formulario idPreg={3} />,
   },
   {
-    id: 5,
-    caption: <Formulario numPregunta = {4}/>
+    id: 3,
+    altText: <h1>5º pregunta</h1>,
+    caption: <Formulario idPreg={4} />,
   },
   {
-    id: 6,
-    caption: <Formulario numPregunta = {5}/>
+    id: 3,
+    altText: <h1>6º pregunta</h1>,
+    caption: <Formulario idPreg={5} />,
   },
   {
-    id: 7,
-    caption: <Formulario numPregunta = {6}/>
+    id: 3,
+    altText: <h1>7º pregunta</h1>,
+    caption: <Formulario idPreg={6} />,
   },
 ];
 
@@ -71,10 +78,9 @@ function Carrusel(props) {
       >
         <CarouselCaption
           captionText={item.caption}
-          // captionHeader={item.altText}
+          captionHeader={item.altText}
         />
       </CarouselItem>
-      // <Formulario numPregunta={indi}></Formulario>
     );
   });
 
