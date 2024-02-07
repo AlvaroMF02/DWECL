@@ -12,7 +12,7 @@ const items = [     // array de formularios
   {
     id: 1,
     altText: <h1>1º pregunta</h1>,
-    caption: <Formulario idPreg={0} />,
+    caption: <Formulario idPreg={0} handleChange={funcion} />,
   },
   {
     id: 2,
@@ -46,7 +46,7 @@ const items = [     // array de formularios
   },
 ];
 
-function Carrusel(props) {
+function Carrusel({funcion}) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
 
