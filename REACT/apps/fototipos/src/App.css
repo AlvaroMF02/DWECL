@@ -6,22 +6,6 @@
   height: 40vmin;
   pointer-events: none;
 }
-body{
-  background-color: antiquewhite;
-}
-
-.formulario{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.inputs{
-  justify-content: start;
-  align-items: start;
-  /* background-color: #282c34; */
-  width: 500px;
-  text-align: left;
-}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -48,7 +32,43 @@ body{
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+
+body {
+  background-color: antiquewhite;
+}
+
+.respuestas {
+  width: 100%;
+  /* margin-bottom: 5rem; */
+}
+
+.botones{
+  color: #8b3e1d;
+  font-weight: bold;
+  background-color: #FEAE4B;
+  border: #8b3e1d solid 1px;
+  margin: 5px;
+}
+.botones:hover{
+  color: #FEAE4B;;
+  font-weight: bold;
+  background-color: #8b3e1d;
+  border: #FEAE4B solid 1px;
+}
+.botones:active{
+  background-color: rgb(196, 142, 110);
+}
+.pregunta{
+  color: #FEAE4B;
+  background-color: #CE5A29;
+  border: #FEAE4B solid 1px;
+  border-radius: 24px;
+  /* margin-bottom: 3rem; */
+  padding: 2rem;
 }

@@ -6,59 +6,19 @@ import {
   CarouselIndicators,
   CarouselCaption,
 } from 'reactstrap';
-import Formulario2 from './Formulario2';
+import Formulario from './Formulario';
 import Preguntas from './Preguntas.json';
 
 const items = Preguntas.listaPreguntas.map((preg) => {
 
   const item = {
     id: crypto.randomUUID(),
-    altText: <h1>{preg.pregunta.pregunta}</h1>,
-    caption: <Formulario2 pregunta={preg.pregunta}/>
+    altText: <h1 className='pregunta'>{preg.pregunta.pregunta}</h1>,
+    caption: <Formulario pregunta={preg.pregunta}/>
   }
 
   return item;
 })
-
-/*
-const items = [     // array de formularios
-  {
-    id: 1,
-    altText: <h1>1º pregunta</h1>,
-    caption: <Formulario2 pregunta={Preguntas.listaPreguntas[0].pregunta} />,
-  },
-  {
-    id: 2,
-    altText: <h1>2º pregunta</h1>,
-    caption: <Formulario2 pregunta={Preguntas.listaPreguntas[1].pregunta} />,
-  },
-  */
-  // {
-  //   id: 3,
-  //   altText: <h1>3º pregunta</h1>,
-  //   caption: <Formulario idPreg={2}/>,
-  // },
-  // {
-  //   id: 4,
-  //   altText: <h1>4º pregunta</h1>,
-  //   caption: <Formulario idPreg={3}/>,
-  // },
-  // {
-  //   id: 5,
-  //   altText: <h1>5º pregunta</h1>,
-  //   caption: <Formulario idPreg={4}/>,
-  // },
-  // {
-  //   id: 6,
-  //   altText: <h1>6º pregunta</h1>,
-  //   caption: <Formulario idPreg={5}/>,
-  // },
-  // {
-  //   id: 7,
-  //   altText: <h1>7º pregunta</h1>,
-  //   caption: <Formulario idPreg={6}/>,
-  // },
-// ];
 
 function Carrusel (props) {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -98,8 +58,8 @@ function Carrusel (props) {
       <style>
         {`.custom-tag {
               max-width: 100%;
-              height: 500px;
-              background: grey;
+              height: 600px;
+              background: rgb(196, 142, 110);
             }`}
       </style>
 
