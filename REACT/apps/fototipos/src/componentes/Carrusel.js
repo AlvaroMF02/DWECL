@@ -9,20 +9,16 @@ import {
 import Formulario from './Formulario';
 import Preguntas from './Preguntas.json';
 
-const items = Preguntas.listaPreguntas.map((preg) => {
 
-  const item = {
-    id: crypto.randomUUID(),
-    altText: <h1 className='pregunta'>{preg.pregunta.pregunta}</h1>,
-    caption: <Formulario pregunta={preg.pregunta}/>
-  }
+// devolver el fin del formulario y el contador
+function Carrusel ({}) {
 
-  return item;
-})
-
-function Carrusel (props) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
+
+  const [contador, setContador] = useState(0);
+  const [cantidadResp, setCantidadResp] = useState(0);
+  const [finForm, setFinForm] = useState(false);
 
   // Avanza uno
   const next = () => {
@@ -42,6 +38,24 @@ function Carrusel (props) {
     if (animating) return;
     setActiveIndex(newIndex);
   };
+
+  const resultado = (nume) => {
+    // al acabar el formulario
+    if (cantidadResp > 4) setFinForm(true)
+
+    setContador(contador + nume);
+    setCantidadResp(cantidadResp + 1);
+  }
+
+  // DEVUELVE EL FORMULARIO POR CADA PREGUNTA
+  const items = Preguntas.listaPreguntas.map((preg) => {
+    const item = {
+      id: crypto.randomUUID(),
+      altText: <h1 className='pregunta'>{preg.pregunta.pregunta}</h1>,
+      caption: <Formulario pregunta={preg.pregunta} funcionPasa={next} funcionContar={resultado} />
+    }
+    return item;
+  })
 
   // Hace un map de todos los formularios
   const slides = items.map((item) => {

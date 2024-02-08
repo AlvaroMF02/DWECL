@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { Button} from 'reactstrap';
 
-function Formulario ({ pregunta }) {
+function Formulario ({ pregunta,funcionPasa,funcionContar }) {
 
-   let respuestas = pregunta.respuestas.map(resp =>{
+   let respuestas = pregunta.respuestas.map((resp,indi) =>{
         return(
-                <Button className='botones'>{resp}</Button>
-           
+            <Button className='botones' onClick={()=>{funcionPasa();funcionContar(pregunta.valor[indi])}}>{resp}</Button>
         );
    })
 

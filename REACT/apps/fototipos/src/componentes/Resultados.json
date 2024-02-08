@@ -1,0 +1,52 @@
+{
+  "fototipos": [
+    {
+      "id": 1,
+      "nombre": "Fototipo I",
+      "piel": "Muy clara, siempre se quema, nunca se broncea.",
+      "pelo": "Pelirrojo o rubio claro.",
+      "ojos": "Azules, verdes o grises.",
+      "sensibilidad solar": "Muy alta."
+    },
+    {
+      "id": 2,
+      "nombre": "Fototipo II",
+      "piel": "Clara, se quema con facilidad, se broncea ligeramente.",
+      "pelo": "Rubio o castaño claro.",
+      "ojos": "Azules, verdes, grises o avellana.",
+      "sensibilidad solar": "Alta."
+    },
+    {
+      "id": 3,
+      "nombre": "Fototipo III",
+      "piel": "Intermedia, se quema moderadamente, se broncea de forma dorada.",
+      "pelo": "Castaño o castaño claro.",
+      "ojos": "Avellana, verdes o marrones.",
+      "sensibilidad solar": "Media."
+    },
+    {
+      "id": 4,
+      "nombre": "Fototipo IV",
+      "piel": "Trigueña, se quema poco, se broncea de forma marrón.",
+      "pelo": "Castaño oscuro o negro.",
+      "ojos": "Marrones o negros.",
+      "sensibilidad solar": "Baja."
+    },
+    {
+      "id": 5,
+      "nombre": "Fototipo V",
+      "piel": "Marrón oscuro, rara vez se quema, se broncea profundamente.",
+      "pelo": "Negro.",
+      "ojos": "Marrones o negros.",
+      "sensibilidad solar": "Muy baja."
+    },
+    {
+      "id": 6,
+      "nombre": "Fototipo VI",
+      "piel": "Negra, nunca se quema.",
+      "pelo": "Negro.",
+      "ojos": "Marrones o negros.",
+      "sensibilidad solar": "Nula."
+    }
+  ]
+}
