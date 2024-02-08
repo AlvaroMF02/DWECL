@@ -51,7 +51,7 @@ const GODOS = [
   }
 ]
 
-function ReyesGodos ({ godos, actual, handleAnterior, handleSiguiente }) {
+function ReyesGodos({ godos, actual, handleAnterior, handleSiguiente }) {
 
   if (godos.length === 0) return <h1>NO HAY REYES</h1>
 
@@ -60,23 +60,23 @@ function ReyesGodos ({ godos, actual, handleAnterior, handleSiguiente }) {
 
   return (
     <div className='d-flex'>
-      <Button onClick={ handleAnterior }>Anterior</Button>
-      <h1>{ godoActual.nombre }</h1>
-      <Button onClick={ handleSiguiente }>Siguiente</Button>
+      <Button onClick={handleAnterior}>Anterior</Button>
+      <h1>{godoActual.nombre}</h1>
+      <Button onClick={handleSiguiente}>Siguiente</Button>
     </div>
   )
 }
 
-function CambioBando ({ godos, normandos, cambiarBando }) {
-  const listaGodos = godos.map(godo => <Button onClick={ () => cambiarBando(godo) } key={ godo.id }>{ godo.nombre }</Button>)
-  const listaNormandos = normandos.map(normando => <Button onClick={ () => cambiarBando(normando) } key={ normando.id }>{ normando.nombre }</Button>)
+function CambioBando({ godos, normandos, cambiarBando }) {
+  const listaGodos = godos.map(godo => <Button onClick={() => cambiarBando(godo)} key={godo.id}>{godo.nombre}</Button>)
+  const listaNormandos = normandos.map(normando => <Button onClick={() => cambiarBando(normando)} key={normando.id}>{normando.nombre}</Button>)
 
   return (
     <div>
       <h1>GODOS</h1>
-      { listaGodos }
+      {listaGodos}
       <h1>NORMANDOS</h1>
-      { listaNormandos }
+      {listaNormandos}
     </div>
   )
 }
@@ -91,24 +91,24 @@ class App extends Component {
     }
   }
 
-  handleAnterior () {
+  handleAnterior() {
     if (this.state.actual !== 0) {
       this.setState({ actual: this.state.actual - 1 })
     }
   }
 
-  handleSiguiente () {
+  handleSiguiente() {
     if (this.state.godos.length - 1 !== this.state.actual) {
       this.setState({ actual: this.state.actual + 1 })
     }
   }
 
-  cambiarBando (object) {
+  cambiarBando(object) {
 
     let godosAux = JSON.parse(JSON.stringify(this.state.godos))
     let normandosAux = JSON.parse(JSON.stringify(this.state.normandos))
     const godoActual = godosAux[this.state.actual]
-    
+
     // Está en godos
     if (godosAux.find(g => g.id === object.id)) {
       godosAux = godosAux.filter(g => g.id !== object.id)
@@ -126,14 +126,14 @@ class App extends Component {
     }
   }
 
-  render () {
+  render() {
     return (
       <>
-        <ReyesGodos godos={ this.state.godos } actual={ this.state.actual }
-          handleAnterior={ () => this.handleAnterior() }
-          handleSiguiente={ () => this.handleSiguiente() } />
-        <CambioBando cambiarBando={ (o) => this.cambiarBando(o) } godos={ this.state.godos }
-          normandos={ this.state.normandos } />
+        <ReyesGodos godos={this.state.godos} actual={this.state.actual}
+          handleAnterior={() => this.handleAnterior()}
+          handleSiguiente={() => this.handleSiguiente()} />
+        <CambioBando cambiarBando={(o) => this.cambiarBando(o)} godos={this.state.godos}
+          normandos={this.state.normandos} />
       </>
     );
   }
