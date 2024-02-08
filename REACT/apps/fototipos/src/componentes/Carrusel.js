@@ -16,9 +16,9 @@ function Carrusel ({}) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
 
-  const [contador, setContador] = useState(0);
-  const [cantidadResp, setCantidadResp] = useState(0);
-  const [finForm, setFinForm] = useState(false);
+  const [contador, setContador] = useState(0);          // Recuento de puntos
+  const [cantidadResp, setCantidadResp] = useState(0);  // Preguntas respondi
+  const [finForm, setFinForm] = useState(false);        // Ver si el formulario ha terminado
 
   // Avanza uno
   const next = () => {
