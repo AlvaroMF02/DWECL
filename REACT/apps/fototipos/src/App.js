@@ -24,7 +24,7 @@ function App () {
   let obj;
 
   if(!formAcabado){
-     obj =  <Carrusel className="carrusel" datos={comprobarDatos}></Carrusel>
+     obj =  <Carrusel datos={comprobarDatos}></Carrusel>
   }else{
     obj =  <Resultado puntos={resultado}/>
   }

@@ -70,7 +70,7 @@ function Carrusel ({ datos }) {
 
   // Al final lo que devuelvo 
   return (
-    <div>
+    <div className='carrusel'>
       <style>
         {`.custom-tag {
               max-width: 100%;
@@ -78,7 +78,7 @@ function Carrusel ({ datos }) {
               background: rgb(196, 142, 110);
             }`}
       </style>
-
+      <h1>¿Qué fototipo eres?</h1>
       <Carousel activeIndex={activeIndex} pause='hover' interval="50000000" next={next} previous={previous}>
         <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={goToIndex} />
         {slides}

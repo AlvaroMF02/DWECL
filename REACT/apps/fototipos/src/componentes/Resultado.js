@@ -1,17 +1,43 @@
 import React, { useState } from 'react';
 import {
-  Carousel,
-  CarouselItem,
-  CarouselControl,
-  CarouselIndicators,
-  CarouselCaption,
+  Card,
+  CardBody,
+  CardTitle,
+  CardSubtitle,
+  CardText,
+  Button,
 } from 'reactstrap';
-import Formulario from './Formulario';
 import TipoPieles from './TipoPieles.json';
 
 
-function Resultado ({puntos}) {
+function Tarjeta({ id }) {
 
+  const fotoTipo = TipoPieles.fototipos.find(fp => fp.id == id)
+
+  return (
+    <Card className='carta-pieles'>
+      <img alt="Tipo de piel" src=".../images/Fototipo-piel-2" className='imagen'/>
+      <CardBody>
+        <CardTitle tag="h2">
+          {fotoTipo.nombre}
+        </CardTitle>
+        <CardSubtitle className="mb-2 text-muted" tag="h5" >
+          ¿Qué nos dice tu piel?
+        </CardSubtitle>
+        <CardText className={fotoTipo.color}>
+          <div className='text-carta'>
+            Tu piel es {fotoTipo.piel} <br />
+            Tu pelo es {fotoTipo.pelo} <br />
+            Tus ojos son {fotoTipo.ojos} <br />
+            Tu sensibilidad solar es {fotoTipo['sensibilidad solar']} <br />
+          </div>
+        </CardText>
+      </CardBody>
+    </Card>
+  );
+}
+
+function Resultado({ puntos }) {
   // Sacar el resultado dependiendo de los puntos que se han sacado
   // < 8      FotoTipo 1
   // 8 - 21   FotoTipo 2
@@ -20,10 +46,30 @@ function Resultado ({puntos}) {
   // 69 - 84  FotoTipo 5
   // > 85     FotoTipo 6
 
+  let idFotot = 0
+  if (puntos < 8) {
+    idFotot = 1
+
+  } else if (puntos >= 8 && puntos <= 21) {
+    idFotot = 2
+
+  } else if (puntos >= 22 && puntos <= 42) {
+    idFotot = 3
+
+  } else if (puntos >= 43 && puntos <= 68) {
+    idFotot = 4
+
+  } else if (puntos >= 69 && puntos <= 84) {
+    idFotot = 5
+
+  } else if (puntos > 85) {
+    idFotot = 6
+  }
+
   return (
-    <div>
+    <div className='body-resultado'>
       <h1>Tu tipo de piel es ...</h1>
-      {/* meter aqui la tarjeta y mierdas */}
+      <Tarjeta id={idFotot} />
 
       <p className='parrafos'>
         La piel es el órgano más grande del cuerpo y al mismo tiempo,
@@ -43,14 +89,14 @@ function Resultado ({puntos}) {
         aproximadamente el 5% de la radiación.
       </p>
 
-      <h3>La melanina</h3>
+      <h2>La melanina</h2>
       <p className='parrafos'>
         La melanina es el factor de protección propio más importante del que dispone
         la piel y su función es la de absorber la radiación. La exposición solar
         estimula su producción y esto se traduce en el bronceado, por eso se
         distinguen dos tipos de bronceado, uno inmediato y otro retardado.
       </p>
-      <h3>¿Qué son los fototipos? Clasificación de Fitzpatrick </h3>
+      <h2>¿Qué son los fototipos? Clasificación de Fitzpatrick </h2>
       <p className='parrafos'>
         Lo que determina si <strong>una piel se broncea o no es el fototipo</strong>; esto es,
         cómo se adapta cada piel al sol y en qué grado lo hace. Cuanto más baja
@@ -65,6 +111,7 @@ function Resultado ({puntos}) {
         aportarán una información certera sobre el fototipo, puesto que están en
         contacto continuo con las radiaciones solares.
       </p>
+      <Button> Hacer test </Button>
     </div>
   );
 }
