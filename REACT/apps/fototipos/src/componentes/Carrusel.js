@@ -11,7 +11,7 @@ import Preguntas from './Preguntas.json';
 
 
 // devolver el fin del formulario y el contador
-function Carrusel ({}) {
+function Carrusel ({ datos }) {
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
@@ -40,11 +40,13 @@ function Carrusel ({}) {
   };
 
   const resultado = (nume) => {
-    // al acabar el formulario
-    if (cantidadResp > 4) setFinForm(true)
-
     setContador(contador + nume);
     setCantidadResp(cantidadResp + 1);
+    // al acabar el formulario
+    if (cantidadResp > 4) {
+      setFinForm(true)
+      datos(contador, finForm)
+    }
   }
 
   // DEVUELVE EL FORMULARIO POR CADA PREGUNTA
