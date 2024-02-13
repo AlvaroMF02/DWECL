@@ -49,7 +49,7 @@ function Carrusel ({ datos }) {
 
     // al acabar el formulario
     console.log(contador.length)
-    if (contador.length < 7) {
+    if (contador.length <= 7) {
       setFinForm(true)
       datos(contador, finForm)
     }
