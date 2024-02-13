@@ -16,7 +16,7 @@ function Tarjeta({ id }) {
 
   return (
     <Card className='carta-pieles'>
-      <img alt="Tipo de piel" src=".../images/Fototipo-piel-2" className='imagen'/>
+      <img alt="Tipo de piel" src={fotoTipo.imagen} className='imagen'/>
       <CardBody>
         <CardTitle tag="h2">
           {fotoTipo.nombre}
@@ -37,7 +37,7 @@ function Tarjeta({ id }) {
   );
 }
 
-function Resultado({ puntos }) {
+function Resultado({ puntos,repetir }) {
   // Sacar el resultado dependiendo de los puntos que se han sacado
   // < 8      FotoTipo 1
   // 8 - 21   FotoTipo 2
@@ -111,7 +111,7 @@ function Resultado({ puntos }) {
         aportarán una información certera sobre el fototipo, puesto que están en
         contacto continuo con las radiaciones solares.
       </p>
-      <Button> Hacer test </Button>
+      <Button onClick={repetir} className='botones'> Rehacer test </Button>
     </div>
   );
 }

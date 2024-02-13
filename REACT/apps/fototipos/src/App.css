@@ -104,7 +104,10 @@ body {
 }
 
 .imagen {
-  width: 500px;
+  width: 300px;
+  height: auto;
+  margin-left: 5.5rem;
+  margin-top: 2rem;
 }
 
 .carta-pieles {

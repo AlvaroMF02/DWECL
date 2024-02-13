@@ -41,11 +41,12 @@ function Carrusel ({ datos }) {
 
   const resultado = (nume) => {
     setContador(contador + nume);
+    console.log(nume)
     setCantidadResp(cantidadResp + 1);
     // al acabar el formulario
     if (cantidadResp > 4) {
       setFinForm(true)
-      datos(contador, finForm)
+      datos(contador+nume, finForm)
     }
   }
 

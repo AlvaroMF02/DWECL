@@ -20,13 +20,17 @@ function App () {
     // console.log(contador + " - " + finForm)
   }
 
+  function repetirTest(){
+    setFormAcabado(false)
+    setResultado(0)
+  }
 
   let obj;
 
   if(!formAcabado){
      obj =  <Carrusel datos={comprobarDatos}></Carrusel>
   }else{
-    obj =  <Resultado puntos={resultado}/>
+    obj =  <Resultado puntos={resultado} repetir={()=>repetirTest()}/>
   }
 
   return (
