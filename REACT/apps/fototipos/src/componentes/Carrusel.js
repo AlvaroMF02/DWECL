@@ -16,8 +16,7 @@ function Carrusel ({ datos }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
 
-  const [contador, setContador] = useState(0);          // Recuento de puntos
-  const [cantidadResp, setCantidadResp] = useState(0);  // Preguntas respondi
+  const [contador,setContador] = useState(Array(Preguntas.listaPreguntas.length));          // Recuento de puntos
   const [finForm, setFinForm] = useState(false);        // Ver si el formulario ha terminado
 
   // Avanza uno
@@ -39,14 +38,20 @@ function Carrusel ({ datos }) {
     setActiveIndex(newIndex);
   };
 
-  const resultado = (nume) => {
-    setContador(contador + nume);
-    console.log(nume)
-    setCantidadResp(cantidadResp + 1);
+  // Se ejecuta al hacer click
+  const resultado = (nume,idPreg) => {
+    
+    // console.log(nume + " - Pregunta: " + idPreg)
+    
+    const aux = JSON.parse(JSON.stringify(contador))
+    aux[idPreg] = nume;
+    setContador(aux);
+
     // al acabar el formulario
-    if (cantidadResp > 4) {
+    console.log(contador.length)
+    if (contador.length < 7) {
       setFinForm(true)
-      datos(contador+nume, finForm)
+      datos(contador, finForm)
     }
   }
 

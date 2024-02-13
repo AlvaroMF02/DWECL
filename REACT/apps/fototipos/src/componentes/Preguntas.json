@@ -2,6 +2,7 @@
   "listaPreguntas": [
     {
       "pregunta": {
+        "id":0,
         "pregunta": "¿Cuál es el color natural de su piel cuando no está bronceada? ",
         "respuestas": [
           "Rojiza,blanca",
@@ -23,6 +24,7 @@
     },
     {
       "pregunta": {
+        "id":1,
         "pregunta": "¿De qué color natural es su pelo? ",
         "respuestas": [
           "Pelirrojo,rubio claro",
@@ -44,6 +46,7 @@
     },
     {
       "pregunta": {
+        "id":2,
         "pregunta": "¿De qué color tienes los ojos?",
         "respuestas": [
           "Azul claro, verde claro, gris claro",
@@ -65,6 +68,7 @@
     },
     {
       "pregunta": {
+        "id":3,
         "pregunta": "¿Cuántas pecas tiene de manera natural en el cuerpo cuando no está bronceado? ",
         "respuestas": [
           "Muchas",
@@ -82,6 +86,7 @@
     },
     {
       "pregunta": {
+        "id":4,
         "pregunta": " ¿Qué categoría describe mejor su herencia genética?",
         "respuestas": [
           "Raza blanca de piel muy blanca",
@@ -101,6 +106,7 @@
     },
     {
       "pregunta": {
+        "id":5,
         "pregunta": "¿Qué categoría describe mejor su potencial de QUEMADURA exponiéndose al sol una hora en verano? ",
         "respuestas": [
           "Siempre se quema y no se broncea nunca",
@@ -122,6 +128,7 @@
     },
     {
       "pregunta": {
+        "id":6,
         "pregunta": "¿Qué categoría describe mejor su potencial de BRONCEADO?",
         "respuestas": [
           "Nunca se broncea",

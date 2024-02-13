@@ -5,7 +5,7 @@ function Formulario ({ pregunta,funcionPasa,funcionContar }) {
 
    let respuestas = pregunta.respuestas.map((resp,indi) =>{
         return(                                             // EL PRIMERO LO COGE COMO 0 
-            <Button className='botones' onClick={()=>{funcionPasa();funcionContar(pregunta.valor[indi])}}>{resp}</Button>
+            <Button className='botones' onClick={()=>{funcionPasa();funcionContar(pregunta.valor[indi],pregunta.id)}}>{resp}</Button>
         );
    })
 
