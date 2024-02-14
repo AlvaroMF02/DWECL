@@ -57,10 +57,24 @@ body {
 
 .botones:hover {
   color: #FEAE4B;
-  ;
   font-weight: bold;
   background-color: #8b3e1d;
   border: #FEAE4B solid 1px;
+}
+
+.boton-pulsado{
+  color: #FEAE4B;
+  font-weight: bold;
+  background-color: #8b3e1d;
+  border: #FEAE4B solid 1px;
+  margin: 5px;
+}
+.boton-pulsado:hover{
+  color: #8b3e1d;
+  font-weight: bold;
+  background-color: #FEAE4B;
+  border: #8b3e1d solid 1px;
+  margin: 5px;
 }
 
 .botones:active {

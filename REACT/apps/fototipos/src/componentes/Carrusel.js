@@ -21,6 +21,8 @@ function Carrusel ({ datos }) {
   const [aviso, setAviso] = useState("");
   const [finForm, setFinForm] = useState(false);        // Ver si el formulario ha terminado
 
+  const [btnPulsado, setBtnPulsado] = useState(Array(Preguntas.listaPreguntas.length).fill(null))
+
   // Avanza uno
   const next = () => {
     if (animating) return;
@@ -41,16 +43,20 @@ function Carrusel ({ datos }) {
   };
 
   // Se ejecuta al hacer click
-  const resultado = (nume, idPreg) => {
+  const resultado = (nume, idPreg,indiceRes) => {
     const aux = JSON.parse(JSON.stringify(contador))
+
+    const auxBtn = JSON.parse(JSON.stringify(btnPulsado))
+    auxBtn[idPreg] = indiceRes
     aux[idPreg] = nume;
+    setBtnPulsado(auxBtn)
     setContador(aux);
-    console.log(aux)
+    // console.log(aux)
   }
 
   function comprobarFin () {
     // si hay alguna respuesta null te sale mensaje de aviso
-    console.log(contador.find(d => d == null)=== undefined)
+    // console.log(contador.find(d => d == null)=== undefined)
 
     if (contador.find(d => d == null)=== undefined) {
       setFinForm(true)
@@ -62,11 +68,11 @@ function Carrusel ({ datos }) {
   }
 
   // DEVUELVE EL FORMULARIO POR CADA PREGUNTA
-  const items = Preguntas.listaPreguntas.map((preg) => {
+  const items = Preguntas.listaPreguntas.map((preg,indi) => {
     const item = {
       id: crypto.randomUUID(),
       altText: <h1 className='pregunta'>{preg.pregunta.pregunta}</h1>,
-      caption: <Formulario pregunta={preg.pregunta} funcionPasa={next} funcionContar={resultado} />
+      caption: <Formulario pregunta={preg.pregunta} funcionPasa={next} funcionContar={resultado} indBtn = {btnPulsado[indi]} />
     }
     return item;
   })
@@ -97,7 +103,7 @@ function Carrusel ({ datos }) {
         <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
         <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
       </Carousel>
-      <Button className='botones' onClick={comprobarFin}>Ver resultados</Button> ( Doble click )
+      <Button className='botones' onClick={()=>comprobarFin()}>Ver resultados</Button> ( Doble click )
       <div>{aviso}</div>
     </div>
   );
