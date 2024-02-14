@@ -16,8 +16,9 @@ function App () {
   function comprobarDatos(contador, finForm){
     if(!finForm) return
     setFormAcabado(true)
-    setResultado(contador)
-    // console.log(contador + " - " + finForm)
+    // contar todos los puntos del contador y setear resultado
+    let suma = contador.reduce((v1,v2)=>v1+v2);
+    setResultado(suma)
   }
 
   function repetirTest(){

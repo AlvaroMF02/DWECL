@@ -5,6 +5,7 @@ import {
   CarouselControl,
   CarouselIndicators,
   CarouselCaption,
+  Button,
 } from 'reactstrap';
 import Formulario from './Formulario';
 import Preguntas from './Preguntas.json';
@@ -16,7 +17,8 @@ function Carrusel ({ datos }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
 
-  const [contador,setContador] = useState(Array(Preguntas.listaPreguntas.length));          // Recuento de puntos
+  const [contador, setContador] = useState(Array(Preguntas.listaPreguntas.length).fill(null));          // Recuento de puntos
+  const [aviso, setAviso] = useState("");
   const [finForm, setFinForm] = useState(false);        // Ver si el formulario ha terminado
 
   // Avanza uno
@@ -39,20 +41,24 @@ function Carrusel ({ datos }) {
   };
 
   // Se ejecuta al hacer click
-  const resultado = (nume,idPreg) => {
-    
-    // console.log(nume + " - Pregunta: " + idPreg)
-    
+  const resultado = (nume, idPreg) => {
     const aux = JSON.parse(JSON.stringify(contador))
     aux[idPreg] = nume;
     setContador(aux);
+    console.log(aux)
+  }
 
-    // al acabar el formulario
-    console.log(contador.length)
-    if (contador.length <= 7) {
+  function comprobarFin () {
+    // si hay alguna respuesta null te sale mensaje de aviso
+    console.log(contador.find(d => d == null)=== undefined)
+
+    if (contador.find(d => d == null)=== undefined) {
       setFinForm(true)
       datos(contador, finForm)
+    }else{
+      setAviso("Debe responder a todas las preguntas")
     }
+
   }
 
   // DEVUELVE EL FORMULARIO POR CADA PREGUNTA
@@ -91,6 +97,8 @@ function Carrusel ({ datos }) {
         <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
         <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
       </Carousel>
+      <Button className='botones' onClick={comprobarFin}>Ver resultados</Button> ( Doble click )
+      <div>{aviso}</div>
     </div>
   );
 }
