@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Card,
   CardBody,
@@ -8,15 +8,36 @@ import {
   Button,
 } from 'reactstrap';
 import TipoPieles from './TipoPieles.json';
+import axios from 'axios';
 
 
-function Tarjeta({ id }) {
+function Tarjeta ({ id }) {
 
   const fotoTipo = TipoPieles.fototipos.find(fp => fp.id == id)
+  const [data, setData] = useState("");
+
+  useEffect(() => {
+    // Función para realizar la solicitud GET
+    const fetchData = async () => {
+      try {
+        const response = await axios.post('http://localhost/Proyectos/JC/FOTOTIPOS/encuesta_voto.php?voto=' + fotoTipo.id);
+        console.log(response.data)
+        setData(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    // Llamada a la función para realizar la solicitud cuando el componente se monta
+    fetchData();
+  }, []);
+
+
+
 
   return (
     <Card className='carta-pieles'>
-      <img alt="Tipo de piel" src={fotoTipo.imagen} className='imagen'/>
+      <img alt="Tipo de piel" src={fotoTipo.imagen} className='imagen' />
       <CardBody>
         <CardTitle tag="h2">
           {fotoTipo.nombre}
@@ -37,7 +58,7 @@ function Tarjeta({ id }) {
   );
 }
 
-function Resultado({ puntos,repetir }) {
+function Resultado ({ puntos, repetir }) {
   // Sacar el resultado dependiendo de los puntos que se han sacado
   // < 8      FotoTipo 1
   // 8 - 21   FotoTipo 2

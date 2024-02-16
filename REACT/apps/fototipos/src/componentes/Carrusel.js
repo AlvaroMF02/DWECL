@@ -94,7 +94,20 @@ function Carrusel ({ datos }) {
               max-width: 100%;
               height: 600px;
               background: rgb(196, 142, 110);
+            }
+            .carousel-caption {
+              position: static;
+              width: 70%;
+              margin: 0 auto;
+              height: 600px;
+              display: flex;
+              flex-flow: column;
+              align-items: space-around;
+              justify-content: space-around;
             }`}
+
+
+
       </style>
       <h1>¿Qué fototipo eres?</h1>
       <Carousel activeIndex={activeIndex} pause='hover' interval="50000000" next={next} previous={previous}>

@@ -5,7 +5,6 @@ function Formulario ({ pregunta, funcionPasa, funcionContar,indBtn }) {
 
     let respuestas = pregunta.respuestas.map((resp, indi) => {
         let boton = <Button className="botones" onClick={() => { funcionPasa(); funcionContar(pregunta.valor[indi], pregunta.id,indi)}}>{resp}</Button>
-        console.log(indBtn)
         if(indBtn == indi){
             boton = <Button className="boton-pulsado" onClick={() => { funcionPasa(); funcionContar(pregunta.valor[indi], pregunta.id,indi)}}>{resp}</Button>
         }
