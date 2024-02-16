@@ -133,6 +133,9 @@ function Resultado ({ puntos, repetir }) {
         contacto continuo con las radiaciones solares.
       </p>
       <Button onClick={repetir} className='botones'> Rehacer test </Button>
+
+      <h2>Resultados</h2>
+
     </div>
   );
 }

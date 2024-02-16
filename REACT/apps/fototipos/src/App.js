@@ -28,7 +28,7 @@ function App () {
 
   let obj;
 
-  if(!formAcabado){
+  if(!formAcabado){           // pasar el finForm por props
      obj =  <Carrusel datos={comprobarDatos}></Carrusel>
   }else{
     obj =  <Resultado puntos={resultado} repetir={()=>repetirTest()}/>

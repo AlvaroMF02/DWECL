@@ -94,17 +94,15 @@ function Carrusel ({ datos }) {
               max-width: 100%;
               height: 600px;
               background: rgb(196, 142, 110);
+              text-align:center;
             }
             .carousel-caption {
               position: static;
               width: 70%;
               margin: 0 auto;
-              height: 600px;
-              display: flex;
-              flex-flow: column;
-              align-items: space-around;
-              justify-content: space-around;
-            }`}
+              height: 500px;
+            }
+            `}
 
 
 
