@@ -21,7 +21,6 @@ function Tarjeta ({ id }) {
     const fetchData = async () => {
       try {
         const response = await axios.post('http://localhost/Proyectos/JC/FOTOTIPOS/encuesta_voto.php?voto=' + fotoTipo.id);
-        console.log(response.data)
         setData(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -32,7 +31,7 @@ function Tarjeta ({ id }) {
     fetchData();
   }, []);
 
-
+  console.log(data)
 
 
   return (

@@ -12,7 +12,7 @@ import Preguntas from './Preguntas.json';
 
 
 // devolver el fin del formulario y el contador
-function Carrusel ({ datos }) {
+function Carrusel ({ datos,formAcabado }) {
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
@@ -51,13 +51,10 @@ function Carrusel ({ datos }) {
     aux[idPreg] = nume;
     setBtnPulsado(auxBtn)
     setContador(aux);
-    // console.log(aux)
   }
 
   function comprobarFin () {
     // si hay alguna respuesta null te sale mensaje de aviso
-    // console.log(contador.find(d => d == null)=== undefined)
-
     if (contador.find(d => d == null)=== undefined) {
       setFinForm(true)
       datos(contador, finForm)
@@ -114,7 +111,7 @@ function Carrusel ({ datos }) {
         <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
         <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
       </Carousel>
-      <Button className='botones' onClick={()=>comprobarFin()}>Ver resultados</Button> ( Doble click )
+      <Button className='botones' onClick={()=>comprobarFin()}>Ver resultados</Button>
       <div>{aviso}</div>
     </div>
   );
