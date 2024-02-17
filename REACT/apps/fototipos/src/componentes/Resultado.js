@@ -9,9 +9,11 @@ import {
 } from 'reactstrap';
 import TipoPieles from './TipoPieles.json';
 import axios from 'axios';
+import Grafica from './Grafica.js';
 
 
-function Tarjeta ({ id }) {
+
+function Tarjeta({ id }) {
 
   const fotoTipo = TipoPieles.fototipos.find(fp => fp.id == id)
   const [data, setData] = useState("");
@@ -31,7 +33,7 @@ function Tarjeta ({ id }) {
     fetchData();
   }, []);
 
-  console.log(data)
+  // console.log(data)
 
 
   return (
@@ -57,7 +59,7 @@ function Tarjeta ({ id }) {
   );
 }
 
-function Resultado ({ puntos, repetir }) {
+function Resultado({ puntos, repetir }) {
   // Sacar el resultado dependiendo de los puntos que se han sacado
   // < 8      FotoTipo 1
   // 8 - 21   FotoTipo 2
@@ -86,10 +88,11 @@ function Resultado ({ puntos, repetir }) {
     idFotot = 6
   }
 
+
   return (
     <div className='body-resultado'>
       <h1>Tu tipo de piel es ...</h1>
-      <Tarjeta id={idFotot} />
+      <Tarjeta id={idFotot}/>
 
       <p className='parrafos'>
         La piel es el órgano más grande del cuerpo y al mismo tiempo,
@@ -109,32 +112,11 @@ function Resultado ({ puntos, repetir }) {
         aproximadamente el 5% de la radiación.
       </p>
 
-      <h2>La melanina</h2>
-      <p className='parrafos'>
-        La melanina es el factor de protección propio más importante del que dispone
-        la piel y su función es la de absorber la radiación. La exposición solar
-        estimula su producción y esto se traduce en el bronceado, por eso se
-        distinguen dos tipos de bronceado, uno inmediato y otro retardado.
-      </p>
-      <h2>¿Qué son los fototipos? Clasificación de Fitzpatrick </h2>
-      <p className='parrafos'>
-        Lo que determina si <strong>una piel se broncea o no es el fototipo</strong>; esto es,
-        cómo se adapta cada piel al sol y en qué grado lo hace. Cuanto más baja
-        sea esta capacidad, menos contrarrestarán los efectos de las radiaciones
-        solares en la piel y viceversa.
-      </p>
-      <p className='parrafos'>
-        Para saber cuál es nuestro tipo de piel es importante fijarse en zonas del
-        cuerpo que no estén continuamente expuestas al sol, como pueden ser: la zona
-        inferior de las piernas (justo sobre los tobillos), detrás de la rodilla o la
-        zona interna del antebrazo. Zonas como la cara, el cuello o los brazos no
-        aportarán una información certera sobre el fototipo, puesto que están en
-        contacto continuo con las radiaciones solares.
-      </p>
+
       <Button onClick={repetir} className='botones'> Rehacer test </Button>
 
       <h2>Resultados</h2>
-
+      <Grafica />
     </div>
   );
 }

@@ -4,9 +4,9 @@ import { Button } from 'reactstrap';
 function Formulario ({ pregunta, funcionPasa, funcionContar,indBtn }) {
 
     let respuestas = pregunta.respuestas.map((resp, indi) => {
-        let boton = <Button className="botones" onClick={() => { funcionPasa(); funcionContar(pregunta.valor[indi], pregunta.id,indi)}}>{resp}</Button>
+        let boton = <Button key={pregunta.id} className="botones" onClick={() => { funcionPasa(); funcionContar(pregunta.valor[indi], pregunta.id,indi)}}>{resp}</Button>
         if(indBtn == indi){
-            boton = <Button className="boton-pulsado" onClick={() => { funcionPasa(); funcionContar(pregunta.valor[indi], pregunta.id,indi)}}>{resp}</Button>
+            boton = <Button key={pregunta.id} className="boton-pulsado" onClick={() => { funcionPasa(); funcionContar(pregunta.valor[indi], pregunta.id,indi)}}>{resp}</Button>
         }
         return (
             <>

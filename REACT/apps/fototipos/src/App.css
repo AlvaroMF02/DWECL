@@ -105,10 +105,11 @@ body {
   font-weight: bold;
 }
 
-.body-resultado>h2 {
+h2 {
   margin-top: 2rem;
   margin-bottom: 1rem;
   font-weight: bold;
+  text-align: center;
 }
 
 .parrafos {
