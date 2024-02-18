@@ -16,26 +16,6 @@ import Grafica from './Grafica.js';
 function Tarjeta({ id }) {
 
   const fotoTipo = TipoPieles.fototipos.find(fp => fp.id == id)
-  const [data, setData] = useState("");
-
-  useEffect(() => {
-    // Función para realizar la solicitud GET
-    const fetchData = async () => {
-      try {
-        const response = await axios.post('http://localhost/Proyectos/JC/FOTOTIPOS/encuesta_voto.php?voto=' + fotoTipo.id);
-        setData(response.data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    // Llamada a la función para realizar la solicitud cuando el componente se monta
-    fetchData();
-  }, []);
-
-  // console.log(data)
-
-
   return (
     <Card className='carta-pieles'>
       <img alt="Tipo de piel" src={fotoTipo.imagen} className='imagen' />
@@ -88,6 +68,22 @@ function Resultado({ puntos, repetir }) {
     idFotot = 6
   }
 
+  const [data, setData] = useState("");
+
+  useEffect(() => {
+    // Función para realizar la solicitud GET
+    const fetchData = async () => {
+      try {
+        const response = await axios.post('http://localhost/Proyectos/JC/FOTOTIPOS/encuesta_voto.php?voto=' + idFotot);
+        setData(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    // Llamada a la función para realizar la solicitud cuando el componente se monta
+    fetchData();
+  }, []);
 
   return (
     <div className='body-resultado'>
@@ -113,10 +109,10 @@ function Resultado({ puntos, repetir }) {
       </p>
 
 
-      <Button onClick={repetir} className='botones'> Rehacer test </Button>
+      <Button onClick={repetir} className='botones-grandes'> Rehacer test </Button>
 
-      <h2>Resultados</h2>
-      <Grafica />
+      <h2>Resultados en el instituto</h2>
+      <Grafica datos={data}/>
     </div>
   );
 }

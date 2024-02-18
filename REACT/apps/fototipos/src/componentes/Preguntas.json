@@ -3,7 +3,7 @@
     {
       "pregunta": {
         "id":0,
-        "pregunta": "¿Cuál es el color natural de su piel cuando no está bronceada? ",
+        "pregunta": "¿Cuál es el color natural de tu piel cuando no está bronceada? ",
         "respuestas": [
           "Rojiza,blanca",
           "Blanca-beige",
@@ -25,7 +25,7 @@
     {
       "pregunta": {
         "id":1,
-        "pregunta": "¿De qué color natural es su pelo? ",
+        "pregunta": "¿De qué color natural es tu pelo? ",
         "respuestas": [
           "Pelirrojo,rubio claro",
           "Rubio, castaño claro",
@@ -69,7 +69,7 @@
     {
       "pregunta": {
         "id":3,
-        "pregunta": "¿Cuántas pecas tiene de manera natural en el cuerpo cuando no está bronceado? ",
+        "pregunta": "¿Cuántas pecas tienes de manera natural en el cuerpo cuando no estás bronceado? ",
         "respuestas": [
           "Muchas",
           "Algunas",
@@ -87,7 +87,7 @@
     {
       "pregunta": {
         "id":4,
-        "pregunta": " ¿Qué categoría describe mejor su herencia genética?",
+        "pregunta": " ¿Qué categoría describe mejor tu herencia genética?",
         "respuestas": [
           "Raza blanca de piel muy blanca",
           "Raza blanca de piel clara",
@@ -107,13 +107,13 @@
     {
       "pregunta": {
         "id":5,
-        "pregunta": "¿Qué categoría describe mejor su potencial de QUEMADURA exponiéndose al sol una hora en verano? ",
+        "pregunta": "¿Qué categoría describe mejor tu potencial de QUEMADURA exponiéndote al sol una hora en verano?",
         "respuestas": [
-          "Siempre se quema y no se broncea nunca",
-          "Habitualmente se quema, pero puede broncearse ligeramente",
-          "Se quema ocasionalmente, pero se broncea moderadamente",
-          "Nunca se quema y se broncea con facilidad",
-          "Raramente se quema y se broncea profundamente",
+          "Siempre se quema y no se broncea",
+          "Se quema y se broncea un poco",
+          "Puede quemarse, pero se broncea",
+          "No se quema y se broncea facilmente",
+          "No se quema y se broncea profundamente",
           "Nunca se quema"
         ],
         "valor": [
@@ -129,7 +129,7 @@
     {
       "pregunta": {
         "id":6,
-        "pregunta": "¿Qué categoría describe mejor su potencial de BRONCEADO?",
+        "pregunta": "¿Qué categoría describe mejor tu potencial de BRONCEADO?",
         "respuestas": [
           "Nunca se broncea",
           "Se puede broncear ligeramente",

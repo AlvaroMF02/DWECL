@@ -59,7 +59,7 @@ function Carrusel ({ datos,formAcabado }) {
       setFinForm(true)
       datos(contador, finForm)
     }else{
-      setAviso("Debe responder a todas las preguntas")
+      setAviso("** Debe responder a todas las preguntas **")
     }
 
   }
@@ -83,20 +83,21 @@ function Carrusel ({ datos,formAcabado }) {
     );
   });
 
-  // Al final lo que devuelvo 
+  // Al final lo que devuelvo     Fondo mas oscuro ( #9F5748 )
   return (
     <div className='carrusel'>
       <style>
         {`.custom-tag {
               max-width: 100%;
               height: 600px;
-              background: rgb(196, 142, 110);
+              background: #642C1F;
               text-align:center;
             }
             .carousel-caption {
               position: static;
               width: 70%;
               margin: 0 auto;
+              margin-top: 7rem;
               height: 500px;
             }
             `}
@@ -111,8 +112,8 @@ function Carrusel ({ datos,formAcabado }) {
         <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
         <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
       </Carousel>
-      <Button className='botones' onClick={()=>comprobarFin()}>Ver resultados</Button>
-      <div>{aviso}</div>
+      <p><Button className='botones-grandes' onClick={()=>comprobarFin()}>Ver resultados</Button></p>
+      <div className='aviso'>{aviso}</div>
     </div>
   );
 }

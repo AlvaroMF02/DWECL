@@ -60,8 +60,6 @@ function App() {
   return (
     <div className="App">
       {obj}
-      <h2>Resultados del instituto</h2>
-      <Grafica></Grafica>
     </div>
   );
 }

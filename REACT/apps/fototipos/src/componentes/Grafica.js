@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { Button } from 'reactstrap';
+import React from 'react';
 import {
     Bar,
     BarChart,
@@ -14,12 +13,12 @@ import {
 function Grafica({datos}) {
 
     const data = [
-        {nombre:"Fototipo 1", Porcentaje:0},
-        {nombre:"Fototipo 2", Porcentaje:5},
-        {nombre:"Fototipo 3", Porcentaje:5},
-        {nombre:"Fototipo 4", Porcentaje:20},
-        {nombre:"Fototipo 5", Porcentaje:50},
-        {nombre:"Fototipo 6", Porcentaje:20},
+        {nombre:"Fototipo 1", Porcentaje:datos[0]},
+        {nombre:"Fototipo 2", Porcentaje:datos[1]},
+        {nombre:"Fototipo 3", Porcentaje:datos[2]},
+        {nombre:"Fototipo 4", Porcentaje:datos[3]},
+        {nombre:"Fototipo 5", Porcentaje:datos[4]},
+        {nombre:"Fototipo 6", Porcentaje:datos[5]},
     ]
 
 
@@ -31,7 +30,7 @@ function Grafica({datos}) {
             <YAxis/>
             <Tooltip/>
             <Legend/>
-            <Bar dataKey="Porcentaje" fill='#6b48ff'/>
+            <Bar dataKey="Porcentaje" fill='#642C1F'/>
             </BarChart>
         </ResponsiveContainer>
     );
