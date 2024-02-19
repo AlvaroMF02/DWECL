@@ -1,30 +1,34 @@
-
 import React, { useEffect, useState } from 'react'
 import { Button } from 'reactstrap'
 import "./App.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-// Renderizar el tablero
-function Botonera({ tablero }) {
-  // Parseo la matriz para hacer las filas
-  const vistaTablero = tablero.map((fila, indexFila) => {
-    const filaAux = fila.map((e) => {
-      // Por cada fila miro si es par para ver donde dejo el boton en blanco
-      if (indexFila % 2 === 0) {
-        // Miro si es pieza verde o gris para ponerle el botón al color
-        const boton = e === 'verde' ? <><Button outline /><Button color='secondary' /></> : <><Button outline /><Button color='success' /></>
+// Renderizar el tablero ya con la base hecha
+function Botonera({ matriz }) {
+  
+  // recorro la matriz para ir rellenandola con los botones
+  const tablero = matriz.map((fila, ind) => {
+    
+    // por cada fila devuelvo el boton que toca
+    const auxFila = fila.map((pz) => {
+
+      // dependiendo si es par o impar pongo el boton blanco antes o después
+      if (ind % 2 === 0) {  // btnBlanco btnGris    si no   btnBlanco btnVerde
+        const boton = pz === 'verde' ? <><Button outline /><Button color='secondary' /></> : <><Button outline /><Button color='success' /></>
         return boton
-      } else {
-        const boton = e === 'verde' ? <><Button color='secondary' /><Button outline /></> : <><Button color='success' /><Button outline /></>
+      } else {              // btnGris btnBlanco    si no   btnVerde btnBlanco
+        const boton = pz === 'verde' ? <><Button color='secondary' /><Button outline /></> : <><Button color='success' /><Button outline /></>
         return boton
       }
+
     })
-    return <>{filaAux}<br /></>
+
+    return <>{auxFila}<br /></>
   })
 
   return (
     <div className='tablero'>
-      {vistaTablero}
+      {tablero}
     </div>
   )
 }
@@ -34,29 +38,34 @@ function App() {
 
   const [tablero, setTablero] = useState([])
 
-  // Crea la matriz con los colores que se le asignarán
-  // Se ejecuta solo antes de renderizar
+  // Creo la base de la matriz  || Se ejecuta antes de renderizar toda la APP
   useEffect(() => {
-    const auxTablero = []
+
+    const auxMat = []
 
     for (let i = 0; i < 8; i++) {
-      auxTablero.push([])
-      for (let j = 0; j < 4; j++) { // 4 pq solo juegan 4 en cada fila
+      auxMat.push([])
+
+      for (let j = 0; j < 4; j++) { // Son 4 pq solo juegan 4 en cada fila
+        // Mitad verde mitad gris
         if (i < 4) {
-          auxTablero[i].push('verde')
+          auxMat[i].push('verde')
         } else {
-          auxTablero[i].push('gris')
+          auxMat[i].push('gris')
         }
+
       }
     }
 
-    setTablero(auxTablero)
+    setTablero(auxMat)
+
   }, [])
 
 
   return (
     <div className="App">
-      <Botonera tablero={tablero} />
+      <h1>Mostrar las damas</h1>
+      <Botonera matriz={tablero} />
     </div>
   )
 }
