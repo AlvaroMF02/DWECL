@@ -74,7 +74,7 @@ function Resultado({ puntos, repetir }) {
     // Función para realizar la solicitud GET
     const fetchData = async () => {
       try {
-        const response = await axios.post('http://localhost/Proyectos/JC/FOTOTIPOS/encuesta_voto.php?voto=' + idFotot);
+        const response = await axios.post('https://thematic-learning.com/2DAW2024/ALVARO/encuesta_voto.php?voto=' + idFotot);
         setData(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
