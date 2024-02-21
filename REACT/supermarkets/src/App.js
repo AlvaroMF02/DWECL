@@ -3,8 +3,34 @@ import { Button } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
+const Botonera = ({matriz,funcion}) =>{
+  const mapa = matriz.map((fila,indFila) => { // valor de la fila
+    return (
+      fila.map((num, indCol) => {  // num es el valor de la columna e ind es el indice
+        
+        if (indCol == 0) {
+          return (
+            <><br></br><Button outline onClick={()=>funcion(indFila,indCol)} color='success' className='btnMapa'>{num}</Button></>
+          );
+        }else{
+          return (
+            <Button outline onClick={()=>funcion(indFila,indCol)} color='success' className='btnMapa'>{num}</Button>
+          );
+        }
+      })
+    );
+  })
+  return (
+    <>
+      {mapa}
+    </>
+
+  );
+}
+
 function App () {
 
+  const [posTien, setPosTien] = useState([]);
   const [poblacion, setPoblacion] = useState(
     [[0, 5, 4, 2, 9, 8, 0, 8, 8],
     [1, 7, 21, 23, 44, 5, 3, 4, 0],
@@ -20,37 +46,24 @@ function App () {
     for (let i = 0; i < poblacion.length; i++) {
       poblTotal += poblacion[i].reduce((v1,v2)=>v1+v2)
     }
-    // hacer esto como un componente
-  function mostrar () {
-    const mapa = poblacion.map(fila => {
-      return (
-        fila.map((num, ind) => {
-          if (ind == 0) {
-            return (
-              <><br></br><Button outline color='success' className='btnMapa'>{num}</Button></>
-            );
-          }else{
-            return (
-              <Button outline color='success' className='btnMapa'>{num}</Button>
-            );
-          }
-        })
-      );
-    })
-    return (
-      <>
-        {mapa}
-      </>
 
-    );
-  }
+    function haceClick(fila,colu){
+      const auxTien = JSON.parse(JSON.stringify(posTien))
+      const aux = {f: fila,c:colu}
+
+      auxTien.push(aux)
+
+      setPosTien(auxTien)
+      console.log(posTien)
+    }
 
   return (
     <div className="App">
       <h1>Mapa población</h1>
-      {mostrar()}
-
+      <Botonera matriz={poblacion} funcion={(i,j)=>haceClick(i,j)}></Botonera>
       <p>( Poblacion total: {poblTotal} )</p>
+
+      
     </div>
   );
 }
