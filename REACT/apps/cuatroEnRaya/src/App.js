@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css'
+// import './App.css'
 
-// ---------- Muestra el tablero ----------
+// ********************************
+// ***** Esta editado con css *****
+// ********************************
+
+// Mostrar todo el tablero colocando los botones
 const MapaBotones = (props) => {
   let lista = [];
   for (let i = 0; i < 9; i++) {
@@ -35,7 +39,6 @@ class App extends Component {
     }
   }
 
-  // ---------- Ni idea ----------
   findPos(y) {
     let l = this.state.listaBotones;
     for (let i = 0; i < 9; i++) {
@@ -66,7 +69,7 @@ class App extends Component {
     this.checkWinner();
   }
 
-  // ---------- Comprueba el ganador horizontal y vertical ----------
+  // Comprobar el ganador tanto horizontal como vertical
   checkWinner() {
     let l = this.state.listaBotones;
     // horizontales
@@ -86,17 +89,17 @@ class App extends Component {
       for (let j = 0; j < 9; j++) {
         if (l[i][j] != "-" && l[i][j] == l[i + 1][j] && l[i][j] == l[i + 2][j] && l[i][j] == l[i + 3][j]) {
           if (l[i][j] == "primary") {
-            this.setState({ ganador: "Ganan los azules", jugable: false });
+            this.setState({ ganador: "GANAN AZULES", jugable: false });
           } else {
-            this.setState({ ganador: "Ganan los rojos", jugable: false });
+            this.setState({ ganador: "GANAN ROJOS", jugable: false });
           }
         }
       }
     }
   }
 
+  // Antes de renderizarse se ejecutará
   componentWillMount() {
-    // Utilízalo si necesitas hacer algo antes de renderizar
     let l = this.state.listaBotones;
     for (let i = 0; i < l.length; i++) {
       let x = Array(9).fill("-");
@@ -105,6 +108,7 @@ class App extends Component {
     this.setState({ listaBotones: l })
   }
 
+  
   render() {
     return (
       <div className="App">

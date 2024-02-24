@@ -57,7 +57,7 @@ body{
 .Rojos{
   color: rgb(207, 207, 207);
   font-size: 50px;
-  background-color: #0B5ED7;
+  background-color: #BB2D3B; /* 0B5ED7 */
   width: 30rem;
   border-radius: 20px;
   padding: 1rem;
@@ -65,7 +65,7 @@ body{
 .Azules{
   color: rgb(207, 207, 207);
   font-size: 50px;
-  background-color: #BB2D3B;
+  background-color: #0B5ED7; /* BB2D3B */
   width: 30rem;
   border-radius: 20px;
   padding: 1rem;
