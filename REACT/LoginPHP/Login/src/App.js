@@ -8,7 +8,7 @@ import { Component } from 'react';
 import { PHPLOGIN } from './componentes/Datos';
 import axios from 'axios';
 
-class App extends Component {
+class App extends Component {     // USUARIO:ALVARO CONTRASEÑA:1234
   constructor(props) {
     super(props)
     this.state = {
