@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+.formulario{
+  margin: 2rem;
+  text-align: left;
+  width: 40%;
+}
