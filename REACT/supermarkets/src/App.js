@@ -10,7 +10,7 @@ const Botonera = ({matriz,funcion}) =>{
         
         if (indCol == 0) {
           return (
-            <><br></br><Button outline onClick={()=>funcion(indFila,indCol)} color='success' className='btnMapa'>{num}</Button></>
+            <><br></br><Button outline onClick={()=>funcion(indFila,indCol,num)} color='success' className='btnMapa'>{num}</Button></>
           );
         }else{
           return (
@@ -20,6 +20,28 @@ const Botonera = ({matriz,funcion}) =>{
       })
     );
   })
+  return (
+    <>
+      {mapa}
+    </>
+
+  );
+}
+const BotoneraFor = ({matriz,funcion}) =>{
+  let mapa = matriz
+  let num = 0
+
+  for (let i = 0; i < matriz.length; i++) {
+    for (let j = 0; j < matriz[i].length; j++) {
+      if(i == 0){
+        
+      }
+      mapa[i][j] = <Button outline onClick={()=>funcion(i,j,matriz[i][j])} color='success' className='btnMapa'>{matriz[i][j]}</Button>
+      // console.log(matriz[i][j])
+
+    }
+  }
+
   return (
     <>
       {mapa}
@@ -42,27 +64,32 @@ function App () {
     [1, 2, 15, 43, 34, 2, 12, 2, 3],
     [1, 0, 12, 3, 0, 0, 21, 2, 2]])
 
+
     let poblTotal = 0;
     for (let i = 0; i < poblacion.length; i++) {
       poblTotal += poblacion[i].reduce((v1,v2)=>v1+v2)
     }
 
-    function haceClick(fila,colu){
+    function haceClick(fila,colu,num){
       const auxTien = JSON.parse(JSON.stringify(posTien))
       const aux = {f: fila,c:colu}
 
-      auxTien.push(aux)
+      auxTien[fila,colu] = <Button onClick={()=>quitarMerc()} color='success' className='btnMapa'>{num}</Button>
+      setPoblacion(aux)
+      // auxTien.push(aux)
 
-      setPosTien(auxTien)
+      // setPosTien(auxTien)
       console.log(posTien)
+    }
+    function quitarMerc(){
+
     }
 
   return (
     <div className="App">
       <h1>Mapa población</h1>
-      <Botonera matriz={poblacion} funcion={(i,j)=>haceClick(i,j)}></Botonera>
+      <BotoneraFor matriz={poblacion} funcion={(i,j)=>haceClick(i,j)}></BotoneraFor>
       <p>( Poblacion total: {poblTotal} )</p>
-
       
     </div>
   );
