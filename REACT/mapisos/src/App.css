@@ -1,5 +1,7 @@
 .App {
-  text-align: center;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
 }
 
 .App-logo {
@@ -37,8 +39,59 @@
   }
 }
 
-.formulario{
-  margin: 2rem;
-  text-align: left;
-  width: 40%;
+#form{
+  margin-top: 2rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  max-width: 34rem;
+  background-color: lightslategray;
+  padding-top: 2rem;
+  border-radius: 16px;
+}
+
+#metros{
+  width: 12rem;
+  margin-bottom: 1rem;
+  margin-right: 3rem;
+}
+#habitaciones{
+  width: 15rem;
+  margin-bottom: 1rem;
+}
+#banios{
+  width: 12rem;
+  margin-bottom: 1rem;
+  margin-right: 3rem;
+}
+#estado{
+  width: 15rem;
+  margin-bottom: 1rem;
+}
+#fecha{
+  width: 12rem;
+  margin-bottom: 1rem;
+}
+
+#checkBox{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+#checkBox input{
+  margin-right: 1rem;
+}
+
+#boton:hover{
+  color: black;
+  background-color: white;
+  margin-bottom: 2rem;
+}
+#boton{
+  color: white;
+  background-color: black;
+  margin-bottom: 2rem;
 }
