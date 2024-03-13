@@ -74,7 +74,7 @@ function Formulario () {
   let math = require('mathjs');
 
   const [respuestas, setRespuestas] = useState(Array(9).fill(0));
-  const [precio, setPrecio] = useState();
+  const [precio, setPrecio] = useState(0);
   const [terminado, setTerminado] = useState(false);
 
   // Paso a matrices los datos
@@ -144,7 +144,7 @@ function Formulario () {
         <Input type='number' id='metros' name='metros' onChange={handleChange} required placeholder='M2 de la casa' min={0} />
         <Input type='number' id='habitaciones' name='habitaciones' onChange={handleChange} required placeholder='Número de habitaciones' min={0} />
         <Input type='number' id='banios' name='banios' onChange={handleChange} required placeholder='Número de baños' min={0} />
-        <Input type='number' id='estado' name='estado' onChange={handleChange} required placeholder='Estado de la vivienda' min={1} max={5} />
+        <Input type='number' id='estado' name='estado' onChange={handleChange} required placeholder='Estado de la vivienda (1-5)' min={1} max={5} />
         <Input type='number' id='fecha' name='fecha' onChange={handleChange} required placeholder='Año de construcción' min={1900} max={anio.getFullYear()} />
 
         <div id='checkBox'>
@@ -164,10 +164,8 @@ function Formulario () {
 
         <Button id='boton' outline color='secondary'>Enviar datos</Button>
 
-        {terminado &&
-          <h5>El precio de la vivienda estimado es: {precio} €</h5>}
       </Form>
-
+      <h5>El precio de la vivienda estimado es: {precio} €</h5>
 
 
     </div>
