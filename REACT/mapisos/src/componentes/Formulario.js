@@ -70,26 +70,29 @@ const PRECIOS = [415000, 1850000, 335000, 675000, 370000, 680000, 299000, 259900
 
 function Formulario () {
 
+  let anio = new Date();
+  let math = require('mathjs');
+
   const [respuestas, setRespuestas] = useState(Array(9).fill(0));
   const [precio, setPrecio] = useState();
   const [terminado, setTerminado] = useState(false);
 
-  let anio = new Date();
-  let math = require('mathjs');
+  // Paso a matrices los datos
+  const matrPisos = math.matrix(PISOS);
+  const matrPrec = math.matrix(PRECIOS);
 
-  const ANIO_ACTUAL = anio.getFullYear(); // Cogemos el año actual (para el máx del año de construccion)
-  const MATRIZ_PISOS = math.matrix(PISOS);
-  const MATRIZ_PRECIOS = math.matrix(PRECIOS);
-
-  // Calculo para la ecuacion, x es la matriz de pisos e y son los precios
-  const THETA = math.multiply(math.multiply(math.inv(math.multiply(math.transpose(MATRIZ_PISOS), MATRIZ_PISOS)), math.transpose(MATRIZ_PISOS)), MATRIZ_PRECIOS)
+  // Calculo para la ecuacion, "x" es la matriz de pisos e "y" son los precios
+  const calculo = math.multiply(math.multiply(math.inv(math.multiply(math.transpose(matrPisos), matrPisos)), math.transpose(matrPisos)), matrPrec)
   // Con el calculo hecho solo queda multiplicarlo por las variables
-  let theta_calc = THETA._data;
+  let calcuTheta = calculo._data;
 
+  // Al hacer submit actualizo el precio 
+  // multiplicando lo de Theta por cada respuesta
+  // y lo redondeo
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    setPrecio(math.round(math.multiply(theta_calc, respuestas), 2))
+    setPrecio(math.round(math.multiply(calcuTheta, respuestas), 2))
 
     setTerminado(true)
   }
@@ -142,7 +145,7 @@ function Formulario () {
         <Input type='number' id='habitaciones' name='habitaciones' onChange={handleChange} required placeholder='Número de habitaciones' min={0} />
         <Input type='number' id='banios' name='banios' onChange={handleChange} required placeholder='Número de baños' min={0} />
         <Input type='number' id='estado' name='estado' onChange={handleChange} required placeholder='Estado de la vivienda' min={1} max={5} />
-        <Input type='number' id='fecha' name='fecha' onChange={handleChange} required placeholder='Año de construcción' min={1900} max={ANIO_ACTUAL} />
+        <Input type='number' id='fecha' name='fecha' onChange={handleChange} required placeholder='Año de construcción' min={1900} max={anio.getFullYear()} />
 
         <div id='checkBox'>
           <Label htmlFor='vistas'>Vistas al mar</Label>
@@ -162,10 +165,10 @@ function Formulario () {
         <Button id='boton' outline color='secondary'>Enviar datos</Button>
 
         {terminado &&
-        <h5>El precio de la vivienda estimado es: {precio} €</h5>}
+          <h5>El precio de la vivienda estimado es: {precio} €</h5>}
       </Form>
 
-      
+
 
     </div>
   )
